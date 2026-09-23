@@ -1,3 +1,13 @@
-import { defineConfig } from "/usr/lib/sfs-assistant-dev/platform-config.js";
+import { defineConfig } from "vite";
 
-export default defineConfig({});
+import react from "@vitejs/plugin-react";
+
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+
+  base: "./",
+
+  plugins: [react(), tailwindcss()],
+
+}); 
