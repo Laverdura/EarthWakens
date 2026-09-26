@@ -1,0 +1,1 @@
+The approved current website is index.html with images in static/. Build with npm run build; publish app/dist through the existing IONOS workflow. The older src/ and Vite configuration remain for reference and are not used by this build. The card-game purchase text has no checkout link.

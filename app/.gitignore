@@ -6,3 +6,8 @@ harrier.log
 server.js
 dist-preview/
 .built
+
+# Current static build
+.DS_Store
+dist/
+node_modules/
