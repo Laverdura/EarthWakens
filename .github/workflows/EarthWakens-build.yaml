@@ -14,8 +14,7 @@ on:
         type: string
 
 env:
-  DEPLOYMENT_FOLDER: ./app/dist
-
+  DEPLOYMENT_FOLDER: ./dist
 jobs:
 # Please do not rename this job
   build-project:
@@ -27,7 +26,7 @@ jobs:
         with:
           submodules: 'recursive'
       - name: Build website
-        working-directory: ./app
+        working-directory: .
         run: |
           npm install
           npm run build
