@@ -19,11 +19,15 @@ const output = path.join(root,'dist');
 await rm(output,{recursive:true,force:true});
 await mkdir(output,{recursive:true});
 const hashes = {};
-for (const name of ['index.html','preview.html','favicon.svg',...assets.map(n=>'static/'+n)]) {
+const publishedAssets = assets.filter(name => referenced.includes(name));
+for (const name of ['index.html','favicon.svg',...publishedAssets.map(n=>'static/'+n)]) {
   const bytes=await readFile(path.join(root,name));
   hashes[name]=createHash('sha256').update(bytes).digest('hex');
   await cp(path.join(root,name),path.join(output,name),{recursive:true});
 }
+const preview = '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=./index.html"><title>Earth Wakens</title><a href="./index.html">Open Earth Wakens</a>';
+await writeFile(path.join(output, 'preview.html'), preview);
+hashes['preview.html'] = createHash('sha256').update(preview).digest('hex');
 const version=createHash('sha256').update(JSON.stringify(hashes)).digest('hex').slice(0,16);
 await writeFile(path.join(output,'version.json'),JSON.stringify({brand:'Earth Wakens',version,files:hashes},null,2)+'\n');
 console.log(`Verified ${Object.keys(hashes).length} files; release ${version}; publish directory: dist`);
