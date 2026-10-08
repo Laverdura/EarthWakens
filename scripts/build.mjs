@@ -19,7 +19,7 @@ const output = path.join(root,'dist');
 await rm(output,{recursive:true,force:true});
 await mkdir(output,{recursive:true});
 const hashes = {};
-const publishedAssets = assets.filter(name => referenced.includes(name));
+const publishedAssets = assets.filter(name => referenced.includes(name) || html.includes("./static/" + name));
 for (const name of ['index.html','favicon.svg',...publishedAssets.map(n=>'static/'+n)]) {
   const bytes=await readFile(path.join(root,name));
   hashes[name]=createHash('sha256').update(bytes).digest('hex');
