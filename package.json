@@ -1,5 +1,5 @@
 {
-  "name": "earth-wakens-current-working",
+  "name": "earth-wakens",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -7,6 +7,6 @@
     "build": "node scripts/build.mjs"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=18"
   }
 }

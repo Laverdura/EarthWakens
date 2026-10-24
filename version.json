@@ -2,15 +2,15 @@
   "brand": "Earth Wakens",
   "version": "earth-wakens-prelude-immortality-20261022-v27",
   "files": {
-    "angels.html": "75a8d95070b2abf3e083b51a6af49b881446b751c729142737b7a9c53b79870f",
+    "angels.html": "28bf5a302f099aee6d82d8f9176445cb13c1b41d2c15fb3b5b0eda8277ad6f9d",
     "beneath-the-living-world.html": "8af5f6562054cc8cfd52bf9525ff752388cada2f70bd51b58964adde144fa36b",
     "favicon.svg": "f18129d361dae22c033495185fb42d96863be92d6907132667e897d55fd22a74",
-    "game-earth-spirit.html": "3b9265a938e2ef4016bc171156916389b379d96f483161b3cfcad5f1c061bbc7",
-    "game-spirit.html": "d1610baeee898c50e146c08e240da60499c1ba9835def8178f10c392bc6f22a3",
-    "game-stop.html": "30c2e0a96037a7f5c7c90eab68f1e79f404a403d00825bba5b40f31592fcb299",
-    "game.html": "dd6228e47084d2ab8a30c58f270c2325d338934fbac0f08fdde3b890cb250abd",
-    "index.html": "ea32f98af957f9bb6ff307c805746724e1f6de2c4175ece3c1e379975221fa39",
-    "preview.html": "ea32f98af957f9bb6ff307c805746724e1f6de2c4175ece3c1e379975221fa39",
+    "game-earth-spirit.html": "2873fd016c5288c5487d0c363a06d45fe7d38db0ab1aabbde0067b40a41b3e3a",
+    "game-spirit.html": "06e7b45c5040b878e5d818bdb07362394d57ce565b45f635313223566a7cc6be",
+    "game-stop.html": "79cd884d431b8e004fca54d28d6d50022713b7c5960fdd2098946082c8cd6611",
+    "game.html": "e4c88e4450ce8c1e40109e0b6d6328e0c9ffc9dd1d656bf07a6486a8f362f6ae",
+    "index.html": "fa8585a3cbc2bf2e16b99a72504c7524fa2f18951c3af71a47bc03c78f848eea",
+    "preview.html": "fa8585a3cbc2bf2e16b99a72504c7524fa2f18951c3af71a47bc03c78f848eea",
     "static/blue-globe-transparent.png": "591b14df737871b494cf39b1f35b943bceee92b60b1e052ab2e95459812fde4e",
     "static/dead-and-living.png": "d8dd690b93b9ecbbbb38b1f6106e9688f22face0559ca46614a2726125debc72",
     "static/earth-spirit-aligned-moss-20261020.png": "baa20e29923eba4cf60a7027e37be462d2d04bc6538bbaf702f7867943133714",
@@ -47,7 +47,7 @@
     "static/story-bright-wakens.png": "014ef871471d199387652ce7d25e18f19af718e87877e41906634b59a402d994",
     "static/story-pages.css": "d5eb93a6140f130a18d02b7d12cbcd53531599333f9fadc6f45be731435196b8",
     "static/underground-roots-concept-20261020.png": "c1b192a7de6bb7ae5e204bdf2f065e37441eb176ce2abce553b86bdef780d0dc",
-    "story-introduction.html": "648bfd8b10677afd4647e02edf6eb13be53cb57a24d448b3f93a450b591a17eb"
+    "story-introduction.html": "247bb91fb6ea0c3db1bd463bfc08bba3947bd668738e3a9b292c6888b8930a45"
   },
-  "preview_revision": "earth-wakens-prelude-immortality-20261022-v27"
+  "preview_revision": "earth-wakens-prelude-walking-free-20261023-v43"
 }

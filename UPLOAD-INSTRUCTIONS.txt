@@ -1,0 +1,13 @@
+EARTH WAKENS — SMALL PAGE UPDATE — OCTOBER 23, 2026
+
+This smaller ZIP includes the revised landing page, Prelude, linked pages, styles, scripts, and build files. It uses the images already in your GitHub repository.
+
+1. Unzip this download in Files on your iPhone.
+2. Open your existing EarthWakens GitHub repository.
+3. Upload every extracted file and folder into the repository root, replacing matching files. Do not upload the ZIP itself.
+4. Keep your existing static image files. Do not delete the static folder or replace it with an empty folder.
+5. Commit the changes and let the connected deployment run.
+
+index.html, story-introduction.html, package.json, static, and scripts must be beside one another, not inside an extra folder.
+
+For build-based deployment: npm run build; output folder: dist. Node.js 18 or later. No external dependencies.
