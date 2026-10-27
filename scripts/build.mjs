@@ -26,6 +26,7 @@ const assets = [
   "earthwakens-root-hands.png",
   "evolution/credits.json",
   "evolution/early-hominin.webp",
+  "evolution/footprints.webp",
   "moon-shot.png",
   "nature-root-fingers-20261024.png",
   "nature-root-hand-base-20261024.jpeg",
@@ -99,6 +100,7 @@ for(const name of pages) {
 await cp(path.join(root,'favicon.svg'),path.join(out,'favicon.svg'));
 await cp(path.join(root,'.htaccess'),path.join(out,'.htaccess'));
 let previous={};try{previous=JSON.parse(await readFile(path.join(root,'version.json'),'utf8'));}catch{}
+const previewRevision=/const revision="([^"]+)"/.exec(await readFile(path.join(root,'index.html'),'utf8'))?.[1] || previous.preview_revision;
 const files={};
 async function manifest(dir,prefix='') {
  for(const entry of (await readdir(dir,{withFileTypes:true})).sort((a,b)=>a.name.localeCompare(b.name))) {
@@ -108,5 +110,5 @@ async function manifest(dir,prefix='') {
  }
 }
 await manifest(out);
-await writeFile(path.join(out,'version.json'),JSON.stringify({...previous,brand:'Earth Wakens',release:'M2-Funky-Junky-deployment-repair-2026-10-27',version:hash(JSON.stringify(files)),files},null,2)+'\n');
+await writeFile(path.join(out,'version.json'),JSON.stringify({...previous,preview_revision:previewRevision,brand:'Earth Wakens',release:'M2-Funky-Junky-deployment-repair-2026-10-27',version:hash(JSON.stringify(files)),files},null,2)+'\n');
 console.log(`Validated and built ${pages.length} approved pages and ${publishedAssets.size} published assets in dist/ (${(deployedBytes/1000000).toFixed(2)} MB); all ${assets.length} source assets retained.`);
