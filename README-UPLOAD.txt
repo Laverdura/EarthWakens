@@ -5,7 +5,7 @@ approved M2 preview. Artwork and story have not been redesigned or replaced.
 
 Repository structure:
   index.html and seven other HTML pages — source pages
-  static/ — complete artwork, styles, scripts, and fossil credit
+  static/ — all 29 source artwork, style, script, and credit files
   scripts/build.mjs — validates references and creates clean dist/
   package.json and package-lock.json — no third-party dependencies
   .github/workflows/ — existing Ionos deployment configuration
@@ -24,8 +24,12 @@ Do not publish the unopened ZIP or put the whole project inside another folder.
 
 TECHNICAL REPAIR
 The former public site had current HTML with older styles and missing images.
-This build copies the whole static directory and rejects missing or incorrectly
-capitalized image/style references. It publishes only the eight approved pages.
+The first complete deployment was also rejected by Ionos: 67.18 MB exceeded
+the current 50 MB hosting quota. The corrected build retains all 29 source
+assets, but publishes only the eight approved pages and their 21 dependencies
+(about 47.73 MB). Unused artwork stays in the source archive and repository.
+It rejects missing or incorrectly capitalized image/style references and
+checks the output size before publication. No visible artwork is removed.
 CSS and JS URLs include content hashes so updated styles are reloaded.
 The renderer now controls the approved moon/doors order, fixing blank chapters
 when leaving Earth Wakens. Writing, artwork, and picture order are preserved.
