@@ -86,17 +86,38 @@ jobs:
       - name: Render SSH user secret name
         run: echo SSH_USERNAME_SECRET=IONOS_DEPLOYMENT_`echo ${{ matrix.deployment-id }} | tr '[:lower:]' '[:upper:]' | tr '-' '_'`_SSH_USERNAME >> $GITHUB_ENV
 
+      # This static site is close to its 50 MB quota. Compare contents so that
+      # unchanged artwork is skipped, and avoid temporary copies of large images.
       - name: Deploy to IONOS
-        uses: ionos-deploy-now/deploy-to-ionos-action@v2
-        with:
-          api-key: ${{ secrets.IONOS_API_KEY }}
-          service-host: api-us.ionos.space
-          project-id: ${{ inputs.project-id }}
-          branch-id: ${{ inputs.branch-id }}
-          deployment-id: ${{ matrix.deployment-id }}
-          deployment-info: ${{ steps.deployment.outputs.info }}
-          ssh-user: ${{ secrets[env.SSH_USERNAME_SECRET] }}
-          ssh-key: ${{ secrets.IONOS_SSH_KEY }}
+        shell: bash
+        env:
+          DEPLOYMENT_INFO: ${{ steps.deployment.outputs.info }}
+          IONOS_SSH_USER: ${{ secrets[env.SSH_USERNAME_SECRET] }}
+          IONOS_SSH_KEY: ${{ secrets.IONOS_SSH_KEY }}
+        run: |
+          set -euo pipefail
+          deploy_host=$(jq -er '."remote-host"' <<< "$DEPLOYMENT_INFO")
+          [[ "$deploy_host" =~ ^[A-Za-z0-9.-]+$ ]]
+          [[ "$IONOS_SSH_USER" =~ ^[A-Za-z0-9_-]+$ ]]
+          python3 - <<'PYTHON'
+          import json, os
+          from pathlib import Path
+          info = json.loads(os.environ['DEPLOYMENT_INFO'])
+          size = sum(p.stat().st_size for p in Path('deployment').rglob('*') if p.is_file())
+          quota = int(info['storage-quota'])
+          if size > quota:
+              raise SystemExit(f'Deployment size {size} exceeds Ionos quota {quota}')
+          print(f'Deploying {size} bytes within {quota} byte quota')
+          PYTHON
+          key_file=$(mktemp)
+          known_hosts=$(mktemp)
+          trap 'rm -f "$key_file" "$known_hosts"' EXIT
+          chmod 600 "$key_file" "$known_hosts"
+          printf '%s\n' "$IONOS_SSH_KEY" > "$key_file"
+          rsync -avc --inplace --delete \
+            --rsh="ssh -i $key_file -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=$known_hosts" \
+            --exclude=logs --exclude=.deploy-now --exclude=.git --exclude=.github \
+            deployment/ "$IONOS_SSH_USER@$deploy_host:"
 
       - name: Update deployment status
         if: ${{ always() }}
