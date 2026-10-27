@@ -2,8 +2,8 @@
 .ew-root-dissolve img{position:absolute;inset:0;display:block;width:100%;height:100%;margin:0;object-fit:cover}
 .ew-root-dissolve .ew-root-original{opacity:1}
 .ew-root-dissolve .ew-root-imagined{opacity:0}
-.ew-root-dissolve.ew-root-ready .ew-root-imagined{animation:ewRootSlowFade 24s ease-in-out infinite both}
+.ew-root-dissolve.ew-root-ready .ew-root-imagined{animation:ewRootSlowFade 8s ease-in-out infinite both}
 .ew-root-dissolve.ew-root-paused .ew-root-imagined{animation-play-state:paused}
 .ew-root-pause{display:block;margin:9px auto 0;background:transparent;color:inherit;border:1px solid #8193a566;border-radius:3px;padding:5px 10px;font:12px Georgia,serif}
-@keyframes ewRootSlowFade{0%,12.5%{opacity:0}45.833%,62.5%{opacity:1}95.833%,100%{opacity:0}}
+@keyframes ewRootSlowFade{0%,8%{opacity:0}38%,65%{opacity:1}95%,100%{opacity:0}}
 @media(prefers-reduced-motion:reduce){.ew-root-dissolve.ew-root-ready .ew-root-imagined{animation:none;opacity:1}.ew-root-pause{display:none}}
