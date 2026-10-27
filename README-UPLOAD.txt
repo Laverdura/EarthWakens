@@ -1,19 +1,38 @@
-EARTH WAKENS — COMPLETE WEBSITE — OCTOBER 25, 2026
+EARTH WAKENS — APPROVED M2 / FUNKY JUNKY — DEPLOYMENT REPAIR
 
-Includes the current landing page, Prelude, chapter pages, game pages,
-and all image and style files. Future-story notes are kept separately.
+The eight HTML source pages and all 29 static assets are preserved from the
+approved M2 preview. Artwork and story have not been redesigned or replaced.
 
-GITHUB / IONOS DEPLOY
-1. Unzip this file.
-2. Upload EVERY item inside to the ROOT of the EarthWakens repository,
-   replacing the existing versions. Keep static and scripts as folders.
-   Do not upload only index.html or the unopened ZIP file.
-3. Commit and wait for IONOS Deploy to finish successfully.
+Repository structure:
+  index.html and seven other HTML pages — source pages
+  static/ — complete artwork, styles, scripts, and fossil credit
+  scripts/build.mjs — validates references and creates clean dist/
+  package.json and package-lock.json — no third-party dependencies
+  .github/workflows/ — existing Ionos deployment configuration
+  dist/ — ready-to-publish output, included for direct static hosting
 
-Build command: npm run build
-Publish/output directory: dist
-No third-party Node dependencies are required.
+GITHUB / IONOS
+Repository: Laverdura/EarthWakens, branch main.
+Build: npm run build. Publish directory: dist (not repository root or static).
+The existing Ionos workflow runs this build automatically after a commit.
+Retain the existing GitHub Actions / Ionos secrets and project connection.
+The ZIP does not include account secrets.
 
-For direct static hosting, index.html, the other HTML pages, favicon.svg,
-version.json, and static can be served together as supplied.
-The chapter routes use # links. The Prelude is story-introduction.html.
+DIRECT STATIC HOSTING
+Publish the contents of dist/ together at the web root. Do not flatten static/.
+Do not publish the unopened ZIP or put the whole project inside another folder.
+
+TECHNICAL REPAIR
+The former public site had current HTML with older styles and missing images.
+This build copies the whole static directory and rejects missing or incorrectly
+capitalized image/style references. It publishes only the eight approved pages.
+CSS and JS URLs include content hashes so updated styles are reloaded.
+The renderer now controls the approved moon/doors order, fixing blank chapters
+when leaving Earth Wakens. Writing, artwork, and picture order are preserved.
+.htaccess asks Apache to revalidate HTML and JSON after each deployment.
+version.json records the release and SHA-256 for each published file.
+
+PUBLIC DOMAIN
+The existing Ionos site is https://earthwakens.com (without an extra 'a').
+At inspection, https://earthawakens.com redirected to an Atom domain-sales page.
+A domain ownership / DNS change is separate from the website file repair.
