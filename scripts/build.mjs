@@ -63,9 +63,26 @@ for(const name of [...pages,...assets.filter(n=>/\.(css|js|svg)$/.test(n)).map(n
   if(checked.status!==0) throw new Error(`${name}: ${checked.stderr||'invalid JavaScript'}`);
  }
 }
+// Keep all source artwork, but publish only dependencies of the approved pages.
+// Ionos currently limits this site's deployed content to 50 MB.
+let referencedText=(await Promise.all(pages.map(name=>readFile(path.join(root,name),'utf8')))).join('\n');
+const publishedAssets=new Set(['evolution/credits.json']);
+let found=true;
+while(found) {
+ found=false;
+ for(const name of assets) {
+  if(publishedAssets.has(name)||!referencedText.includes(path.basename(name))) continue;
+  publishedAssets.add(name);found=true;
+  if(/\.(css|js|svg|json)$/.test(name)) referencedText+='\n'+await readFile(path.join(root,'static',name),'utf8');
+ }
+}
+let deployedBytes=0;
+for(const name of pages) deployedBytes+=(await stat(path.join(root,name))).size;
+for(const name of publishedAssets) deployedBytes+=(await stat(path.join(root,'static',name))).size;
+if(deployedBytes>49900000) throw new Error(`Published dependencies exceed Ionos quota: ${deployedBytes} bytes`);
 await rm(out,{recursive:true,force:true});
 await mkdir(out,{recursive:true});
-for (const name of assets) {
+for (const name of publishedAssets) {
  const destination=path.join(out,'static',name);
  await mkdir(path.dirname(destination),{recursive:true});
  await cp(path.join(root,'static',name),destination);
@@ -92,4 +109,4 @@ async function manifest(dir,prefix='') {
 }
 await manifest(out);
 await writeFile(path.join(out,'version.json'),JSON.stringify({...previous,brand:'Earth Wakens',release:'M2-Funky-Junky-deployment-repair-2026-10-27',version:hash(JSON.stringify(files)),files},null,2)+'\n');
-console.log(`Validated and built ${pages.length} approved pages and ${assets.length} assets in dist/.`);
+console.log(`Validated and built ${pages.length} approved pages and ${publishedAssets.size} published assets in dist/ (${(deployedBytes/1000000).toFixed(2)} MB); all ${assets.length} source assets retained.`);
