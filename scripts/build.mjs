@@ -28,6 +28,7 @@ const assets = [
   "evolution/early-hominin.webp",
   "evolution/footprints.webp",
   "moon-shot.png",
+  "moonlit-iron-doors-20261027.png",
   "nature-root-fingers-20261024.png",
   "nature-root-hand-base-20261024.jpeg",
   "poison-card-blood.png",
