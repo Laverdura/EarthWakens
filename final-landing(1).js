@@ -1,0 +1,1 @@
+const stage=document.getElementById('entrance'),toggle=document.getElementById('door-toggle');toggle.addEventListener('click',event=>{event.preventDefault();const open=stage.classList.toggle('is-open');stage.querySelector('.master-closed').hidden=open;stage.querySelector('.master-open').hidden=!open;toggle.setAttribute('aria-expanded',String(open));});
