@@ -1,6 +1,8 @@
-# Revalidate entry pages and the version manifest after each deployment.
-<IfModule mod_headers.c>
-  <FilesMatch "\.(html|json)$">
-    Header set Cache-Control "no-cache, must-revalidate"
-  </FilesMatch>
+DirectoryIndex index.html
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
 </IfModule>
