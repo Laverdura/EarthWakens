@@ -1,0 +1,37 @@
+.under-door{position:relative;z-index:10;padding:12px 5% 18px;color:#e5dfb2}.under-door .entrance-links{display:flex;justify-content:space-between;align-items:center;padding:0 2%;gap:24px}.entrance-links button{appearance:none;border:0;padding:0;background:none;cursor:pointer}.under-door .entrance-links>a,.under-door .entrance-links>button{display:block;width:100px;line-height:0}.entrance-links img{display:block;width:100%;height:auto}.story-invitation{text-align:center;margin:0 0 8px;font-size:20px}.chapter-shortcuts{display:flex;justify-content:space-around;gap:12px;flex-wrap:wrap;font-size:23px;font-weight:bold;font-style:italic}.under-door a{color:inherit}.under-door .site-footer{margin:16px 0 0;border:0;padding:0;color:#d6c8ac}.under-door .realm-description{max-width:none;font-size:24px;font-weight:bold;line-height:1.5;margin:0 auto 20px}.under-door .contact-line{font-size:20px;font-weight:bold;margin:0 0 24px;white-space:normal}.under-door .game-announcement{display:grid;grid-template-columns:39% 1fr;align-items:center;gap:22px;max-width:none;padding:20px 0;border-color:#b9a17a55;text-align:left}.game-logo img{display:block;width:100%;height:auto}.under-door .game-announcement h2{display:block;font-size:28px;font-weight:bold;margin:0 0 16px;white-space:nowrap}.under-door .game-announcement p{font-size:17px;line-height:1.6;letter-spacing:.02em;margin:0;max-width:none}.under-door .game-announcement p a{text-decoration:none;font-weight:bold}.under-door .copyright{font-size:15px;margin:16px 0 0}@media(max-width:760px){.under-door{padding:14px 6%}.under-door .entrance-links>a,.under-door .entrance-links>button{width:92px}.story-invitation{font-size:16px;margin:15px 0 12px}.chapter-shortcuts{font-size:17px;gap:14px 18px}.under-door .realm-description{font-size:18px;margin-top:22px}.under-door .contact-line{font-size:15px}.under-door .game-announcement{grid-template-columns:1fr;text-align:center;gap:12px}.game-logo{width:72%;max-width:280px;margin:auto}.under-door .game-announcement h2{font-size:23px;white-space:normal;margin-bottom:10px}.under-door .game-announcement p{font-size:16px}.under-door .copyright{font-size:11px}}
+.layered-stage.is-replaying *,.layered-stage.is-replaying::after{transition:none!important}
+
+body{overflow-x:clip}
+
+/* Move each supplied image independently with these position values. */
+.under-door{--replay-x:2%;--replay-y:0px;--prelude-x:2%;--prelude-y:0px}
+.under-door .entrance-links{position:relative;display:block;height:32px;padding:0}
+.entrance-links .floating-replay,.entrance-links .floating-prelude{position:absolute;top:0}
+.entrance-links .floating-replay{left:var(--replay-x);transform:translateY(var(--replay-y))}
+.entrance-links .floating-prelude{right:var(--prelude-x);transform:translateY(var(--prelude-y))}
+
+/* Bring the navigation toward the doors; lower the two floating controls. */
+.under-door{margin-top:clamp(-48px,-5vw,-20px);--replay-y:12px;--prelude-y:12px}
+@media(max-width:760px){.under-door{--replay-y:18px;--prelude-y:18px}}
+
+/* Replay sits beside the emerging hand as a simple underlined text control. */
+.hand-replay{position:absolute;left:43%;top:91.5%;z-index:8;border:0;padding:7px 4px;background:none;color:#efe4b3;font:normal clamp(14px,2.8vw,24px)/1.2 Georgia,serif;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.hand-replay:hover{color:#fff; text-shadow:0 0 8px #e9dda977}
+.hand-replay:focus-visible{outline:2px solid #a5ccff;outline-offset:4px}
+.under-door .story-invitation{margin:0 0 12px}
+.chapter-shortcuts{justify-content:center;gap:12px}
+.chapter-shortcuts a{display:inline-block;padding:9px 14px;border:1px solid #a8d0ff;border-radius:999px;background:linear-gradient(180deg,#b5d8ff 0%,#518ffb 20%,#1673f5 52%,#2685ff 80%,#1054c5 100%);box-shadow:inset 0 2px 3px #ffffff99,inset 0 -2px 3px #06378c66,0 3px 9px #0005;color:#fff;text-decoration:none;font:normal 19px/1.25 Georgia,serif;text-shadow:0 1px 2px #073777;transition:filter .18s ease,box-shadow .18s ease}
+.chapter-shortcuts a:hover{color:#fff;filter:brightness(1.18);box-shadow:inset 0 2px 3px #ffffffaa,0 0 12px #398dff88}
+.chapter-shortcuts a:focus-visible{outline:2px solid #d9edff;outline-offset:4px}
+@media(max-width:760px){.chapter-shortcuts{gap:10px}.chapter-shortcuts a{font-size:16px;padding:8px 14px}.hand-replay{top:91.5%;left:43%}}
+@media(prefers-reduced-motion:reduce){.chapter-shortcuts a{transition:none}}
+
+/* Gold underlined lettering beside the hand, matching the earlier Earth link. */
+.hand-replay{font-style:italic;font-weight:bold;color:#e5dfb2;text-decoration:underline;text-decoration-color:#e5dfb2;text-underline-offset:5px}
+
+/* Dark night-sky glass for the six chapter links. */
+.chapter-shortcuts a{background:linear-gradient(180deg,#7383a1 0%,#304567 15%,#142847 42%,#081426 52%,#122b4e 82%,#07111f 100%);border-color:#647d9c;box-shadow:inset 0 1px 2px #ffffff77,inset 0 -1px 2px #02060d,0 3px 8px #0008;color:#eee7ca;text-shadow:0 1px 2px #000}
+.chapter-shortcuts a:hover{filter:brightness(1.12);box-shadow:inset 0 1px 2px #ffffff88,0 0 9px #496d994d}
+
+/* Fade the entrance artwork into the dune background below the invitation. */
+.layered-stage .art-base,.layered-stage .art-landscape{mask-image:linear-gradient(to bottom,#000 0%,#000 84%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 84%,transparent 100%)}

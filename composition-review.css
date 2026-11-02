@@ -1,0 +1,20 @@
+
+.reference-stage .art-logo,.reference-stage .art-logo-subtitle{display:none}
+.psd6-heading,.psd6-finished-art{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
+.psd6-heading{clip-path:inset(0 0 70.4%);z-index:2}
+.reference-stage .ref-frames{transition:opacity 1.1s ease}
+.reference-stage.is-open .ref-frames{transition-delay:2.65s}
+.reference-stage .art-hinges{z-index:4}
+.reference-stage .art-emergence-heading{z-index:7}
+.review-note{margin:20px 5% 30px;color:#c8bb96;font:15px/1.6 Georgia,serif;text-align:center}
+.review-note a{color:#fff0c4;text-underline-offset:4px}
+/* Replay floats a little right of center, clear of the artwork and chapter links. */
+.reference-stage .hand-replay{left:59%;top:94.8%;font-size:clamp(12px,1.65cqw,18px);font-weight:normal;line-height:1.2;white-space:nowrap}
+/* Prelude leads the chapter row; retain the approved glass and gold treatment. */
+.ew-reference-landing .chapter-shortcuts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px 8px;align-items:center}
+.ew-reference-landing .chapter-shortcuts a{justify-self:center;box-sizing:border-box;max-width:100%;font-size:clamp(8px,1.25cqw,15px);padding:7px 10px}
+.ew-reference-landing .chapter-shortcuts a:first-child{grid-column:1/-1;justify-self:start;margin-left:3%;margin-top:-18px;font-size:clamp(13px,1.8cqw,21px);padding:8px 22px;min-width:100px}
+.reference-stage .hand-replay{left:42%;right:5%;width:auto;top:97.4%;font-size:clamp(10px,1.45cqw,16px);line-height:1.25;white-space:normal;text-align:center;text-underline-offset:3px}
+@media(max-width:650px){.ew-reference-landing .chapter-shortcuts{gap:12px 5px}.ew-reference-landing .chapter-shortcuts a{font-size:clamp(7px,2.05vw,12px);padding:7px 4px}.ew-reference-landing .chapter-shortcuts a:first-child{font-size:13px;padding:7px 18px;margin-top:-17px;min-width:92px}.reference-stage .hand-replay{left:41%;right:4%;top:97.4%;font-size:clamp(9px,2.5cqw,12px)}}
+.reference-stage .hand-replay{padding:0;min-height:0;height:auto}
+@media(max-width:650px){.ew-reference-landing .chapter-shortcuts{grid-template-columns:.62fr 1.35fr 1.55fr 1.25fr 1.15fr;gap:12px 5px}.ew-reference-landing .chapter-shortcuts a{width:100%;padding:7px 3px;font-size:clamp(7px,1.95vw,11px)}.ew-reference-landing .chapter-shortcuts a:first-child{width:auto;font-size:13px}}

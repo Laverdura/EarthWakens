@@ -1,0 +1,150 @@
+/* The user's six-frame reference supplies the proportions, backdrop, and root motion. */
+html body.ew-reference-landing.ew-reference-landing.ew-reference-landing{background:#170c06!important;background-image:none!important}
+.ew-reference-landing main{background:transparent!important;max-width:1064px}
+.reference-stage{aspect-ratio:2089/2820;margin-bottom:0!important;background:linear-gradient(180deg,#170b06 0%,#200c06 17%,#47160a 32%,#754018 56%,#47180b 78%,#290b04 100%);overflow:hidden;container-type:inline-size}
+.reference-stage::after{display:none}
+.reference-stage .art-logo{left:17.8%;top:3.55%;width:65%;z-index:8}
+.reference-stage .ref-frames{position:absolute;inset:0;z-index:3;opacity:0;transition:opacity .85s ease}
+.reference-stage.is-open .ref-frames{opacity:1;transition-delay:2.9s}
+.reference-stage .ref-frame{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;opacity:0;transition:opacity .85s ease;pointer-events:none}
+.reference-stage .ref-frame.is-current{opacity:1}
+.reference-stage .art-hinges{z-index:4;perspective:1600px;perspective-origin:50% 60%}
+.reference-stage .art-leaf{top:30%;width:19.82%;height:60.6%!important}
+.reference-stage .art-left{left:30.3%}
+.reference-stage .art-right{left:50.12%}
+.reference-stage.is-open .art-leaf{transition:transform 3.8s ease-in-out,opacity .7s ease 2.9s}
+.reference-stage .art-emergence-heading{left:7%;right:7%;top:19.5%;font-size:3.65cqw;line-height:1.65;z-index:7;opacity:0;transform:translateY(185%) scale(.24);transition:none;pointer-events:none}
+.reference-stage.is-open .art-emergence-heading{animation:words-from-door 3.2s cubic-bezier(.2,.6,.25,1) 1.1s both;pointer-events:auto}
+@keyframes words-from-door{0%{opacity:0;transform:translateY(185%) scale(.24);filter:blur(3px)}25%{opacity:1;filter:blur(.8px)}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+.reference-stage .hand-replay{left:47%;top:93.3%;font-size:2.4cqw;line-height:1.2;font-style:normal;font-weight:bold;z-index:8}
+.ew-reference-landing .under-door{margin-top:0;padding:0 5% 18px;background:linear-gradient(180deg,#290b04 0%,#1b0d07 110px,#170c06 170px);color:#e5dfb2}
+.ew-reference-landing .chapter-shortcuts{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:7px 0 24px}
+.ew-reference-landing .chapter-shortcuts a{white-space:nowrap;flex:0 0 auto;font-size:clamp(10px,1.35vw,16px);line-height:1.1;padding:6px 12px;border:1px solid #777bb4;background:linear-gradient(180deg,#9b9ac9 0%,#4b4d9d 20%,#1c245e 48%,#111847 54%,#334092 85%,#151b54 100%);box-shadow:inset 0 1px 2px #ffffff99,inset 0 -2px 2px #0008,0 0 18px 5px #c9ab274d;color:#f4efd5;text-shadow:0 1px 2px #000}
+.ew-reference-landing .chapter-shortcuts a:hover{filter:brightness(1.18);box-shadow:inset 0 1px 2px #ffffffaa,0 0 22px 7px #d9b73e77}
+.ew-reference-landing .site-footer{margin:0;padding-top:0;background:transparent!important}
+.ew-reference-landing .realm-description{font-size:clamp(16px,2.15vw,23px);line-height:1.5;margin:0 0 20px}
+.ew-reference-landing .contact-line{font-size:clamp(14px,1.7vw,19px);margin-bottom:20px}
+.ew-reference-landing .game-announcement{grid-template-columns:36% 1fr;gap:22px;padding:20px 0;text-align:left}
+.ew-reference-landing .game-logo{width:100%;max-width:none}
+.ew-reference-landing .game-announcement h2{font-size:clamp(19px,2.6vw,28px);white-space:normal}
+.ew-reference-landing .game-announcement p{font-size:clamp(13px,1.5vw,17px);line-height:1.5}
+@media(max-width:650px){.ew-reference-landing .chapter-shortcuts{justify-content:center;gap:12px 9px;padding-bottom:20px}.ew-reference-landing .chapter-shortcuts a{font-size:12px;padding:7px 11px}.reference-stage .hand-replay{font-size:14px;top:92.8%}.ew-reference-landing .game-announcement{grid-template-columns:1fr;text-align:center}.ew-reference-landing .game-logo{width:70%;margin:auto}.ew-reference-landing .realm-description{margin-top:0}.ew-reference-landing .copyright{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.reference-stage.is-open .art-emergence-heading{animation:none;opacity:1;transform:none}.reference-stage .ref-frame,.reference-stage .ref-frames,.reference-stage .art-leaf{transition:none!important}}
+
+.reference-stage .ref-static-doors{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;z-index:2;pointer-events:none}
+
+@media(max-width:650px){.ew-reference-landing .chapter-shortcuts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 8px}.ew-reference-landing .chapter-shortcuts a{justify-self:center;box-sizing:border-box;max-width:100%;font-size:clamp(8px,2.55vw,12px);padding:7px 6px}}
+
+/* Carry the same uninterrupted blend across the full browser width. */
+html body.ew-reference-landing.ew-reference-landing.ew-reference-landing{background-color:#170c06!important;background-image:linear-gradient(180deg,#170b06 0%,#200c06 17%,#47160a 32%,#754018 56%,#47180b 78%,#290b04 100%),linear-gradient(180deg,#290b04 0%,#1b0d07 110px,#170c06 170px)!important;background-size:100% calc(min(100vw,1064px) * 1.349928),100% 170px!important;background-position:center top,center calc(min(100vw,1064px) * 1.349928)!important;background-repeat:no-repeat!important;background-attachment:scroll!important}
+.reference-stage{background:none}
+.ew-reference-landing .under-door{background:transparent}
+.reference-stage .root-motion-canvas{position:absolute;left:28.708%;top:29.888%;width:41.946%;height:70.112%;z-index:1;pointer-events:none}
+.reference-stage .ref-frames.has-continuous-root .ref-frame{display:none}
+
+/* Permanent logo subtitle and a separate, one-line white doorway reveal. */
+.reference-stage .art-logo-subtitle{position:absolute;left:7%;right:7%;top:19.5%;z-index:7;margin:0;text-align:center;color:#efe4b3;font:normal 3.65cqw/1.65 Georgia,serif;text-shadow:0 1px 4px #130602}
+.reference-stage .art-emergence-heading{left:8%;right:8%;top:45%;z-index:7;color:#fff;font-size:3.8cqw;line-height:1.2;white-space:nowrap;text-shadow:0 2px 8px #000;transform:translateY(-10%) scale(.12);opacity:0}
+.reference-stage.is-open .art-emergence-heading{animation:single-line-emergence 4.8s cubic-bezier(.18,.55,.28,1) 1.1s both;color:#fff}
+@keyframes single-line-emergence{0%{opacity:0;transform:translateY(-10%) scale(.12);filter:blur(3px)}22%{opacity:.85;filter:blur(1px)}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+@media(prefers-reduced-motion:reduce){.reference-stage.is-open .art-emergence-heading{animation:none;opacity:1;transform:none}}
+
+/* Final two-line white title: emerge toward the viewer, then fade away. */
+.reference-stage .art-emergence-heading{font-size:3.8cqw;line-height:1.3;white-space:normal;text-align:center}
+.reference-stage .art-emergence-heading span{display:block;white-space:nowrap}
+.reference-stage.is-open .art-emergence-heading{animation:final-emergence-title 7.2s cubic-bezier(.18,.55,.28,1) 1.1s both;pointer-events:none}
+@keyframes final-emergence-title{0%{opacity:0;transform:translateY(-10%) scale(.12);filter:blur(3px)}18%{opacity:1;filter:blur(1px)}62%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}78%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}100%{opacity:0;transform:translateY(0) scale(1.05);filter:blur(0)}}
+@media(prefers-reduced-motion:reduce){.reference-stage.is-open .art-emergence-heading{animation:reduced-emergence-title 7.2s linear 1.1s both;transform:none!important}}
+@keyframes reduced-emergence-title{0%{opacity:0}10%,78%{opacity:1}100%{opacity:0}}
+
+/* Reveal the full-width original scene while showing narrower open door panels. */
+.reference-stage .ref-wide-scene{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;z-index:0;pointer-events:none}
+.reference-stage .ref-door-left{transform-origin:30.38% 50%;transform:translateX(-12.76%) scaleX(.6)}
+.reference-stage .ref-door-right{transform-origin:69.7% 50%;transform:translateX(12.56%) scaleX(.6)}
+.reference-stage .art-leaf{width:32.32%;height:60.6%!important}
+.reference-stage .art-left{left:17.62%}
+.reference-stage .art-right{left:49.94%}
+
+.reference-stage .right-hand-motion{position:absolute;left:47.847%;top:76.196%;width:23.923%;height:20.083%;z-index:1;pointer-events:none}
+
+/* Half-width open door panels leave the original full moon unobstructed. */
+.reference-stage .ref-door-left{transform-origin:30.38% 50%;transform:translateX(-12.76%) scaleX(.3)}
+.reference-stage .ref-door-right{transform-origin:69.7% 50%;transform:translateX(12.56%) scaleX(.3)}
+
+/* The complete new saying stays white and readable as it emerges. */
+.reference-stage .art-emergence-heading{left:4%;right:4%;font-size:3.05cqw;line-height:1.4}
+.reference-stage.is-open .art-emergence-heading{animation-duration:11s}
+
+/* Recess the moonlit opening with a continuous inner shadow and a quiet rim glow. */
+.reference-stage .scene-inner-depth{position:absolute;left:17.62%;top:29.9%;width:64.64%;height:60.6%;z-index:3;pointer-events:none;box-shadow:inset 0 0 32px 10px rgba(3,7,14,.72),inset 0 0 9px 2px rgba(0,0,0,.8),0 0 6px 1px rgba(205,163,100,.18);border:1px solid rgba(218,180,123,.22)}
+@media(max-width:650px){.reference-stage .scene-inner-depth{box-shadow:inset 0 0 16px 5px rgba(3,7,14,.72),inset 0 0 5px 1px rgba(0,0,0,.8),0 0 4px rgba(205,163,100,.18)}}
+
+/* Visible slab edges and top caps give the slim open panels their weight. */
+.reference-stage .door-edge-depth{position:absolute;top:30%;height:60.6%;width:1.25%;z-index:4;pointer-events:none;background-size:100% 100%;border-radius:1px}
+.reference-stage .door-edge-left{left:16.48%;background-image:linear-gradient(90deg,rgba(180,155,111,.62),rgba(63,57,41,.28) 24%,rgba(12,17,17,.76) 100%),url('assets/original-left-steel-edge.png');border-left:1px solid #b09a6c99;border-right:1px solid #090c0e;box-shadow:5px 0 9px #0009,inset 2px 0 2px #bca37055}
+.reference-stage .door-edge-right{left:82.15%;background-image:linear-gradient(90deg,rgba(12,17,17,.76),rgba(63,57,41,.28) 76%,rgba(180,155,111,.62)),url('assets/original-right-steel-edge.png');border-right:1px solid #b09a6c99;border-left:1px solid #090c0e;box-shadow:-5px 0 9px #0009,inset -2px 0 2px #bca37055}
+.reference-stage .door-top-depth{position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(180deg,#ae9870,#6d5c41 32%,#332b20 70%,#151a18)}
+.reference-stage .door-top-left{clip-path:polygon(10.5% 24.65%,17.73% 30%,17.73% 30.65%,10.5% 25.3%)}
+.reference-stage .door-top-right{clip-path:polygon(82.15% 30%,89.8% 23.58%,89.8% 24.23%,82.15% 30.65%)}
+
+.reference-stage .art-logo-subtitle .subtitle-existence{font-size:1.18em;letter-spacing:.04em}
+
+/* Match the supplied heading reference, with clearer separation above EXISTENCE. */
+.reference-stage .art-logo-subtitle{left:7%;right:7%;top:18.4%;line-height:1.2}
+.reference-stage .subtitle-realm-line{font:normal 4.4cqw/1.2 Georgia,serif;color:#eae0b3;white-space:nowrap}
+.reference-stage .subtitle-realm{color:#fff9e9}
+.reference-stage .art-logo-subtitle .subtitle-existence{display:block;margin-top:1.6cqw;color:#fff5ce;font:bold 6.65cqw/1 Georgia,serif;letter-spacing:.025em;text-shadow:0 0 6px #fff3bd88,0 0 13px #d9ac6c77}
+
+/* Center both heading lines on the exact midpoint of the logo artwork. */
+.reference-stage .art-logo-subtitle{left:50.3%;right:auto;width:90%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;text-align:center}
+.reference-stage .subtitle-realm-line,.reference-stage .art-logo-subtitle .subtitle-existence{width:100%;margin-left:0;margin-right:0;text-align:center}
+
+/* The longer revised sentence keeps its named spirits italicized and readable. */
+.reference-stage .art-emergence-heading{font-size:2.75cqw;line-height:1.45;top:43%}
+.reference-stage .art-emergence-heading em{font-style:italic;font-weight:600}
+.reference-stage.is-open .art-emergence-heading{animation-duration:15s}
+
+/* Independent Photoshop actors: the existing middle-arm renderer stays untouched. */
+.reference-stage .scene-detail{position:absolute;pointer-events:none}
+.reference-stage .detail-water{z-index:1}
+.reference-stage .detail-small{z-index:1}
+.reference-stage .detail-right{z-index:1}
+
+/* Narrow open view from an undistorted strip of the original door, with fewer rivets. */
+.reference-stage .ref-door-left{transform:translateX(-12.76%)}
+.reference-stage .ref-door-right{transform:translateX(12.56%)}
+.reference-stage .door-edge-depth{width:1.9%;height:60.6%;box-shadow:5px 0 12px #000b,inset 2px 0 3px #c6ae7d66}
+.reference-stage .door-edge-left{left:15.85%}
+.reference-stage .door-edge-right{left:82.15%;box-shadow:-5px 0 12px #000b,inset -2px 0 3px #c6ae7d66}
+.reference-stage .door-top-left{clip-path:polygon(10.85% 28.47%,17.75% 30%,17.75% 30.8%,10.85% 29.27%)}
+.reference-stage .door-top-right{clip-path:polygon(82.15% 30%,89.8% 28.1%,89.8% 28.9%,82.15% 30.8%)}
+/* The scene shadow belongs behind the reaching hands. */
+.reference-stage .scene-inner-depth{z-index:2}
+.reference-stage .ref-static-doors{z-index:3}
+.reference-stage .root-motion-canvas{z-index:4}
+.reference-stage .detail-small,.reference-stage .detail-right{z-index:7}
+.reference-stage .door-edge-depth,.reference-stage .door-top-depth{z-index:6}
+
+/* Go by 6 supplies the finished door silhouettes and scene placement. */
+.reference-stage .scene-plane{position:absolute;inset:0;transform-origin:0 0;transform:translate(-1.1394%,-.8064%) scale(1.01755,1.02001)}
+.reference-stage .ref-door-left,.reference-stage .ref-door-right{transform:none}
+.reference-stage .ref-frames:has(.has-continuous-root) .ref-frame{display:none}
+.reference-stage .door-edge-depth,.reference-stage .door-top-depth{display:none}
+.reference-stage .scene-inner-depth{left:17.62%;top:29.9%;width:64.64%;height:60.6%}
+.reference-stage .art-left{left:16.42%}
+.reference-stage .art-right{left:50.02%}
+.reference-stage .art-leaf{top:29.68%;width:33.6%;height:61.85%!important}
+.reference-stage .hand-replay{top:96.2%;left:47%;font-size:2.3cqw}
+.ew-reference-landing .chapter-shortcuts a{color:#fff;text-shadow:0 0 4px #fff8,0 1px 2px #070b32;border-color:#a4a7dc;box-shadow:inset 0 1px 3px #ffffffc9,inset 0 -2px 2px #0008,0 0 18px 6px #d8b32a77,0 0 29px 10px #b78b252b}
+.ew-reference-landing .chapter-shortcuts a:hover,.ew-reference-landing .chapter-shortcuts a:focus-visible{filter:brightness(1.14);box-shadow:inset 0 1px 3px #fff,0 0 22px 8px #edcb5199,0 0 34px 12px #d2a52244}
+@media(max-width:650px){.reference-stage .hand-replay{top:95.8%;font-size:14px}}
+
+/* Keep the doorway sentence readable against moonlight and moving roots. */
+.reference-stage .art-emergence-heading{left:17%;right:17%;top:42%;font-size:clamp(14px,3cqw,32px);line-height:1.42;font-weight:500;text-shadow:0 2px 3px #000,0 0 10px #000,0 0 22px #000c;isolation:isolate;text-decoration:none}
+.reference-stage .art-emergence-heading span{white-space:normal}
+.reference-stage .art-emergence-heading::before{content:"";position:absolute;inset:-1.7em -1.3em;z-index:-1;pointer-events:none;background:radial-gradient(ellipse,rgba(4,8,15,.78) 0%,rgba(4,8,15,.55) 42%,rgba(4,8,15,0) 73%);filter:blur(8px);opacity:0}
+.reference-stage.is-open .art-emergence-heading::before{animation:doorway-reading-shadow 24s linear 1.5s both}
+.reference-stage.is-open .art-emergence-heading{animation:doorway-readable-reveal 24s ease-out 1.5s both}
+@keyframes doorway-readable-reveal{0%{opacity:0;transform:translateY(12%) scale(.22);filter:blur(1px)}8%{opacity:1;filter:blur(0)}20%,88%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}100%{opacity:0;transform:translateY(0) scale(1.025);filter:blur(0)}}
+@keyframes doorway-reading-shadow{0%,5%{opacity:0}20%,90%{opacity:1}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.reference-stage.is-open .art-emergence-heading{animation:reduced-emergence-title 24s linear 1.5s both;transform:none!important}}

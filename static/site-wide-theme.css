@@ -1,0 +1,21 @@
+/* Shared background exported from Larry's BKGD photo.psd. */
+html{background:#190602!important}
+html body.ew-site-theme.ew-site-theme{min-height:100vh;background-color:#190602!important;background-image:url("site-background-warm.jpg")!important;background-size:100% 100vh!important;background-position:center top!important;background-repeat:no-repeat!important;background-attachment:fixed!important;--bg:#190602;--panel:#190602;--surface:#190602;--card:#190602}
+html body.ew-site-theme.ew-site-theme::before{background:none!important;animation:none!important;filter:none!important}
+html body.ew-site-theme.ew-site-theme :is(#root,main,header,footer,.chapter,.reading,.page,.chapter-header,.chapter-heading,.landing,.home-intro,.ask-page,.ew-final,.site-header,.question-panel,.scientific-context,.chapter-buttons,.invitation){background-color:transparent!important;background-image:none!important}
+html body.ew-site-theme.ew-site-theme :is(button:not(.floating-replay):not(.hand-replay),.button,.chapter-buttons a,.ew-chapter-list a,.page-turn a,.back-link,.text-link,.ew-info-links a,.ew-journey-chapters a,.page-back,.ew-prelude-chapter-link,.ew-chapters a,.ew-template-chapters a,.ew-template-number,.home-next a,.illustration-note-link,.ew-questions-button,.ew-email-button,.ew-final .ew-explain,.ew-final .ew-prelude-top,.ew-final-layout .chapter-number,.ew-living-chapters>a.ew-number){background-color:#164de0!important;background-image:linear-gradient(180deg,#a0bfff 0%,#416ff2 23%,#1646d4 50%,#2866f5 85%,#143db5 100%)!important;border-color:#8aafff!important;color:#eee8b4!important;box-shadow:inset 0 1px 2px #ffffff66,0 4px 10px #0007!important}
+html body.ew-site-theme.ew-site-theme :is(.ew-info-links a,.ew-journey-chapters a,.page-turn a,.ew-prelude-chapter-link,.button,button:not(.floating-replay):not(.hand-replay)):hover{filter:brightness(1.15)}
+@media(prefers-reduced-motion:reduce){html body.ew-site-theme.ew-site-theme{background-attachment:scroll!important}}
+
+html body.ew-site-theme.ew-site-theme .ew-local-top-nav{background:transparent!important}
+
+.entrance-links :is(.floating-replay,.floating-prelude) img{filter:brightness(1.22) saturate(1.35)}
+
+/* Clear bright-blue Prelude controls, without the dark metallic shading. */
+html body.ew-site-theme.ew-site-theme.ew-prelude-page.ew-prelude-page :is(.ew-info-links a,.ew-journey-chapters a,.page-back,.ew-prelude-chapter-link,.button,button){background:#1673f5!important;background-image:none!important;border:1px solid #9bcaff!important;color:#fff!important;text-shadow:none!important;box-shadow:inset 0 1px 0 #ffffff55,0 3px 7px #0004!important}
+html body.ew-site-theme.ew-site-theme.ew-prelude-page.ew-prelude-page :is(.ew-info-links a,.ew-journey-chapters a,.page-back,.ew-prelude-chapter-link,.button,button):hover{background:#328aff!important;filter:none!important}
+
+/* Shared night-sky glass controls. */
+html body.ew-site-theme.ew-site-theme.ew-site-theme :is(button:not(.hand-replay):not(.floating-replay),.button,.chapter-buttons a,.ew-chapter-list a,.page-turn a,.back-link,.text-link,.ew-info-links a,.ew-journey-chapters a,.page-back,.ew-prelude-chapter-link,.ew-chapters a,.ew-template-chapters a,.ew-template-number,.home-next a,.illustration-note-link,.ew-questions-button,.ew-email-button,.ew-final .ew-explain,.ew-final .ew-prelude-top,.ew-final-layout .chapter-number,.ew-living-chapters>a.ew-number){background:linear-gradient(180deg,#7383a1 0%,#304567 15%,#142847 42%,#081426 52%,#122b4e 82%,#07111f 100%)!important;border-color:#647d9c!important;color:#eee7ca!important;box-shadow:inset 0 1px 2px #ffffff77,inset 0 -1px 2px #02060d,0 3px 8px #0008!important;text-shadow:0 1px 2px #000!important}
+
+html body.ew-site-theme.ew-site-theme.ew-site-theme :is(button:not(.hand-replay):not(.floating-replay),.button,.chapter-buttons a,.ew-chapter-list a,.page-turn a,.back-link,.text-link,.ew-info-links a,.ew-journey-chapters a,.page-back,.ew-prelude-chapter-link,.ew-chapters a,.ew-template-chapters a,.ew-template-number,.home-next a,.illustration-note-link,.ew-questions-button,.ew-email-button,.ew-final .ew-explain,.ew-final .ew-prelude-top,.ew-final-layout .chapter-number,.ew-living-chapters>a.ew-number):hover{background:linear-gradient(180deg,#8395b5 0%,#395477 18%,#1b3457 46%,#0d1c32 54%,#19385e 85%,#0b192b 100%)!important;filter:none!important}
