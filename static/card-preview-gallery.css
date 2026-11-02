@@ -1,0 +1,14 @@
+/* Card artwork moved from the Prelude with its existing composition. */
+.ew-two-card-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px;align-items:start}
+.ew-two-card-gallery figure{width:100%;max-width:378px;margin:24px auto}
+.ew-poison-face{width:100%;aspect-ratio:63/88;position:relative;background:#fff;border:1px solid #aaa;border-radius:18px;overflow:hidden;box-shadow:0 5px 15px #0005}
+.ew-poison-face>img{position:absolute;left:2%;top:0;width:96%;height:90%;object-fit:contain}
+.ew-card-corner{position:absolute;z-index:2;width:68%;left:4%;top:2.7%;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.ew-card-corner img{display:block;width:100%;height:auto}
+.ew-card-corner span{font:700 23px/1.225 "DejaVu Sans",Arial,sans-serif;color:#632d1d;-webkit-text-stroke:.3px #35190f;margin-left:4%;text-align:center}
+.ew-card-corner-bottom{left:auto;top:auto;right:4%;bottom:2.7%;transform:rotate(180deg)}
+.ew-waken-example>img{width:100%;height:auto;aspect-ratio:63/88;object-fit:contain;display:block}
+.ew-two-card-gallery figcaption{font-size:18px;text-align:center;color:#e7dcc3;line-height:1.5;margin-top:18px}
+.ew-poison-example figcaption{font-size:16px}
+@media(max-width:650px){.ew-two-card-gallery{grid-template-columns:1fr;gap:8px}}
+@media(max-width:480px){.ew-card-corner span{font-size:clamp(17px,5.5vw,23px)}}
