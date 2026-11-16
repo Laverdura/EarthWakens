@@ -1,21 +1,795 @@
-/* Shared background exported from Larry's BKGD photo.psd. */
-html{background:#190602!important}
-html body.ew-site-theme.ew-site-theme{min-height:100vh;background-color:#190602!important;background-image:url("site-background-warm.jpg")!important;background-size:100% 100vh!important;background-position:center top!important;background-repeat:no-repeat!important;background-attachment:fixed!important;--bg:#190602;--panel:#190602;--surface:#190602;--card:#190602}
-html body.ew-site-theme.ew-site-theme::before{background:none!important;animation:none!important;filter:none!important}
-html body.ew-site-theme.ew-site-theme :is(#root,main,header,footer,.chapter,.reading,.page,.chapter-header,.chapter-heading,.landing,.home-intro,.ask-page,.ew-final,.site-header,.question-panel,.scientific-context,.chapter-buttons,.invitation){background-color:transparent!important;background-image:none!important}
-html body.ew-site-theme.ew-site-theme :is(button:not(.floating-replay):not(.hand-replay),.button,.chapter-buttons a,.ew-chapter-list a,.page-turn a,.back-link,.text-link,.ew-info-links a,.ew-journey-chapters a,.page-back,.ew-prelude-chapter-link,.ew-chapters a,.ew-template-chapters a,.ew-template-number,.home-next a,.illustration-note-link,.ew-questions-button,.ew-email-button,.ew-final .ew-explain,.ew-final .ew-prelude-top,.ew-final-layout .chapter-number,.ew-living-chapters>a.ew-number){background-color:#164de0!important;background-image:linear-gradient(180deg,#a0bfff 0%,#416ff2 23%,#1646d4 50%,#2866f5 85%,#143db5 100%)!important;border-color:#8aafff!important;color:#eee8b4!important;box-shadow:inset 0 1px 2px #ffffff66,0 4px 10px #0007!important}
-html body.ew-site-theme.ew-site-theme :is(.ew-info-links a,.ew-journey-chapters a,.page-turn a,.ew-prelude-chapter-link,.button,button:not(.floating-replay):not(.hand-replay)):hover{filter:brightness(1.15)}
-@media(prefers-reduced-motion:reduce){html body.ew-site-theme.ew-site-theme{background-attachment:scroll!important}}
+@font-face {
+  font-family: "Germania One";
+  src: url("GermaniaOne-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 
-html body.ew-site-theme.ew-site-theme .ew-local-top-nav{background:transparent!important}
+/* Book colors drawn from the teal sky, silver wordmark, and its shaded leaves. */
+:root {
+  color-scheme: dark;
+  background: #08232b !important;
+  --book-ink: #e2edf0;
+  --book-silver: #d0e1e7;
+  --book-muted: #a4bcc4;
+  --book-link: #a6d7dc;
+  --book-rule: #557984;
+  --book-glow: #155261;
+  --book-shadow: #092831;
+  --book-control: linear-gradient(180deg, #4a747e, #25525f 34%, #153843 52%, #1c4651);
+}
 
-.entrance-links :is(.floating-replay,.floating-prelude) img{filter:brightness(1.22) saturate(1.35)}
+:root[data-book-chapter="living-world"] {
+  --book-link: #b3c9a5;
+  --book-rule: #617e70;
+  --book-glow: #184e53;
+  --book-shadow: #102e33;
+}
 
-/* Clear bright-blue Prelude controls, without the dark metallic shading. */
-html body.ew-site-theme.ew-site-theme.ew-prelude-page.ew-prelude-page :is(.ew-info-links a,.ew-journey-chapters a,.page-back,.ew-prelude-chapter-link,.button,button){background:#1673f5!important;background-image:none!important;border:1px solid #9bcaff!important;color:#fff!important;text-shadow:none!important;box-shadow:inset 0 1px 0 #ffffff55,0 3px 7px #0004!important}
-html body.ew-site-theme.ew-site-theme.ew-prelude-page.ew-prelude-page :is(.ew-info-links a,.ew-journey-chapters a,.page-back,.ew-prelude-chapter-link,.button,button):hover{background:#328aff!important;filter:none!important}
+html body.ew-site-theme.ew-site-theme {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at 48% 0%, var(--book-glow), var(--book-shadow) 58%, #071b23 100%) fixed !important;
+  color: var(--book-ink);
+  --bg: #08232b;
+  --panel: #102f39;
+  --surface: #102f39;
+  --card: #102f39;
+}
 
-/* Shared night-sky glass controls. */
-html body.ew-site-theme.ew-site-theme.ew-site-theme :is(button:not(.hand-replay):not(.floating-replay),.button,.chapter-buttons a,.ew-chapter-list a,.page-turn a,.back-link,.text-link,.ew-info-links a,.ew-journey-chapters a,.page-back,.ew-prelude-chapter-link,.ew-chapters a,.ew-template-chapters a,.ew-template-number,.home-next a,.illustration-note-link,.ew-questions-button,.ew-email-button,.ew-final .ew-explain,.ew-final .ew-prelude-top,.ew-final-layout .chapter-number,.ew-living-chapters>a.ew-number){background:linear-gradient(180deg,#7383a1 0%,#304567 15%,#142847 42%,#081426 52%,#122b4e 82%,#07111f 100%)!important;border-color:#647d9c!important;color:#eee7ca!important;box-shadow:inset 0 1px 2px #ffffff77,inset 0 -1px 2px #02060d,0 3px 8px #0008!important;text-shadow:0 1px 2px #000!important}
+html body.ew-site-theme.ew-site-theme::before {
+  background: none !important;
+  animation: none !important;
+  filter: none !important;
+}
 
-html body.ew-site-theme.ew-site-theme.ew-site-theme :is(button:not(.hand-replay):not(.floating-replay),.button,.chapter-buttons a,.ew-chapter-list a,.page-turn a,.back-link,.text-link,.ew-info-links a,.ew-journey-chapters a,.page-back,.ew-prelude-chapter-link,.ew-chapters a,.ew-template-chapters a,.ew-template-number,.home-next a,.illustration-note-link,.ew-questions-button,.ew-email-button,.ew-final .ew-explain,.ew-final .ew-prelude-top,.ew-final-layout .chapter-number,.ew-living-chapters>a.ew-number):hover{background:linear-gradient(180deg,#8395b5 0%,#395477 18%,#1b3457 46%,#0d1c32 54%,#19385e 85%,#0b192b 100%)!important;filter:none!important}
+html body.ew-site-theme.ew-site-theme :is(#root, main, header, footer, .chapter, .reading, .page, .chapter-header, .chapter-heading, .landing, .home-intro, .ask-page, .ew-final, .site-header, .question-panel, .scientific-context, .chapter-buttons, .invitation, .ew-local-top-nav) {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+html body.ew-site-theme.ew-site-theme :is(header, footer, .chapters, blockquote, .ew-card-examples li) {
+  border-color: var(--book-rule) !important;
+}
+
+html body.ew-site-theme.ew-site-theme :is(h1, h2, h3, h4, strong, b) {
+  color: var(--book-silver) !important;
+}
+
+html body.ew-site-theme.ew-site-theme :is(p, li, blockquote) {
+  color: var(--book-ink);
+}
+
+html body.ew-site-theme.ew-site-theme :is(.eyebrow, .chapter-kicker, .chapter-meta, figcaption) {
+  color: var(--book-muted) !important;
+}
+
+html body.ew-site-theme.ew-site-theme a {
+  color: var(--book-link);
+}
+
+html body.ew-site-theme.ew-site-theme :is(a, button):focus-visible {
+  outline: 2px solid var(--book-link);
+  outline-offset: 4px;
+}
+
+html[data-book-chapter="living-world"] body.ew-site-theme.ew-site-theme :is(.eyebrow, .chapter-kicker, .chapter-meta, blockquote) {
+  color: var(--book-link) !important;
+}
+
+html body.ew-site-theme.ew-site-theme.ew-site-theme :is(
+  button:not(.hand-replay):not(.floating-replay), .button, .chapter-buttons a,
+  .ew-chapter-list a, .page-turn a, .back-link, .text-link, .ew-info-links a,
+  .ew-journey-chapters a, .page-back, .ew-prelude-chapter-link, .ew-chapters a,
+  .ew-template-chapters a, .ew-template-number, .home-next a, .illustration-note-link,
+  .ew-questions-button, .ew-email-button, .ew-final .ew-explain, .ew-final .ew-prelude-top,
+  .ew-final-layout .chapter-number, .ew-living-chapters > a.ew-number
+) {
+  background: var(--book-control) !important;
+  border-color: var(--book-rule) !important;
+  color: var(--book-ink) !important;
+  box-shadow: inset 0 1px 2px #ffffff50, 0 3px 8px #0006 !important;
+  text-shadow: 0 1px 2px #0009 !important;
+}
+
+html body.ew-site-theme.ew-site-theme.ew-site-theme :is(button, .button, .chapter-buttons a, .page-turn a, .ew-info-links a, .ew-journey-chapters a, .page-back, .ew-prelude-chapter-link):hover {
+  filter: brightness(1.16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body.ew-site-theme.ew-site-theme { background-attachment: scroll !important; }
+}
+
+/* Shared layout for the five numbered chapters. */
+html[data-book-layout="chapter"] .site-header {
+  position: relative;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+html[data-book-layout="chapter"] .site-header .brand {
+  flex: 0 1 100%;
+  min-width: 0;
+  justify-content: center;
+}
+html[data-book-layout="chapter"] .site-header .brand img {
+  width: min(560px, 100%);
+  height: auto;
+}
+
+html[data-book-layout="chapter"] .site-header {
+  backdrop-filter: none;
+}
+html[data-book-layout="chapter"] .site-header .brand {
+  position: relative;
+  isolation: isolate;
+}
+html[data-book-layout="chapter"] .site-header .brand::before {
+  content: "";
+  position: absolute;
+  width: min(700px, 100%);
+  height: clamp(43px, 9vw, 80px);
+  left: 50%;
+  bottom: -22px;
+  transform: translateX(-50%);
+  background: url("fissure-header-clouds.png?v=feathered") center / 100% 100% no-repeat;
+  opacity: .49;
+  pointer-events: none;
+  z-index: -1;
+}
+
+html[data-book-layout="chapter"] .site-header nav {
+  width: min(730px, calc(100% - 10px));
+  margin-inline: auto;
+  justify-content: space-between;
+  gap: 12px 6px;
+  flex-wrap: wrap;
+}
+html[data-book-layout="chapter"] .site-header nav a {
+  font-size: clamp(18px, 2.55vw, 24px);
+}
+@media (max-width: 620px) {
+  html[data-book-layout="chapter"] .site-header nav {
+    justify-content: center;
+  }
+}
+
+html[data-book-layout="chapter"] .back-link {
+  display: none !important;
+}
+
+html[data-book-layout="chapter"] .chapter-heading h1,
+.ew-prelude-page .prelude-chapter-heading h1 {
+  max-width: 900px;
+  margin-inline: auto;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(40px, 12.5vw, 118.5px) !important;
+  font-weight: 400;
+  text-wrap: balance;
+  line-height: .95;
+}
+
+html[data-book-layout="chapter"] .chapter-heading .eyebrow,
+.ew-prelude-page .prelude-chapter-heading .eyebrow {
+  display: block;
+  font-size: clamp(14px, 2.6vw, 24px) !important;
+  line-height: 1.25;
+  letter-spacing: .10em;
+}
+
+html[data-book-chapter="fissure"] .chapter > .chapter-art.portrait {
+  display: block !important;
+  width: min(650px, calc(100% - 46px));
+  max-width: none;
+  margin: 0 auto 18px;
+  background: transparent !important;
+  border: 0;
+  box-shadow: none;
+}
+html[data-book-chapter="fissure"] .chapter > .chapter-art.portrait img {
+  display: block;
+  width: 100%;
+  max-height: none;
+  height: auto;
+  aspect-ratio: 901 / 1213;
+  object-fit: contain;
+}
+
+html[data-book-layout="chapter"] .reading {
+  padding-top: 10px;
+}
+html[data-book-layout="chapter"] .reading > blockquote:first-child {
+  margin-top: 14px;
+}
+
+html[data-book-layout="chapter"] body.ew-site-theme.ew-site-theme {
+  background:
+    linear-gradient(var(--chapter-top, #102c36) 0 70px, #091d25 420px),
+    #091d25 !important;
+}
+html[data-book-layout="chapter"] .site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    radial-gradient(ellipse 72% 56% at 50% 43%, var(--chapter-glow, #2466789c), var(--chapter-mid-glow, #16455054) 55%, transparent 100%),
+    linear-gradient(180deg, var(--chapter-top, #102c36), var(--chapter-mid, #11323e) 38%, #091d25 92%) !important;
+}
+
+
+html[data-book-layout="chapter"] .site-header nav a {
+  white-space: nowrap;
+  padding-bottom: 18px;
+}
+html[data-book-layout="chapter"] .site-header nav a[aria-current="page"] {
+  border-bottom-color: #b75156;
+}
+
+html[data-book-layout="chapter"] body.ew-site-theme.ew-site-theme {
+  border-top: 0;
+}
+html[data-book-layout="chapter"] .ew-local-top-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 18px;
+}
+html[data-book-layout="chapter"] :is(.ew-local-top-nav, .site-header nav) a {
+  color: #e0ded6;
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+}
+html[data-book-layout="chapter"] .ew-local-top-nav a {
+  font-size: 15px;
+}
+html[data-book-layout="chapter"] .site-header nav a {
+  font-size: clamp(14px, 1.8vw, 16px);
+}
+html[data-book-layout="chapter"] .menu-toggle {
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+}
+
+html[data-book-layout="chapter"] .site-header {
+  border-bottom-width: 0;
+}
+html[data-book-layout="chapter"] .site-header::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  width: min(730px, calc(100% - 46px));
+  margin-inline: auto;
+  border-bottom: 1px solid var(--book-rule);
+  pointer-events: none;
+}
+
+html[data-book-layout="chapter"] .ew-local-top-nav a[href="story-introduction.html"] {
+  display: none;
+}
+
+html[data-book-layout="chapter"] .site-header {
+  row-gap: 18px;
+}
+
+
+html[data-book-layout="chapter"] .reading > blockquote:first-child {
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(18px, 2.65vw, 25px);
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+html[data-book-chapter="fissure"] .reading > section:first-of-type > h2 {
+  font: 400 clamp(18px, 2.65vw, 25px)/1.45 Arial, sans-serif;
+  margin: 0 auto 26px;
+  max-width: 680px;
+  text-align: center;
+  text-wrap: balance;
+}
+
+html[data-book-chapter="fissure"] .fissure-footprints {
+  max-width: 560px;
+  margin: 28px auto 32px;
+}
+html[data-book-chapter="fissure"] .fissure-footprints img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+html[data-book-chapter="fissure"] .fissure-footprints figcaption {
+  margin-top: 9px;
+  text-align: center;
+  font: 13px/1.5 Arial, sans-serif;
+}
+
+html[data-book-layout="chapter"] .chapter-step-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  justify-content: space-between;
+  margin: 42px 0 28px;
+  font: 600 16px/1.4 Arial, sans-serif;
+}
+html[data-book-layout="chapter"] footer > a img {
+  width: min(420px, 88vw) !important;
+  max-width: 100%;
+  height: auto;
+}
+html[data-book-layout="chapter"] footer .chapter-footer-names {
+  margin-top: 4px;
+}
+
+html[data-book-layout="chapter"] .chapter-heading > p {
+  max-width: 640px;
+  margin-inline: auto;
+  font: 400 clamp(17px, 2.15vw, 22px)/1.48 Arial, sans-serif;
+  text-wrap: balance;
+}
+html[data-book-layout="chapter"][data-book-chapter="living-world"] {
+  --chapter-top: #123035;
+  --chapter-mid: #173b40;
+  --chapter-glow: #35665c80;
+  --chapter-mid-glow: #204c465c;
+  --reading-header-halo: #35665c30;
+}
+
+html[data-book-chapter="fissure"] .reading {
+  padding-bottom: 12px;
+}
+html[data-book-chapter="fissure"] .chapter-step-links {
+  margin-bottom: 8px;
+}
+html[data-book-chapter="fissure"] footer {
+  padding-top: 12px;
+}
+html:is([data-book-chapter="fissure"], [data-book-chapter="earth-spirit"], [data-book-chapter="living-world"], [data-book-chapter="earth-wakens"]) footer > a {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+}
+html:is([data-book-chapter="fissure"], [data-book-chapter="earth-spirit"], [data-book-chapter="living-world"], [data-book-chapter="earth-wakens"]) footer > a img {
+  display: block;
+}
+html:is([data-book-chapter="fissure"], [data-book-chapter="earth-spirit"], [data-book-chapter="living-world"], [data-book-chapter="earth-wakens"]) footer > a::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  bottom: -12px;
+  width: min(124%, 94vw);
+  height: clamp(30px, 7vw, 57px);
+  transform: translateX(-50%);
+  background: url("fissure-header-clouds.png?v=feathered") center / 100% 100% no-repeat;
+  opacity: .49;
+  pointer-events: none;
+}
+
+html[data-book-layout="chapter"] footer .chapter-footer-tagline {
+  font: 400 clamp(14px, 2.1vw, 19px)/1.45 Arial, sans-serif;
+  margin: 20px auto 5px;
+}
+html[data-book-layout="chapter"] footer .chapter-footer-names {
+  font: 400 clamp(12px, 1.75vw, 16px)/1.45 Arial, sans-serif;
+  margin: 4px auto 16px;
+}
+
+html[data-book-chapter="earth-spirit"] .earth-spirit-original-photo {
+  width: min(90%, 450px);
+  margin: 24px auto 30px;
+}
+html[data-book-chapter="earth-spirit"] .reading .earth-spirit-original-photo img,
+html[data-book-chapter="earth-spirit"] .reading .ew-nature-pictures img {
+  display: block !important;
+}
+html[data-book-chapter="earth-spirit"] .earth-spirit-original-photo img {
+  width: 100%;
+  height: auto;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 2.8%, #000 97.2%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 2.8%, #000 97.2%, transparent);
+}
+html[data-book-chapter="earth-spirit"] .earth-spirit-original-photo figcaption {
+  margin: 8px 14px 0 0;
+  text-align: right;
+  font: 12px/1.35 Arial, sans-serif;
+}
+
+html[data-book-chapter="earth-spirit"] .ew-root-pictures.ew-nature-pictures {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 36px;
+  width: 100%;
+  max-width: 480px;
+  padding-top: 0;
+}
+html[data-book-chapter="earth-spirit"] .ew-nature-pictures :is(.ew-nature-root-base, .ew-nature-fingers) {
+  position: static;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+html[data-book-chapter="earth-spirit"] .ew-nature-pictures .ew-root-base-crop {
+  clip-path: none;
+}
+
+html[data-book-chapter="earth-spirit"] .ew-nature-root-base figcaption {
+  margin: 8px 0 0;
+  text-align: left;
+  font: 12px/1.35 Arial, sans-serif;
+}
+
+html:is([data-book-chapter="earth-spirit"], [data-book-chapter="living-world"], [data-book-chapter="earth-wakens"]) .reading {
+  padding-bottom: 12px;
+}
+html:is([data-book-chapter="earth-spirit"], [data-book-chapter="living-world"], [data-book-chapter="earth-wakens"]) .chapter-step-links {
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+html:is([data-book-chapter="earth-spirit"], [data-book-chapter="living-world"], [data-book-chapter="earth-wakens"]) footer {
+  padding-top: 12px;
+}
+
+html[data-book-chapter="earth"] .ew-life-records {
+  width: 100%;
+  max-width: 790px;
+  margin: 0 auto 44px;
+  padding-inline: clamp(23px, 4vw, 30px);
+}
+html[data-book-chapter="earth"] .ew-life-records > ol {
+  display: grid;
+  gap: 22px;
+  margin: 24px 0 28px;
+  padding-inline-start: 1.6em;
+  line-height: 1.75;
+}
+html[data-book-chapter="earth"] .ew-life-records h2:not(:first-child) {
+  margin-top: 42px;
+}
+html[data-book-chapter="earth"] .ew-life-records a {
+  overflow-wrap: anywhere;
+}
+
+html[data-book-chapter="fissure"] .reading > blockquote.fissure-callout,
+html[data-book-chapter="fissure"] .reading .fissure-callout,
+html[data-book-chapter="earth-spirit"] .reading .earth-spirit-form-callout,
+.ew-prelude-page .prelude-artwork-callout {
+  color: #ecc898;
+  font-family: Georgia, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(13px, 3.3vw, 29px);
+  line-height: 1.87;
+  letter-spacing: .046em;
+  padding-block: 29px;
+  padding-inline: clamp(6px, 2.2vw, 23px);
+}
+html[data-book-chapter="fissure"] .fissure-artwork-line,
+.earth-spirit-form-callout .fissure-artwork-line,
+.ew-prelude-page .prelude-artwork-callout .fissure-artwork-line {
+  display: block;
+  color: #c5a184;
+}
+html[data-book-chapter="fissure"] .fissure-artwork-line > span,
+.earth-spirit-form-callout .fissure-artwork-line > span,
+.ew-prelude-page .prelude-artwork-callout .fissure-artwork-line > span {
+  display: block;
+  transform: scaleY(1.5);
+}
+
+/* The Prelude artwork sits inside a fine filigree frame. */
+.ew-prelude-page .prelude-root-card {
+  display: block;
+  position: relative;
+  width: min(330px, 74vw);
+  padding: 10px;
+  border: 1px solid #a5b8ae9c;
+  border-radius: 13px;
+  background: transparent;
+}
+.ew-prelude-page .prelude-root-card::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  z-index: 1;
+  border: 1px solid #a5b8ae46;
+  border-radius: 9px;
+  pointer-events: none;
+}
+.ew-prelude-page .prelude-root-card img {
+  filter: none;
+}
+.ew-prelude-page .prelude-root-card .prelude-card-corner {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  z-index: 2;
+  width: 39px;
+  height: 39px;
+  border: solid #c5cdc1;
+  border-width: 1px 0 0 1px;
+  border-top-left-radius: 15px;
+  pointer-events: none;
+}
+.ew-prelude-page .prelude-card-corner::before,
+.ew-prelude-page .prelude-card-corner::after {
+  content: "";
+  position: absolute;
+  border: 1px solid #a5b8aeb5;
+  border-radius: 72% 28% 72% 28%;
+}
+.ew-prelude-page .prelude-card-corner::before {
+  top: 3px;
+  left: 6px;
+  width: 21px;
+  height: 8px;
+  transform: rotate(-16deg);
+}
+.ew-prelude-page .prelude-card-corner::after {
+  top: 9px;
+  left: 1px;
+  width: 9px;
+  height: 20px;
+  transform: rotate(11deg);
+}
+.ew-prelude-page .prelude-root-card .top-right {
+  right: 7px;
+  left: auto;
+  transform: scaleX(-1);
+}
+.ew-prelude-page .prelude-root-card .bottom-left {
+  top: auto;
+  bottom: 7px;
+  transform: scaleY(-1);
+}
+.ew-prelude-page .prelude-root-card .bottom-right {
+  inset: auto 7px 7px auto;
+  transform: scale(-1);
+}
+
+.ew-prelude-page .prelude-root-card .prelude-card-sigil {
+  position: absolute;
+  z-index: 3;
+  display: block;
+  width: clamp(23px, 5vw, 31px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.ew-prelude-page .prelude-card-sigil.upper {
+  top: 17px;
+  left: 17px;
+}
+.ew-prelude-page .prelude-card-sigil.lower {
+  right: 17px;
+  bottom: 17px;
+  transform: rotate(180deg);
+}
+.ew-prelude-page .prelude-card-sigil::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+}
+.ew-prelude-page .prelude-card-sigil::after {
+  background: #d3d1b5;
+  clip-path: polygon(50% 2%, 60% 38%, 91% 21%, 67% 48%, 98% 59%, 64% 62%, 72% 90%, 50% 70%, 29% 98%, 33% 61%, 4% 52%, 36% 44%);
+}
+
+.ew-prelude-page .prelude-root-card .prelude-card-name {
+  position: absolute;
+  z-index: 3;
+  color: #ddd8c4;
+  writing-mode: vertical-rl;
+  font: 600 clamp(11px, 2.3vw, 14px)/1 Georgia, serif;
+  letter-spacing: .14em;
+  white-space: nowrap;
+  text-shadow: 0 1px 4px #061012, 0 0 6px #061012;
+  pointer-events: none;
+}
+.ew-prelude-page .prelude-card-name.upper {
+  top: 58px;
+  left: 20px;
+}
+.ew-prelude-page .prelude-card-name.lower {
+  right: 20px;
+  bottom: 58px;
+  transform: rotate(180deg);
+}
+
+.ew-prelude-page .prelude-artwork-callout {
+  max-width: 730px;
+  margin: 62px auto 26px;
+  padding-block: 20px;
+  border-block: 1px solid var(--book-rule);
+  text-align: center;
+}
+
+
+.ew-prelude-page .prelude-chapter-heading {
+  text-align: center;
+  margin: 0 auto 30px;
+}
+.ew-prelude-page .prelude-chapter-heading .eyebrow {
+  margin: 0 auto 16px;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+}
+
+.ew-prelude-page .ew-local-top-nav {
+  max-width: 991px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  line-height: 1.4;
+}
+.ew-prelude-page .site-header {
+  max-width: none;
+  padding: 12px 3vw;
+  z-index: 2;
+}
+.ew-prelude-page .site-header .brand {
+  display: flex;
+}
+.ew-prelude-page .site-header nav {
+  display: flex;
+  line-height: 1.4;
+}
+.ew-prelude-page .site-header nav :is(a, [aria-current="page"]) {
+  padding: 8px 0 18px;
+  border-bottom: 1px solid transparent;
+  color: #e0ded6;
+  font: 600 clamp(14px, 1.8vw, 16px)/1.4 Arial, sans-serif;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.ew-prelude-page .site-header nav [aria-current="page"] {
+  border-bottom-color: #b75156;
+}
+.ew-prelude-page .site-header .menu-toggle {
+  display: none;
+}
+.ew-prelude-page > main:has(.prelude-chapter-heading) {
+  padding-top: 0;
+}
+.ew-prelude-page .prelude-chapter-heading {
+  padding-top: 20px;
+}
+@media (max-width: 650px) {
+  .ew-prelude-page .site-header .menu-toggle {
+    display: block;
+    padding: 8px 12px;
+    border: 1px solid var(--book-rule);
+  }
+  .ew-prelude-page .site-header nav {
+    display: none;
+  }
+  .ew-prelude-page .site-header nav.open {
+    display: flex;
+    justify-content: center;
+    gap: 5px 16px;
+  }
+}
+
+html[data-book-layout="chapter"]:is([data-book-chapter="earth"], [data-book-chapter="living-world"]) body.ew-site-theme.ew-site-theme,
+html[data-book-layout="chapter"] body.ew-site-theme.ew-site-theme.ew-prelude-page {
+  background: linear-gradient(180deg, #071820 0% 15%, #102d39 48%, #164859 100%) fixed !important;
+}
+html[data-book-layout="chapter"]:is([data-book-chapter="earth"], [data-book-chapter="living-world"]) .site-header::before,
+html[data-book-layout="chapter"] .ew-prelude-page .site-header::before {
+  background-image: radial-gradient(ellipse 64% 68% at 50% 48%, var(--reading-header-halo, #24576525), transparent 92%) !important;
+}
+.ew-prelude-page .prelude-root-card {
+  box-shadow: 0 12px 28px #03090bc4, 0 3px 8px #050b0da6;
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-book-layout="chapter"]:is([data-book-chapter="earth"], [data-book-chapter="living-world"]) body.ew-site-theme.ew-site-theme,
+  html[data-book-layout="chapter"] body.ew-site-theme.ew-site-theme.ew-prelude-page {
+    background-attachment: scroll !important;
+  }
+}
+
+.ew-prelude-page {
+  --book-control:
+    radial-gradient(ellipse 86% 52% at 50% 4%, #b1e2ddae 0%, #7ac6c07a 53%, transparent 90%),
+    radial-gradient(ellipse 84% 43% at 50% 100%, #21888cb0 0%, transparent 83%),
+    linear-gradient(180deg, #558e91 0%, #286168 39%, #09303b 53%, #104b54 100%);
+}
+html body.ew-site-theme.ew-site-theme.ew-site-theme.ew-prelude-page :is(
+  .ew-info-links a, .ew-journey-chapters a, .ew-prelude-chapter-link, .menu-toggle
+) {
+  border-color: #6aa6a5 !important;
+  border-radius: 999px;
+  box-shadow: inset 0 1px 1px #e1ffffa6, inset 0 -3px 7px #041d29b3, 0 3px 7px #06121980 !important;
+}
+
+.ew-prelude-page .prelude-artwork-callout + .chapters {
+  margin-top: 26px;
+  border-top: 0;
+}
+
+html body.ew-site-theme.ew-site-theme.ew-site-theme.ew-prelude-page .ew-journey-chapters a.prelude-landing-button {
+  display: inline-flex;
+  width: max-content;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.ew-prelude-page .prelude-landing-button img {
+  display: block;
+  width: auto;
+  height: 31px;
+  max-width: 100%;
+}
+.ew-prelude-page .ew-info-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px 12px;
+  max-width: 730px;
+  margin-inline: auto;
+}
+.ew-prelude-page .ew-info-links li.ew-angels-button {
+  width: auto;
+  margin: 0;
+}
+.ew-prelude-page .ew-info-links li a,
+.ew-prelude-page .ew-info-links li.ew-angels-button a {
+  display: block;
+  width: auto;
+  min-width: 0;
+  min-height: 0;
+  height: auto;
+  padding: 5px 13px;
+  font: 600 13px/1.35 Arial, sans-serif;
+}
+
+.ew-prelude-page .ew-journey-chapters {
+  display: grid;
+  gap: 36px;
+  margin: 14px 0 38px;
+  padding-inline-start: 0;
+  list-style: none;
+  counter-reset: prelude-chapter;
+}
+.ew-prelude-page .ew-journey-chapters li {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 7px;
+  margin: 0;
+  counter-increment: prelude-chapter;
+}
+.ew-prelude-page .ew-journey-chapters li::before {
+  content: counter(prelude-chapter) "." / "";
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
+}
+.ew-prelude-page .ew-journey-chapters li > a {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: start;
+}
+.ew-prelude-page .ew-journey-chapters li > p {
+  grid-column: 2;
+  margin-top: 5px;
+}
+
+html[data-book-chapter="living-world"] .chapter-heading h1 {
+  font-size: clamp(27px, 9.4vw, 90px) !important;
+  white-space: nowrap;
+  transform: translateY(32px);
+}
+
+html[data-book-chapter="earth-spirit"] .reading .earth-spirit-form-callout {
+  margin: 36px auto;
+  border-block: 1px solid var(--book-rule);
+  text-align: center;
+  text-transform: none;
+  text-wrap: balance;
+}
