@@ -43,7 +43,10 @@ const files=[
   "static/fissure-division-beyond-frame.png",
   "static/fissure-header-clouds.png",
   "static/hands-rocked-the-earth-copy.png",
-  "static/landing-frames/Flat4-still-final.png",
+  "static/landing-refresh/landing.css",
+  "static/landing-refresh/earth-hero.webp",
+  "static/landing-refresh/earth-wakens-header.webp",
+  "static/landing-refresh/roots.webp",
   "static/nature-root-fingers-20261024.png",
   "static/nature-root-hand-base-20261024.jpeg",
   "static/poison-card-snake-midway.png",
@@ -74,5 +77,5 @@ for(const file of files){const destination=path.join(output,file);await mkdir(pa
 const htaccess=path.join(output,'.htaccess');
 await writeFile(htaccess,(await readFile(htaccess,'utf8'))+'\n<IfModule mod_headers.c>\n<FilesMatch "\\.(html|json)$">\nHeader set Cache-Control "no-cache, must-revalidate"\n</FilesMatch>\n</IfModule>\n');
 hashes['.htaccess']=createHash('sha256').update(await readFile(htaccess)).digest('hex');
-await writeFile(path.join(output,'version.json'),JSON.stringify({brand:'Earth Wakens',release:'earth-wakens-book-2026-11-16',files:hashes},null,2)+'\n');
+await writeFile(path.join(output,'version.json'),JSON.stringify({brand:'Earth Wakens',release:'earth-wakens-landing-refresh',files:hashes},null,2)+'\n');
 console.log('Built '+files.length+' files; '+(bytes/1000000).toFixed(2)+' MB, below IONOS quota.');

@@ -5,28 +5,109 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Earth Wakens</title>
 <link rel="icon" href="favicon.svg">
-<style>
-  html, body { margin: 0; background: #032d39; }
-  .scene { position: relative; width: min(100%, 603px); margin-inline: auto; }
-  .art { display: block; width: 100%; height: auto; }
-  .hands { position: absolute; inset: 53.33089312% 0 auto; width: 100%; pointer-events: none; }
-  .hit { position: absolute; display: block; background: transparent; border: 0; padding: 0; cursor: pointer; }
-  .hit:focus-visible { outline: 2px solid white; outline-offset: 2px; border-radius: 8px; }
-</style>
+<link rel="stylesheet" href="static/landing-refresh/landing.css?v=earthy-bottom-blend">
 </head>
 <body>
 <main class="scene" aria-label="Earth Wakens">
-  <img class="art" width="1206" height="2732" src="static/landing-frames/Flat4-still-final.png"
-       alt="Earth Wakens. What if Humanity wasn’t simply born upon the Earth, but was The Earth Spirit itself reaching towards consciousness.">
-  <nav aria-label="Story and card game">
-    <a class="hit" aria-label="Prelude" href="story-introduction.html" style="left:4.64344942%;top:45.82723280%;width:13.34991708%;height:1.86676428%;"></a>
-    <a class="hit" aria-label="Earth" href="story.html#earth" style="left:4.64344942%;top:50.10980966%;width:10.86235489%;height:1.90336750%;"></a>
-    <a class="hit" aria-label="Living World" href="story.html#living-world" style="left:4.64344942%;top:54.42898975%;width:18.32504146%;height:1.90336750%;"></a>
-    <a class="hit" aria-label="The Earth Spirit. The Emergence of The Earth Spirit, when it becomes aware of its own existence." href="story.html#earth-spirit" style="left:4.64344942%;top:58.78477306%;width:21.47595357%;height:1.90336750%;"></a>
-    <a class="hit" aria-label="Earth Wakens" href="story.html#earth-wakens" style="left:4.64344942%;top:63.10395315%;width:19.48590381%;height:1.90336750%;"></a>
-    <a class="hit" aria-label="The Fissure" href="story.html#fissure" style="left:4.64344942%;top:67.42313324%;width:16.58374793%;height:1.90336750%;"></a>
-    <a class="hit" aria-label="The Card Game" href="game.html" style="left:19.65174129%;top:83.01610542%;width:54.31177446%;height:12.88433382%;"></a>
-  </nav>
+  <header class="masthead">
+    <svg class="masthead-filters" width="0" height="0" aria-hidden="true">
+      <filter id="logo-shadow" x="0" y="0" width="1" height="1"
+              filterUnits="objectBoundingBox" primitiveUnits="objectBoundingBox"
+              color-interpolation-filters="sRGB">
+        <feColorMatrix in="SourceGraphic" type="matrix" result="letter-luminance"
+          x="0" y="0" width="1" height=".73"
+          values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  .299 .587 .114 0 0"/>
+        <feComponentTransfer in="letter-luminance" result="letter-mask">
+          <feFuncA type="linear" slope="4" intercept="-1.75"/>
+        </feComponentTransfer>
+        <feGaussianBlur in="letter-mask" stdDeviation=".004 .009" result="soft-mask"/>
+        <feOffset in="soft-mask" dx=".002" dy=".009" result="offset-mask"/>
+        <feComposite in="offset-mask" in2="letter-mask" operator="out" result="shadow-mask"/>
+        <feFlood flood-color="#001316" flood-opacity=".9" result="shadow-color"/>
+        <feComposite in="shadow-color" in2="shadow-mask" operator="in" result="shadow"/>
+        <feBlend in="SourceGraphic" in2="shadow" mode="multiply" result="shaded-header"/>
+        <feColorMatrix in="SourceGraphic" type="matrix" result="tagline-luminance"
+          x="0" y=".74" width="1" height=".23"
+          values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  .299 .587 .114 0 0"/>
+        <feComponentTransfer in="tagline-luminance" result="tagline-mask">
+          <feFuncA type="linear" slope="4.5" intercept="-1.95"/>
+        </feComponentTransfer>
+        <feFlood class="tagline-type" result="letter-color"/>
+        <feComposite in="letter-color" in2="tagline-mask" operator="in" result="tagline"/>
+        <feMerge>
+          <feMergeNode in="shaded-header"/>
+          <feMergeNode in="tagline"/>
+        </feMerge>
+      </filter>
+    </svg>
+    <img style="filter: url(#logo-shadow)" src="static/landing-refresh/earth-wakens-header.webp" width="1206" height="500"
+         alt="Earth Wakens. What if Humanity wasn’t simply born upon the Earth, but was The Earth Spirit itself reaching towards consciousness.">
+  </header>
+  <div class="composition">
+    <img class="art art-earth" src="static/landing-refresh/earth-hero.webp" width="1206" height="750"
+         alt="A luminous Earth above a band of clouds, with a tree trunk descending into spreading roots and hands.">
+    <img class="art art-roots" src="static/landing-refresh/roots.webp" width="1206" height="1522" alt="">
+    <img class="art art-roots art-hand-highlights" src="static/landing-refresh/roots.webp" width="1206" height="1522" alt="">
+    <nav class="chapters" aria-label="Story chapters">
+      <div class="chapter">
+        <a class="hit" aria-label="Prelude" href="story-introduction.html">
+          Prelude
+        </a>
+        <p>Read the Story and enjoy playing the card game EarthWakens.</p>
+      </div>
+      <div class="chapter">
+        <a class="hit" aria-label="Earth" href="story.html#earth">
+          Earth
+        </a>
+        <p>Existence is the Spiritual Realm. If something like a rock in space exists and is in the spiritual realm, it then has a spirit as all things do.</p>
+      </div>
+      <div class="chapter">
+        <a class="hit" aria-label="Living World" href="story.html#living-world">
+          Living World
+        </a>
+        <p>Life on earth began 4.28 Billion years ago.</p>
+      </div>
+      <div class="chapter">
+        <a class="hit" aria-label="The Earth Spirit" href="story.html#earth-spirit">
+          The Earth Spirit
+        </a>
+        <p>This Rock, This Living World, emerges as The Earth Spirit when it becomes aware of The Spiritual Realm and infinity.</p>
+      </div>
+      <div class="chapter">
+        <a class="hit" aria-label="Earth Wakens" href="story.html#earth-wakens">
+          Earth Wakens
+        </a>
+        <p>Cognizant and aware of the Spiritual Realm and infinity.</p>
+      </div>
+      <div class="chapter">
+        <a class="hit" aria-label="The Fissure" href="story.html#fissure">
+          The Fissure
+        </a>
+        <p>After breaking the bounds from<br>
+          the physical world, The Earth<br>
+          Spirit divides into separate<br>
+          genders to keep its connection<br>
+          in The Spiritual Realm.</p>
+      </div>
+    </nav>
+
+    <section class="game" aria-labelledby="game-heading">
+      <a class="game-link hit" href="game.html" aria-label="The Card Game">
+        <h1 id="game-heading">The Card Game</h1>
+        <p>The game Earth Wakens follows<br>
+          the story from the Earth as a lifeless<br>
+          rock to a living Metacognizant world.<br>
+          The Earth Spirit’s physical form and<br>
+          existence become one in<br>
+          The Spiritual Realm.</p>
+      </a>
+    </section>
+
+    <footer class="footer" id="site-footer">
+      <a href="mailto:EarthWakens@gmail.com">EarthWakens@gmail.com</a>
+      <span>© 2026 Earth Wakens. All Rights Reserved.</span>
+    </footer>
+  </div>
 </main>
 </body>
 </html>
