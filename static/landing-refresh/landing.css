@@ -88,10 +88,14 @@ html, body {
 }
 
 .chapters {
+  --original-row-gap: clamp(.7rem, 3cqw, 1.15rem);
+  --prelude-drop: 4cqw;
   display: grid;
-  gap: clamp(.7rem, 3cqw, 1.15rem);
+  gap: calc(.45 * var(--original-row-gap));
   margin-inline: var(--chapter-inset);
-  padding-block-start: 63cqw;
+  padding-block-start: calc(63cqw + var(--prelude-drop));
+  /* Keep the artwork and Card Game section in place as the five row gaps shrink. */
+  padding-block-end: calc(2.75 * var(--original-row-gap) - var(--prelude-drop));
 }
 
 .chapter {
