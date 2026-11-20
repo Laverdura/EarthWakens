@@ -184,7 +184,7 @@ html, body {
 
 .game {
   position: relative;
-  top: calc(1.3 * var(--game-copy-size) - 8pt);
+  top: calc(1.3 * var(--game-copy-size) - 18pt);
   margin: calc((clamp(1.6rem, 9.5cqw, 3.5rem) + 6.5 * var(--game-copy-size)) / 2 - var(--lower-block-lift)) auto 0;
   padding-inline: 20%;
   text-align: center;
@@ -215,16 +215,16 @@ html, body {
   display: grid;
   justify-items: start;
   gap: var(--footer-gap);
-  padding: calc(.75rem + 1lh) 1rem max(.35rem, calc(.35rem + var(--lower-block-lift) - 1lh));
+  padding: .75rem 1rem calc(.35rem + var(--lower-block-lift));
   margin-block-start: max(0px, calc(clamp(5.75rem, 18cqw, 7rem) - var(--art-bottom-trim)));
   --email-size: calc(clamp(.65rem, calc(2.4cqw - 2pt), .75rem) * 1.584);
   padding-inline-start: calc(var(--chapter-inset) - var(--button-nudge) - 1cqw + .6 * var(--email-size));
   color: #e2d9cf;
-  font: calc(var(--footer-copy-size) * .9)/1.35 system-ui, sans-serif;
+  font: calc(var(--footer-copy-size) * .765)/1.35 system-ui, sans-serif;
   text-align: left;
 }
 
 .footer a {
   color: inherit;
-  font-size: var(--email-size);
+  font-size: calc(var(--email-size) * .85);
 }
