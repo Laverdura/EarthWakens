@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Earth Wakens</title>
 <link rel="icon" href="favicon.svg">
-<link rel="stylesheet" href="static/landing-refresh/landing.css?v=closer-chapter-rows">
+<link rel="stylesheet" href="static/landing-refresh/landing.css?v=darker-soil-transition">
 </head>
 <body>
 <main class="scene" aria-label="Earth Wakens">
@@ -20,18 +20,27 @@
         <feComponentTransfer in="letter-luminance" result="letter-mask">
           <feFuncA type="linear" slope="4" intercept="-1.75"/>
         </feComponentTransfer>
-        <feGaussianBlur in="letter-mask" stdDeviation=".004 .009" result="soft-mask"/>
-        <feOffset in="soft-mask" dx=".002" dy=".009" result="offset-mask"/>
-        <feComposite in="offset-mask" in2="letter-mask" operator="out" result="shadow-mask"/>
-        <feFlood flood-color="#001316" flood-opacity=".9" result="shadow-color"/>
-        <feComposite in="shadow-color" in2="shadow-mask" operator="in" result="shadow"/>
-        <feBlend in="SourceGraphic" in2="shadow" mode="multiply" result="shaded-header"/>
         <feColorMatrix in="SourceGraphic" type="matrix" result="tagline-luminance"
           x="0" y=".74" width="1" height=".23"
           values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  .299 .587 .114 0 0"/>
         <feComponentTransfer in="tagline-luminance" result="tagline-mask">
           <feFuncA type="linear" slope="4.5" intercept="-1.95"/>
         </feComponentTransfer>
+        <feMerge result="header-lettering">
+          <feMergeNode in="letter-mask"/>
+          <feMergeNode in="tagline-mask"/>
+        </feMerge>
+        <feGaussianBlur in="header-lettering" stdDeviation=".004 .010" result="soft-mask"/>
+        <feOffset in="soft-mask" dx=".001" dy=".006" result="offset-mask"/>
+        <feGaussianBlur in="header-lettering" stdDeviation=".008 .019" result="glow-mask"/>
+        <feMerge result="combined-shadow">
+          <feMergeNode in="glow-mask"/>
+          <feMergeNode in="offset-mask"/>
+        </feMerge>
+        <feComposite in="combined-shadow" in2="header-lettering" operator="out" result="shadow-mask"/>
+        <feFlood flood-color="#050d12" flood-opacity=".92" result="shadow-color"/>
+        <feComposite in="shadow-color" in2="shadow-mask" operator="in" result="shadow"/>
+        <feBlend in="SourceGraphic" in2="shadow" mode="multiply" result="shaded-header"/>
         <feFlood class="tagline-type" result="letter-color"/>
         <feComposite in="letter-color" in2="tagline-mask" operator="in" result="tagline"/>
         <feMerge>

@@ -38,7 +38,7 @@ html, body {
   display: block;
   width: 100%;
   height: auto;
-  mask-image: linear-gradient(to bottom, black 90%, transparent);
+  mask-image: linear-gradient(to bottom, black 97%, transparent);
 }
 
 .composition {
@@ -78,6 +78,20 @@ html, body {
   content: "";
 }
 
+/* Blend the open teal below the clouds into the soil above the left hand. */
+.composition::after {
+  position: absolute;
+  inset: calc(var(--earth-art-height) - 4cqw) 0 0;
+  z-index: -1;
+  background: linear-gradient(to bottom,
+    transparent 0%, #37798a70 3%, #2d687a52 calc(24% + 3.04cqw),
+    #17232678 calc(42% + 2.32cqw), #211a15bf calc(52% + 1.92cqw),
+    transparent calc(66% + 1.36cqw));
+  mask-image: linear-gradient(to right, black 10%, #000b 32%, transparent 58%);
+  pointer-events: none;
+  content: "";
+}
+
 .art-hand-highlights {
   filter: brightness(1.50) contrast(1.04);
   mask-image:
@@ -112,6 +126,7 @@ html, body {
 
 .chapter p {
   font-size: calc(clamp(1rem, 3.45cqw, 1.26rem) - 2pt);
+  text-shadow: 0 0 3px #050d12e0, 0 1px 5px #050d12cc, 0 0 9px #050d1270;
 }
 
 .hit {
@@ -154,10 +169,6 @@ html, body {
 .chapter .hit[href="story.html#earth-spirit"] {
   width: 100%;
   padding-inline: .7cqw;
-}
-
-.chapter .hit[href="story.html#earth-spirit"] + p {
-  padding-inline-start: 1.5cqw;
 }
 
 .chapter .hit::before {
