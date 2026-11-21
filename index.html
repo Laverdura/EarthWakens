@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Earth Wakens</title>
 <link rel="icon" href="favicon.svg">
-<link rel="stylesheet" href="static/landing-refresh/landing.css?v=portfolio-lock-right">
+<link rel="stylesheet" href="static/landing-refresh/landing.css?v=softened-right-root">
 </head>
 <body>
 <main class="scene" aria-label="Earth Wakens">
@@ -43,8 +43,24 @@
         <feBlend in="SourceGraphic" in2="shadow" mode="multiply" result="shaded-header"/>
         <feFlood class="tagline-type" result="letter-color"/>
         <feComposite in="letter-color" in2="tagline-mask" operator="in" result="tagline"/>
+        <feOffset in="letter-mask" dx=".0025" dy=".009" result="logo-offset"/>
+        <feComposite in="logo-offset" in2="letter-mask" operator="out" result="logo-depth-mask"/>
+        <feFlood flood-color="#070c10" flood-opacity=".92" result="logo-depth-color"/>
+        <feComposite in="logo-depth-color" in2="logo-depth-mask" operator="in" result="logo-depth"/>
+        <feFlood flood-color="#111e24" flood-opacity=".78" result="logo-face-color"/>
+        <feComposite in="logo-face-color" in2="letter-mask" operator="in" result="logo-face"/>
+        <feOffset in="letter-mask" dx=".0015" dy=".004" result="logo-bevel-offset"/>
+        <feComposite in="letter-mask" in2="logo-bevel-offset" operator="out" result="logo-bevel-mask"/>
+        <feFlood flood-color="#77898a" flood-opacity=".45" result="logo-bevel-color"/>
+        <feComposite in="logo-bevel-color" in2="logo-bevel-mask" operator="in" result="logo-bevel"/>
+        <feOffset in="logo-face" dx=".0035" dy=".011" result="logo-backing"/>
+        <feComposite in="SourceGraphic" in2="letter-mask" operator="in" result="original-logo-face"/>
         <feMerge>
           <feMergeNode in="shaded-header"/>
+          <feMergeNode in="logo-depth"/>
+          <feMergeNode in="logo-backing"/>
+          <feMergeNode in="logo-bevel"/>
+          <feMergeNode in="original-logo-face"/>
           <feMergeNode in="tagline"/>
         </feMerge>
       </filter>
@@ -57,6 +73,7 @@
          alt="A luminous Earth above a band of clouds, with a tree trunk descending into spreading roots and hands.">
     <img class="art art-roots" src="static/landing-refresh/roots.webp" width="1206" height="1522" alt="">
     <img class="art art-roots art-hand-highlights" src="static/landing-refresh/roots.webp" width="1206" height="1522" alt="">
+    <div class="art art-roots art-limb-shadow" aria-hidden="true"></div>
     <nav class="chapters" aria-label="Story chapters">
       <div class="chapter">
         <a class="hit" aria-label="Prelude" href="story-introduction.html">
@@ -92,7 +109,7 @@
         <a class="hit" aria-label="The Fissure" href="story.html#fissure">
           The Fissure
         </a>
-        <p>The Earth Spirit divides into separate genders (man and woman) to preserve that union it had being a physical form and also one with The Spiritual Realm for future generations.</p>
+        <p>The Earth Spirit divides into separate identities (man and woman), able to reproduce and preserve the union it shared with The Spiritual Realm. The Earth Spirit sheds its physical form to become immortal. It has always been a living world, and through humanity it carries forward that connection to the spiritual realm.</p>
       </div>
     </nav>
 
@@ -110,12 +127,8 @@
         <span>© 2026 Earth Wakens. All Rights Reserved.</span>
       </div>
       <a class="portfolio-lock" href="portfolio.html" aria-label="Open the portfolio: Unlock scenes from Earth Wakens">
-        <svg viewBox="0 0 180 140" aria-hidden="true" focusable="false">
-          <path id="portfolio-lock-curve" d="M 14 40 Q 90 -10 166 40" fill="none"/>
-          <text><textPath href="#portfolio-lock-curve" startOffset="50%" text-anchor="middle">Open the portfolio</textPath></text>
-          <svg x="58" y="31" width="64" height="99" viewBox="115 120 237 366">
-            <image href="static/landing-refresh/portfolio-lock.png" width="475" height="641"/>
-          </svg>
+        <svg viewBox="115 120 237 366" aria-hidden="true" focusable="false">
+          <image href="static/landing-refresh/portfolio-lock.png" width="475" height="641"/>
         </svg>
         <span>Unlock scenes from Earth Wakens</span>
       </a>

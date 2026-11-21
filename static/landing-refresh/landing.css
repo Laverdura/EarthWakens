@@ -7,6 +7,7 @@ html, body {
 
 .scene {
   --game-copy-size: clamp(.8rem, 2.76cqw, 1.008rem);
+  --game-copy-line: calc(1.3 * var(--game-copy-size) + 2pt);
   --lower-block-lift: calc(2.6 * var(--game-copy-size));
   --chapter-inset: 6.5%;
   --button-nudge: 3cqw;
@@ -68,6 +69,14 @@ html, body {
   height: calc(100% - var(--earth-art-height));
 }
 
+/* Tuck the bright protrusion on the right into the surrounding root shadows. */
+.art-limb-shadow {
+  background:
+    radial-gradient(ellipse 5.5% 7% at 93.5% 59.5%, #0d0a08c9 22%, transparent 100%),
+    radial-gradient(ellipse 5% 6.8% at 97% 63.5%, #0d0a089e 16%, transparent 100%);
+  pointer-events: none;
+}
+
 .composition::before {
   position: absolute;
   inset: 0;
@@ -105,20 +114,21 @@ html, body {
 
 .chapters {
   --original-row-gap: clamp(.7rem, 3cqw, 1.15rem);
+  --chapter-copy-size: calc(clamp(1rem, 3.45cqw, 1.26rem) - 2pt);
+  --chapter-copy-line: calc(1.2 * var(--chapter-copy-size) + 2pt);
   --prelude-drop: 4cqw;
   display: grid;
-  gap: calc(.45 * var(--original-row-gap));
+  gap: var(--original-row-gap);
   margin-inline: var(--chapter-inset);
   padding-block-start: calc(63cqw + var(--prelude-drop));
-  /* Keep the artwork and Card Game section in place as the five row gaps shrink. */
-  padding-block-end: calc(2.75 * var(--original-row-gap) - var(--prelude-drop));
+  padding-block-end: clamp(1.25rem, 4cqw, 1.75rem);
 }
 
 .chapter {
   display: grid;
   grid-template-columns: 31cqw minmax(0, 1fr);
   column-gap: 3cqw;
-  align-items: center;
+  align-items: start;
   min-height: 9.5cqw;
 }
 
@@ -127,7 +137,8 @@ html, body {
 }
 
 .chapter p {
-  font-size: calc(clamp(1rem, 3.45cqw, 1.26rem) - 2pt);
+  font-size: var(--chapter-copy-size);
+  line-height: var(--chapter-copy-line);
   text-shadow: 0 0 3px #050d12e0, 0 1px 5px #050d12cc, 0 0 9px #050d1270;
 }
 
@@ -150,7 +161,8 @@ html, body {
   place-items: center;
   box-sizing: border-box;
   justify-self: center;
-  transform: translateX(calc(-1 * var(--button-nudge)));
+  transform: translateX(calc(-1 * var(--button-nudge))) scale(1.1);
+  transform-origin: center top;
   width: max-content;
   max-width: 100%;
   min-height: 4.5198cqw;
@@ -160,14 +172,14 @@ html, body {
 
 .game {
   position: relative;
-  top: calc(1.3 * var(--game-copy-size) - 18pt);
+  top: calc(2.6 * var(--game-copy-size) - 18pt - 2 * var(--game-copy-line));
   margin: calc((clamp(1.6rem, 9.5cqw, 3.5rem) + 6.5 * var(--game-copy-size)) / 2 - var(--lower-block-lift)) auto 0;
   padding-inline: 20%;
   text-align: center;
 }
 
 .game-link {
-  transform: translateX(-2ch);
+  transform: translateX(calc(-2ch + 5cqw - 1.5 * var(--game-copy-size)));
   color: inherit;
   text-decoration: none;
 }
@@ -184,7 +196,7 @@ html, body {
   text-align: left;
   transform: translateX(1ch);
   font-size: var(--game-copy-size);
-  line-height: 1.3;
+  line-height: var(--game-copy-line);
 }
 
 .footer {
@@ -197,11 +209,12 @@ html, body {
   --email-size: calc(clamp(.65rem, calc(2.4cqw - 2pt), .75rem) * 1.584);
   padding-inline-start: calc(var(--chapter-inset) - var(--button-nudge) - 1cqw + .6 * var(--email-size));
   color: #e2d9cf;
-  font: calc(var(--footer-copy-size) * .765)/1.35 system-ui, sans-serif;
+  font: calc(var(--footer-copy-size) * .95625)/1.35 system-ui, sans-serif;
   text-align: left;
 }
 
 .footer-copy {
+  transform: translateY(-1lh);
   display: grid;
   justify-items: start;
   gap: var(--footer-gap);
@@ -209,11 +222,13 @@ html, body {
 
 .footer-copy a {
   color: inherit;
-  font-size: calc(var(--email-size) * .85);
+  font-weight: 700;
+  font-size: calc(var(--email-size) * 1.0625);
 }
 
 .portfolio-lock {
   width: clamp(66px, 17cqw, 108px);
+  transform: translate(8px, 5px);
   color: #f1ebe2;
   font: 600 .62rem/1.15 Georgia, serif;
   text-align: center;
@@ -222,14 +237,11 @@ html, body {
 
 .portfolio-lock > svg {
   display: block;
-  width: 100%;
-  overflow: visible;
-  filter: drop-shadow(0 2px 3px #071013);
-}
-
-.portfolio-lock text {
-  fill: currentColor;
-  font-size: 17px;
+  width: 38%;
+  height: auto;
+  margin: 0 auto .18rem;
+  transform: translateY(-3px);
+  filter: brightness(1.55) contrast(1.06) drop-shadow(0 0 6px #f3c57188) drop-shadow(0 2px 3px #071013);
 }
 
 .portfolio-lock:hover {
