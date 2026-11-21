@@ -32,6 +32,8 @@ const files=[
   "spread-hand-motion.js",
   "static/GermaniaOne-Regular.ttf",
   "static/card-preview-gallery.css",
+  "static/cards/conscious-earth-roots.webp",
+  "static/cards/waken-ant-face.webp",
   "static/chapter-pill.css",
   "static/earth-spirit-natural-root.jpg",
   "static/earth-spirit-root-selected.jpg",

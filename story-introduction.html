@@ -31,11 +31,43 @@ html body.ew-prelude-page{position:relative;isolation:isolate;background:#071c32
 .prelude-title span{display:block}
 .ew-prelude-page .prelude-title-image{width:min(43vw,360px);margin:10px auto 13px;line-height:0}
 .ew-prelude-page .prelude-title-image img{display:block;width:100%;height:auto;margin:0 auto;filter:drop-shadow(0 14px 24px #0009)}
-.ew-prelude-page .prelude-card-pair { width: min(680px, 100%); margin: 10px auto 13px; }
-.ew-prelude-page .prelude-card-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; gap: clamp(8px, 2.5vw, 20px); }
-.ew-prelude-page .prelude-card-row .prelude-title-image { box-sizing: border-box; width: 100%; margin: 0; padding: clamp(4px, 1.4vw, 10px); }
-.ew-prelude-page .prelude-card-row img { display: block; width: 100%; height: auto; margin: 0; }
-.ew-prelude-page .prelude-card-pair figcaption { margin: .8rem 0 0; color: #d3d7df; font-size: .875rem; text-align: center; }
+.ew-prelude-page .prelude-card-pair { width: min(680px, 100%); margin: 10px auto 6.5px; }
+.ew-prelude-page .prelude-card-row {
+  display: grid;
+  --prelude-card-gap: clamp(6px, 2vw, 22px);
+  grid-template-columns: repeat(3, calc((100% - 2 * var(--prelude-card-gap)) * .3));
+  justify-content: center;
+  align-items: start;
+  gap: calc(2 * (var(--prelude-card-gap) + clamp(4px, 1vw, 8px)));
+}
+.ew-prelude-page .prelude-card-row .prelude-title-image { box-sizing: border-box; width: 100%; aspect-ratio: 2 / 3; margin: 0; padding: 0; overflow: hidden; }
+.ew-prelude-page .prelude-card-row img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; margin: 0; }
+.ew-prelude-page .prelude-card-row .conscious-earth-card { background: #070a0b; }
+.ew-prelude-page .waken-card .prelude-card-sigil::after {
+  clip-path: none;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle closest-side at 42% 39%, #d3d1b5 0 25%, transparent 29%),
+    radial-gradient(circle, transparent 44%, #d3d1b5 46% 53%, transparent 55%);
+}
+.ew-prelude-page .conscious-earth-card .prelude-card-sigil::after { content: none; }
+.ew-prelude-page .conscious-earth-card .prelude-card-sigil svg {
+  display: block;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  margin: 3px;
+  transform: rotate(-45deg);
+}
+
+.ew-prelude-page .prelude-card-row .prelude-card-name { font-size: clamp(6px, 1.42vw, 12px); letter-spacing: .1em; }
+.ew-prelude-page .prelude-card-row .prelude-card-name.upper { top: 19%; left: 4.5%; }
+.ew-prelude-page .prelude-card-row .prelude-card-name.lower { bottom: 19%; right: 4.5%; }
+.ew-prelude-page .prelude-artwork-callout .fissure-artwork-line > span { white-space: nowrap; text-align: center; font-size: calc(min(1.2em, 3.3vw) - 2pt); letter-spacing: .072em; }
+html body.ew-site-theme.ew-prelude-page .prelude-card-pair figcaption { margin: .8rem 0 0; color: var(--book-silver) !important; font-size: 1.05rem; text-align: center; }
+.ew-prelude-page .prelude-card-pair + .prelude-artwork-callout { margin-block: calc(31px + .175rem) calc(13px + .175rem); padding-block: calc(10px + .175rem); }
+.ew-prelude-page .prelude-card-pair + .prelude-artwork-callout + .chapters { margin-block-start: 13px; padding-block-start: 0; }
+.ew-prelude-page .prelude-card-pair + .prelude-artwork-callout + .chapters > h3 { margin-block-start: 0; }
+
 
 .ew-prelude-page .tagline{margin:18px auto 26px;text-align:center;font:italic 600 clamp(25px,4.1vw,40px)/1.25 Georgia,serif;color:#f0e6d3;text-shadow:0 2px 16px #9a463566;max-width:850px}
 html body.ew-prelude-page .ew-journey-chapters a,html body.ew-prelude-page .ew-info-links a,html body.ew-prelude-page .page-back,html body.ew-prelude-page .ew-prelude-chapter-link{background:linear-gradient(180deg,#274c6b 0%,#173653 48%,#0d2944 52%,#1a3d5b 100%)!important;border:1px solid #7190a7!important;box-shadow:inset 0 1px 2px #ffffff38,0 4px 12px #020b1570!important;color:#eef4f6!important;text-shadow:0 1px 2px #06111d!important}
@@ -47,7 +79,69 @@ html body.ew-prelude-page .ew-journey-chapters a:hover,html body.ew-prelude-page
 .ew-prelude-page .tagline{font-size:clamp(30px,4.6vw,46px);line-height:1.2;margin:20px auto 18px}
 .ew-prelude-page .prelude-start{display:inline-block;min-width:min(100%,280px);font:600 clamp(16px,2vw,20px)/1.3 Georgia,serif}
 @media(max-width:600px){.ew-prelude-page .prelude-title-image{width:min(82vw,330px);margin:9px auto 11px}.ew-prelude-page .tagline{font-size:clamp(27px,7vw,34px);margin:15px auto}.prelude-start-wrap{margin:12px auto 22px}}
-</style><link rel="stylesheet" href="static/earth-wakens-chapter-theme.css"><link rel="stylesheet" href="static/site-wide-theme.css?v=prelude-darker-top"></head><body class="ew-site-theme ew-prelude-page"><nav class="ew-local-top-nav" aria-label="Home"><a href="index.html">Home</a></nav>
+</style><link rel="stylesheet" href="static/earth-wakens-chapter-theme.css"><link rel="stylesheet" href="static/site-wide-theme.css?v=prelude-darker-top"><link rel="stylesheet" href="static/chapter-pill.css?v=4">
+<style>
+html[data-book-layout="chapter"] body.ew-site-theme.ew-site-theme.ew-site-theme.ew-prelude-page {
+  background: linear-gradient(180deg, #102b36 0% 15%, #19404e 48%, #21596a 100%) fixed !important;
+}
+html[data-book-layout="chapter"] body.ew-site-theme.ew-site-theme.ew-site-theme.ew-prelude-page :is(.prelude-landing-button, .ew-info-links a, .ew-prelude-chapter-link, .menu-toggle) {
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 27.9px;
+  padding: 3px 16px;
+  border: 0;
+  font: 700 .8rem/1.1 Arial, sans-serif;
+}
+html[data-book-layout="chapter"] body.ew-site-theme.ew-site-theme.ew-site-theme.ew-prelude-page :is(.ew-journey-chapters a, .ew-info-links a, .ew-prelude-chapter-link, .menu-toggle, .ew-local-top-nav a, .page-back) {
+  border: 0 !important;
+  outline: 0;
+  background: var(--chapter-pill-fill) !important;
+  box-shadow: 0 1px 3px #03181a80 !important;
+}
+html[data-book-layout="chapter"] body.ew-site-theme.ew-site-theme.ew-site-theme.ew-prelude-page :is(.ew-journey-chapters a, .ew-info-links a, .ew-prelude-chapter-link, .menu-toggle, .ew-local-top-nav a, .page-back)::before {
+  background: var(--chapter-pill-shine);
+  box-shadow: none;
+}
+html[data-book-layout="chapter"] body.ew-site-theme.ew-site-theme.ew-site-theme.ew-prelude-page :is(.ew-journey-chapters a, .ew-info-links a, .ew-prelude-chapter-link, .menu-toggle, .ew-local-top-nav a, .page-back):focus-visible {
+  outline: 2px solid #dfc38b;
+  outline-offset: 3px;
+}
+.ew-prelude-page nav[aria-label="Explore the story and game"] .ew-info-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem clamp(.55rem, 2vw, 1.25rem);
+  margin-block: 1.3rem;
+}
+.ew-prelude-page nav[aria-label="Explore the story and game"] .ew-info-links li {
+  grid-column: auto;
+  width: 100%;
+  margin: 0;
+}
+.ew-prelude-page nav[aria-label="Explore the story and game"] .ew-info-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 2.35rem;
+  padding: .38rem .65rem;
+  font: 700 clamp(.72rem, 1.65vw, .9rem)/1.2 Arial, sans-serif;
+}
+@media (max-width: 560px) {
+  .ew-prelude-page nav[aria-label="Explore the story and game"] .ew-info-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: .7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-book-layout="chapter"] body.ew-site-theme.ew-site-theme.ew-site-theme.ew-prelude-page {
+    background-attachment: scroll !important;
+  }
+}
+</style>
+</head><body class="ew-site-theme ew-prelude-page"><nav class="ew-local-top-nav" aria-label="Home"><a href="index.html">Home</a></nav>
 <header class="site-header">
   <a class="brand" href="index.html" aria-label="Earth Wakens home"><img src="static/earth-wakens-silver-wordmark.png" alt="Earth Wakens" width="505" height="168"></a>
   <button class="menu-toggle" type="button" aria-controls="prelude-chapters" aria-expanded="false">Chapters <span aria-hidden="true">☰</span></button>
@@ -71,18 +165,37 @@ html body.ew-prelude-page .ew-journey-chapters a:hover,html body.ew-prelude-page
 <div class="chapter-heading prelude-chapter-heading"><p class="eyebrow">Earth Wakens · The Prelude</p><h1>Prelude</h1></div><figure class="prelude-card-pair">
   <div class="prelude-card-row">
     <span class="prelude-title-image prelude-root-card"><img src="static/prelude-root-card.png" width="1024" height="1536" alt="The Realm. Twisted roots curl into a ring, with fine branches reaching out around it"><span class="prelude-card-corner top-left" aria-hidden="true"></span><span class="prelude-card-corner top-right" aria-hidden="true"></span><span class="prelude-card-corner bottom-left" aria-hidden="true"></span><span class="prelude-card-corner bottom-right" aria-hidden="true"></span><span class="prelude-card-sigil upper" aria-hidden="true"></span><span class="prelude-card-sigil lower" aria-hidden="true"></span><span class="prelude-card-name upper" aria-hidden="true">The Realm</span><span class="prelude-card-name lower" aria-hidden="true">The Realm</span></span>
-    <span class="prelude-title-image prelude-root-card">
-      <img src="static/wakened-card-preview.svg" width="750" height="1125" alt="Waken card. An ant-formed face with Earth Wakens logos in opposite corners.">
+    <span class="prelude-title-image prelude-root-card waken-card">
+      <img src="static/cards/waken-ant-face.webp" width="750" height="1125" alt="Earth Wakens card. A face formed from ants.">
+      <span class="prelude-card-corner top-left" aria-hidden="true"></span>
+      <span class="prelude-card-corner top-right" aria-hidden="true"></span>
+      <span class="prelude-card-corner bottom-left" aria-hidden="true"></span>
+      <span class="prelude-card-corner bottom-right" aria-hidden="true"></span>
+      <span class="prelude-card-sigil upper" aria-hidden="true"></span>
+      <span class="prelude-card-sigil lower" aria-hidden="true"></span>
+      <span class="prelude-card-name upper" aria-hidden="true">Earth Wakens</span>
+      <span class="prelude-card-name lower" aria-hidden="true">Earth Wakens</span>
+    </span>
+    <span class="prelude-title-image prelude-root-card conscious-earth-card">
+      <img src="static/cards/conscious-earth-roots.webp" width="960" height="1334" alt="Conscious Earth card. A blue brain formed from branching roots.">
+      <span class="prelude-card-corner top-left" aria-hidden="true"></span>
+      <span class="prelude-card-corner top-right" aria-hidden="true"></span>
+      <span class="prelude-card-corner bottom-left" aria-hidden="true"></span>
+      <span class="prelude-card-corner bottom-right" aria-hidden="true"></span>
+      <span class="prelude-card-sigil upper" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><polygon points="21.5,8.5 21,20 3,16" fill="none" stroke="#d3d1b5" stroke-width="2" stroke-linejoin="round"/></svg></span>
+      <span class="prelude-card-sigil lower" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><polygon points="21.5,8.5 21,20 3,16" fill="none" stroke="#d3d1b5" stroke-width="2" stroke-linejoin="round"/></svg></span>
+      <span class="prelude-card-name upper" aria-hidden="true">Conscious Earth</span>
+      <span class="prelude-card-name lower" aria-hidden="true">Conscious Earth</span>
     </span>
   </div>
   <figcaption>Cards to the Earth Wakens game</figcaption>
 </figure>
-<blockquote class="prelude-artwork-callout"><span class="fissure-artwork-line"><span style="white-space: nowrap; font-size: min(1em, 3.1vw)">Twigs become hands — Limbs become bones</span></span></blockquote><section class="chapters" id="chapters"><h3>Read the story</h3><section class="ew-read-chapters"><h3>Begin with the five chapters</h3><p>Follow the story in order. These links open the chapters.</p><nav aria-label="Read the story in chapter order"><ol class="ew-journey-chapters" role="list"><li><a class="prelude-landing-button" href="story.html#earth"><img src="static/prelude-buttons/earth.png" alt="Earth" width="131" height="52"></a><p>Earth before any life. From a lifeless rock to The Living World.</p></li><li><a class="prelude-landing-button" href="story.html#living-world"><img src="static/prelude-buttons/living-world.png" alt="The Living World" width="221" height="52"></a><p>The essence of life. Growing, evolving, giving birth to, then dying and decaying and returning to the earth.</p></li><li><a class="prelude-landing-button" href="story.html#earth-spirit"><img src="static/prelude-buttons/earth-spirit.png" alt="The Earth Spirit" width="259" height="52"></a><p>A lifeless Earth, which became a Living World which had waited over billions of years to waken.</p></li><li><a class="prelude-landing-button" href="story.html#earth-wakens"><img src="static/prelude-buttons/earth-wakens.png" alt="Earth Wakens" width="235" height="52"></a><p>The Earth wakens realizing its imprisoned spirit is trapped in physical form. Wanting to attain The Spiritual Realm.</p></li><li><a class="prelude-landing-button" href="story.html#fissure"><img src="static/prelude-buttons/fissure.png" alt="The Fissure" width="200" height="52"></a><p>The longing to preserve that union of spiritual and physical forever.</p></li></ol></nav></section></section><nav aria-label="Explore the story and game"><ul class="ew-info-links"><li><a href="story-introduction.html#chapters">Read the chapters</a></li><li><a href="game-spirit.html">Spirit Realm cards</a></li><li><a href="game-earth-spirit.html">Earth Spirit cards</a></li><li><a href="game-stop.html">Stop cards</a></li><li><a href="game.html#collectible-cards">Collectible cards</a></li><li class="ew-angels-button"><a href="angels.html">Angels — The Spiritual Realm</a></li></ul></nav>
+<blockquote class="prelude-artwork-callout"><span class="fissure-artwork-line"><span>Twigs and roots become hands — Limbs become bones</span></span></blockquote><section class="chapters" id="chapters"><h3>Read the story</h3><section class="ew-read-chapters"><h3>Begin with the five chapters</h3><p>Follow the story in order. These links open the chapters.</p><nav aria-label="Read the story in chapter order"><ol class="ew-journey-chapters" role="list"><li><a class="prelude-landing-button" href="story.html#earth">Earth</a><p>Earth before any life. From a lifeless rock to The Living World.</p></li><li><a class="prelude-landing-button" href="story.html#living-world">The Living World</a><p>The essence of life. Growing, evolving, giving birth to, then dying and decaying and returning to the earth.</p></li><li><a class="prelude-landing-button" href="story.html#earth-spirit">The Earth Spirit</a><p>A lifeless Earth, which became a Living World which had waited over billions of years to waken.</p></li><li><a class="prelude-landing-button" href="story.html#earth-wakens">Earth Wakens</a><p>The Earth wakens realizing its imprisoned spirit is trapped in physical form. Wanting to attain The Spiritual Realm.</p></li><li><a class="prelude-landing-button" href="story.html#fissure">The Fissure</a><p>The longing to preserve that union of spiritual and physical forever.</p></li></ol></nav></section></section><nav aria-label="Explore the story and game"><ul class="ew-info-links"><li><a href="story-introduction.html#chapters">Read the chapters</a></li><li><a href="game-spirit.html">Spirit Realm cards</a></li><li><a href="game-earth-spirit.html">Earth Spirit cards</a></li><li><a href="game-stop.html">Stop cards</a></li><li><a href="game.html#collectible-cards">Collectible cards</a></li><li class="ew-angels-button"><a href="angels.html">Angels — The Spiritual Realm</a></li></ul></nav>
 <div class="ew-prelude-short"><p>The Spiritual Realm is Existence itself—everything that exists, from a lifeless rock to a living being. If it exists, it has a spirit with no location or spatial dimension.</p>
 <p>Imagine roots gathering into a body, with bark for skin, moss for tissue, and vine-like fingers reaching through the soil. This is The Earth Spirit: a genderless being emerging from The Living World and becoming aware of its connection to Existence.</p>
 <p>It experiences union with The Spiritual Realm while remaining alive. Yet its physical form cannot last forever. Its longing to preserve that union leads toward the Fissure.</p>
 <p>Bring your own beliefs, questions, and imagination. Whether you understand existence through G‑d, nature, or another connection, Earth Wakens invites you to explore what it means to you.</p></div><details class="ew-full-prelude"><summary>Continue reading the Prelude</summary><p>Within this story, The Spiritual Realm is Existence itself—boundless, infinite, and without a physical form. Everything that exists already belongs to it. Spirit does not depend on life.</p>
-<p>The Earth Spirit is our main character. Long before life appeared, it already existed as rock. It did not need to recognize or name its existence to belong to The Spiritual Realm. Over billions of years, Earth became a Living World. The story follows that world toward awareness of what it has always been part of.</p>
+<p>The Earth Spirit is our main character. Long before life appeared, it already existed as a rock in the universe. It did not need to recognize or name its existence because it already belonged to the spiritual realm. Over billions of years this rock we call Earth became a living world. The story follows that world toward awareness of what it has always been part of.</p>
 <p><a class="ew-prelude-chapter-link" href="story.html#earth">Begin with Earth · Chapter 1 →</a></p>
 <p>Imagine your fingers reaching through the soil with vine-like fingertips, your arms with bark for skin and moss for tissue. The Earth Spirit emerges from its earthly prison as a spiritual being and a species like no other living creature on the planet. Try to have a personal experience of your own connecting to The Spiritual Realm as The Earth Spirit.</p>
 <p>Explore the spiritual side of yourself and connect to existence through nature and other ways you might understand The Living World. You may find a connection through a belief in G‑d, through the Earth itself, or through both. Earth Wakens leaves room for your own interpretation.</p>
@@ -131,5 +244,5 @@ html body.ew-prelude-page .ew-journey-chapters a:hover,html body.ew-prelude-page
 <p>Earth Wakens is also a card game of imagination and self-discovery. The Earth Spirit, The Living World, and The Spiritual Realm are parts of the world you enter through it. The invitation is to consider what gives your own existence meaning and explore your sense of spiritual self.</p>
 <p>Bring your own beliefs, questions, and imagination. As you move through the story and its illustrations, picture yourself as that being of roots, bark, and moss—alive within the earth, reaching toward the infinite.</p></section>
 </details><h3 id="reading-picture">Reading the pictures</h3>
-<p>The illustration invites you to imagine yourself as The Earth Spirit. No single image can contain Existence itself. The Spiritual Realm is conveyed through The Earth Spirit’s experience of connection, completeness, and the longing to preserve that experience while remaining alive.</p>
-<p><strong>Read the story before you play—that is the first rule of the game.</strong></p><p class="ew-prelude-source">References behind the imagery: <a href="https://science.nasa.gov/earth/earth-observatory/saving-a-forest-of-one-151022/" target="_blank" rel="noopener noreferrer">Pando</a> · <a href="https://reformjudaism.org/beliefs-practices/lifecycle-rituals/death-mourning/preparing-jewish-funeral-guide" target="_blank" rel="noopener noreferrer">the mourning custom of tearing</a> · <a href="https://ramakrishna.org/theultimatereality.html" target="_blank" rel="noopener noreferrer">Brahman and existence</a> · <a href="https://plato.stanford.edu/archives/fall2025/entries/spinoza/" target="_blank" rel="noopener noreferrer">Spinoza, G‑d, and Nature</a> · <a href="https://humanorigins.si.edu/evidence/genetics" target="_blank" rel="noopener noreferrer">common ancestry</a> · <a href="https://www.nhm.ac.uk/discover/convergent-evolution.html" target="_blank" rel="noopener noreferrer">convergent evolution</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5031655/" target="_blank" rel="noopener noreferrer">parthenogenesis and automixis</a>. The Earth Spirit’s body, its wakening, and the Fissure belong to the mythology of Earth Wakens. The comparisons offer imagery for the story.</p><p><a href="index.html">← Back to Earth Wakens</a></p><section class="ew-landing-intro"><h2>Earth Wakens · The Card Game — coming soon</h2><p>Read the prelude before playing the game.</p><p>Card previews, game details, and ordering information will be added here as the game develops.</p><p>For more information: <a href="mailto:earthwakens@gmail.com">earthwakens@gmail.com</a></p><p>© 2026 Larry Holtzman · Earth Wakens is original and protected by copyright.</p></section></main><footer>© 2026 Larry Holtzman · Earth Wakens</footer></body></html>
+<p>The illustrations invite you to imagine yourself as a Earth Spirit. No single image can appear to illustrate existence itself. The Spiritual Realm is conveyed through The Earth Spirit’s experience of connection, completeness, and allowing to preserve the experience while remaining in its physical alive form.</p>
+<p><strong>Read the story before you play—that is the first rule of the game.</strong></p><p class="ew-prelude-source">References behind the imagery: <a href="https://science.nasa.gov/earth/earth-observatory/saving-a-forest-of-one-151022/" target="_blank" rel="noopener noreferrer">Pando</a> · <a href="https://reformjudaism.org/beliefs-practices/lifecycle-rituals/death-mourning/preparing-jewish-funeral-guide" target="_blank" rel="noopener noreferrer">the mourning custom of tearing</a> · <a href="https://ramakrishna.org/theultimatereality.html" target="_blank" rel="noopener noreferrer">Brahman and existence</a> · <a href="https://plato.stanford.edu/archives/fall2025/entries/spinoza/" target="_blank" rel="noopener noreferrer">Spinoza, G‑d, and Nature</a> · <a href="https://humanorigins.si.edu/evidence/genetics" target="_blank" rel="noopener noreferrer">common ancestry</a> · <a href="https://www.nhm.ac.uk/discover/convergent-evolution.html" target="_blank" rel="noopener noreferrer">convergent evolution</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5031655/" target="_blank" rel="noopener noreferrer">parthenogenesis and automixis</a>. The Earth Spirit’s body, its wakening, and the Fissure belong to the mythology of Earth Wakens. The comparisons offer imagery for the story.</p><p><a href="index.html">← Back to Earth Wakens</a></p><section class="ew-landing-intro"><h2>Earth Wakens · The Card Game — coming soon</h2><p>Read the story of the Earth Spirit before playing the game.</p><p>Card previews, game details, and ordering information will be added here as the game develops.</p><p>For more information: <a href="mailto:earthwakens@gmail.com">earthwakens@gmail.com</a></p></section></main><footer><span style="color: #e7e6e2; font-size: 2em">© 2026 Larry Holtzman · Earth Wakens</span></footer></body></html>
