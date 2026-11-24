@@ -5,7 +5,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Earth Wakens</title>
 <link rel="icon" href="favicon.svg">
-<link rel="stylesheet" href="static/landing-refresh/landing.css?v=softened-right-root">
+<link rel="stylesheet" href="static/landing-refresh/landing.css?v=approved-background">
+<style>
+.scene {
+  position: relative;
+  isolation: isolate;
+  background: #083540;
+}
+.scene::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: -1;
+  aspect-ratio: 1206 / 3546;
+  background: url("static/landing-refresh/earth-wakens-background.jpg") center top / 100% auto no-repeat;
+  pointer-events: none;
+}
+.composition::before, .composition::after { content: none; }
+.chapters, .game {
+  translate: 0 var(--copy-block-drop, 0px);
+}
+.chapters {
+  translate: 0 calc(var(--copy-block-drop, 0px) - .5 * var(--chapter-copy-line));
+  row-gap: calc(var(--fitted-row-gap, var(--original-row-gap)) + var(--extra-row-gap) + var(--even-gap-adjustment, 0px) + .25 * var(--chapter-copy-line) + var(--chapter-gap-increase, 0px) - var(--chapter-gap-cut, 0px));
+}
+.game {
+  margin-block-start: calc(var(--game-start-gap) - 5 * var(--extra-row-gap) + var(--game-gap-adjustment, 0px));
+}
+.game-link {
+  font-size: var(--game-copy-size);
+  translate: 6ch 0;
+}
+.footer {
+  margin-block-start: calc(max(0px, clamp(5.75rem, 18cqw, 7rem) - var(--art-bottom-trim)) - 5 * var(--chapter-gap-increase, 0px) - var(--game-gap-adjustment, 0px) + 5 * var(--chapter-gap-cut, 0px));
+}
+.footer-copy {
+  align-self: end;
+  transform: translateY(5px);
+}
+.chapter .hit {
+  translate: none;
+  transform: translateX(calc(-1 * var(--button-nudge)));
+  padding-inline: max(0px, calc(3.5cqw - 1ch));
+}
+.chapter .hit[href="story.html#earth-spirit"] {
+  translate: 0 calc(var(--chapter-copy-line) + 7pt + var(--earth-spirit-hand-offset, 0px));
+}
+.chapters > .chapter:nth-child(-n+3) {
+  translate: 0 calc(-.5 * var(--chapter-copy-line));
+}
+</style>
 </head>
 <body>
 <main class="scene" aria-label="Earth Wakens">
@@ -65,39 +114,34 @@
         </feMerge>
       </filter>
     </svg>
-    <img style="filter: url(#logo-shadow)" src="static/landing-refresh/earth-wakens-header.webp" width="1206" height="500"
+    <img style="filter: url(#logo-shadow)" src="static/landing-refresh/masthead-blended.png" width="1206" height="500"
          alt="Earth Wakens. What if Humanity wasn’t simply born upon the Earth, but was The Earth Spirit itself reaching towards consciousness.">
   </header>
   <div class="composition">
-    <img class="art art-earth" src="static/landing-refresh/earth-hero.webp" width="1206" height="750"
-         alt="A luminous Earth above a band of clouds, with a tree trunk descending into spreading roots and hands.">
-    <img class="art art-roots" src="static/landing-refresh/roots.webp" width="1206" height="1522" alt="">
-    <img class="art art-roots art-hand-highlights" src="static/landing-refresh/roots.webp" width="1206" height="1522" alt="">
-    <div class="art art-roots art-limb-shadow" aria-hidden="true"></div>
     <nav class="chapters" aria-label="Story chapters">
       <div class="chapter">
         <a class="hit" aria-label="Prelude" href="story-introduction.html">
           Prelude
         </a>
-        <p>Read the Story and enjoy playing the card game EarthWakens.</p>
+        <p>Read the Story and enjoy playing the card game Earth Wakens.</p>
       </div>
       <div class="chapter">
         <a class="hit" aria-label="Earth" href="story.html#earth">
           Earth
         </a>
-        <p>The Spiritual Realm and Existence are the same. Anything that exists, such as a rock, has a spirit and is part of The Spiritual Realm.</p>
+        <p class="description-with-baseline">In the story Earth Wakens, The Spiritual Realm connotes Existence. Everything that exists is part of that realm "The Spiritual Realm". The earth being once a lifeless rock, has to have a spirit since it is in this realm of Existence..<span class="description-baseline" aria-hidden="true">The Spiritual Realm and Existence are the same. Anything that exists, such as a rock, has a spirit and is part of The Spiritual Realm.</span></p>
       </div>
       <div class="chapter">
-        <a class="hit" aria-label="Living World" href="story.html#living-world">
-          Living World
+        <a class="hit" aria-label="The Living World" href="story.html#living-world">
+          The Living World
         </a>
-        <p>Life on earth began 4.28 Billion years ago.</p>
+        <p class="description-with-baseline">Life began on Earth (this lifeless rock) over 3.5 billion years ago.<span class="description-baseline" aria-hidden="true">Life on earth began 4.28 Billion years ago.</span></p>
       </div>
       <div class="chapter">
         <a class="hit" aria-label="The Earth Spirit" href="story.html#earth-spirit">
           The Earth Spirit
         </a>
-        <p>This Rock, This Living World, emerges as The Earth Spirit when it becomes aware of The Spiritual Realm and Existence.</p>
+        <p>The Living World emerges as The Earth Spirit when it becomes aware of its place in the Spiritual Realm and existence.</p>
       </div>
       <div class="chapter">
         <a class="hit" aria-label="Earth Wakens" href="story.html#earth-wakens">
@@ -109,15 +153,55 @@
         <a class="hit" aria-label="The Fissure" href="story.html#fissure">
           The Fissure
         </a>
-        <p>The Earth Spirit divides into separate identities (man and woman), able to reproduce and preserve the union it shared with The Spiritual Realm. The Earth Spirit sheds its physical form to become immortal. It has always been a living world, and through humanity it carries forward that connection to the spiritual realm.</p>
+        <p>The Earth Spirit divides into separate identities (man and woman), able to reproduce and preserve the union it shared with The Spiritual Realm. The Earth Spirit had shed its physical form to become immortal. The Earth Spirit has always been The Living World, and through humanity it carries forward that connection as it became one with The Spiritual Realm.</p>
       </div>
     </nav>
+    <script>
+      const chapters = document.querySelector('.chapters');
+      const chapterRows = Array.from(chapters.querySelectorAll('.chapter'));
+      const chapterButtons = chapterRows.map(row => row.querySelector('.hit'));
+      const descriptions = chapterRows.map(row => row.querySelector('p'));
+      const baselineCopies = descriptions.map(copy => copy.querySelector('.description-baseline'));
+
+      function fitChapterSpacing() {
+        const leadingChange = 2 * 96 / 72;
+        const sceneWidth = chapters.closest('.scene').clientWidth;
+        const originalGap = Math.min(1.15 * parseFloat(getComputedStyle(document.documentElement).fontSize),
+          Math.max(.7 * parseFloat(getComputedStyle(document.documentElement).fontSize), .03 * sceneWidth));
+
+        const heights = descriptions.map((copy, index) => {
+          const button = chapterButtons[index];
+          const minimum = Math.max(.095 * sceneWidth, button.offsetHeight);
+          const current = copy.getBoundingClientRect().height;
+          const lineHeight = parseFloat(getComputedStyle(copy).lineHeight);
+          const previous = current + Math.round(current / lineHeight) * leadingChange;
+          const baseline = baselineCopies[index]?.getBoundingClientRect().height;
+          return { copyHeight: current, current: Math.max(minimum, current), previous: Math.max(minimum, previous),
+            original: Math.max(minimum, baseline ?? previous) };
+        });
+
+        const earthGrowth = heights[1].previous - heights[1].original;
+        const previousGap = Math.max(0, originalGap - earthGrowth / 5);
+        const changeBeforeFissure = heights.slice(0, -1).reduce((total, row, index) =>
+          total + (index === 2 ? row.original : row.previous) - row.current, 0);
+        chapters.closest('.scene').style.setProperty('--fitted-row-gap', Math.max(0, previousGap + changeBeforeFissure / 5) + 'px');
+        const rowSlack = heights.slice(0, -1).reduce((total, row) =>
+          total + row.current - row.copyHeight, 0);
+        chapters.style.setProperty('--even-gap-adjustment', rowSlack / 5 + 'px');
+        chapters.style.setProperty('--fissure-row-height', heights.at(-1).previous + 'px');
+      }
+
+      const chapterSpacingObserver = new ResizeObserver(fitChapterSpacing);
+      descriptions.forEach(copy => chapterSpacingObserver.observe(copy));
+      chapterButtons.forEach(button => chapterSpacingObserver.observe(button));
+      baselineCopies.filter(Boolean).forEach(copy => chapterSpacingObserver.observe(copy));
+      fitChapterSpacing();
+    </script>
 
     <section class="game" aria-labelledby="game-heading">
       <a class="game-link hit" href="game.html" aria-label="The Card Game">
         <h1 id="game-heading">The Card Game</h1>
-        <p>The game "Earth Wakens" follows the story from when the earth was a lifeless rock to be a Metacognizant Living Planet or The Earth Spirit. Its physical form and existence, The Spiritual Realm merged and<br>
-          became one.</p>
+        <p>As you read the story imagine yourself being The Earth Spirit. Collect all the Cards to find the enlightenment The Earth Spirit shared with The Spiritual Realm.</p>
       </a>
     </section>
 
@@ -135,5 +219,59 @@
     </footer>
   </div>
 </main>
+<script>
+  const landing = chapters.closest('.scene');
+  const game = landing.querySelector('.game');
+  const gameCopy = game.querySelector('p');
+  const email = landing.querySelector('.footer-copy a');
+  let addedGap = 0;
+  let gapCut = 0;
+  let gameAdjustment = 0;
+
+  function matchGameSpacing() {
+    const line = parseFloat(getComputedStyle(descriptions[0]).lineHeight);
+    landing.style.setProperty('--copy-block-drop', line + 'px');
+    const chapterGap = descriptions[1].getBoundingClientRect().top
+      - descriptions[0].getBoundingClientRect().bottom - addedGap + gapCut;
+    const gameGap = game.getBoundingClientRect().top
+      - descriptions.at(-1).getBoundingClientRect().bottom - gameAdjustment - line / 2;
+    const available = email.getBoundingClientRect().top - gameCopy.getBoundingClientRect().bottom
+      + 5 * (addedGap - gapCut) + gameAdjustment + line;
+    const gapDifference = chapterGap - gameGap;
+    const nextGap = Math.max(0, Math.min(line, Math.floor((available - gapDifference - 8) / 6)));
+    const nextAdjustment = Math.round((gapDifference + nextGap) * 4) / 4;
+    const nextCut = Math.round((chapterGap + nextGap) * 4 / 3) / 4;
+    if (nextGap === addedGap && nextAdjustment === gameAdjustment && nextCut === gapCut) return;
+    gapCut = nextCut;
+    landing.style.setProperty('--chapter-gap-cut', gapCut + 'px');
+    addedGap = nextGap;
+    gameAdjustment = nextAdjustment;
+    landing.style.setProperty('--chapter-gap-increase', addedGap + 'px');
+    landing.style.setProperty('--game-gap-adjustment', gameAdjustment + 'px');
+  }
+
+  const gapObserver = new ResizeObserver(matchGameSpacing);
+  [chapters, gameCopy, email].forEach(element => gapObserver.observe(element));
+  matchGameSpacing();
+</script>
+<script>
+  const earthSpiritButton = landing.querySelector('.chapter .hit[href="story.html#earth-spirit"]');
+  let handOffset = 0;
+
+  function centerButtonInHand() {
+    const frame = landing.getBoundingClientRect();
+    const button = earthSpiritButton.getBoundingClientRect();
+    // The opening between the thumb and finger in the 1206px-wide source image.
+    const handCenter = frame.top + frame.width * 2004 / 1206;
+    const unadjustedCenter = button.top + button.height / 2 - handOffset;
+    handOffset = handCenter - unadjustedCenter;
+    earthSpiritButton.style.setProperty('--earth-spirit-hand-offset', handOffset + 'px');
+  }
+
+  const handObserver = new ResizeObserver(() => requestAnimationFrame(centerButtonInHand));
+  handObserver.observe(chapters);
+  handObserver.observe(landing);
+  document.fonts.ready.then(centerButtonInHand);
+</script>
 </body>
 </html>

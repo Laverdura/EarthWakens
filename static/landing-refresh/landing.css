@@ -7,7 +7,15 @@ html, body {
 
 .scene {
   --game-copy-size: clamp(.8rem, 2.76cqw, 1.008rem);
-  --game-copy-line: calc(1.3 * var(--game-copy-size) + 2pt);
+  --game-copy-line: calc(1.3 * var(--game-copy-size));
+  --original-row-gap: clamp(.7rem, 3cqw, 1.15rem);
+  --chapter-tail-space: clamp(1.25rem, 4cqw, 1.75rem);
+  --game-start-gap: calc((clamp(1.6rem, 9.5cqw, 3.5rem) + 6.5 * var(--game-copy-size)) / 2 - var(--lower-block-lift));
+  --game-top-offset: -22pt;
+  --extra-row-gap: min(
+    calc(var(--fitted-row-gap, var(--original-row-gap)) / 2),
+    max(0px, calc((var(--chapter-tail-space) + var(--game-start-gap) + var(--game-top-offset) - .5rem) / 5))
+  );
   --lower-block-lift: calc(2.6 * var(--game-copy-size));
   --chapter-inset: 6.5%;
   --button-nudge: 3cqw;
@@ -69,14 +77,6 @@ html, body {
   height: calc(100% - var(--earth-art-height));
 }
 
-/* Tuck the bright protrusion on the right into the surrounding root shadows. */
-.art-limb-shadow {
-  background:
-    radial-gradient(ellipse 5.5% 7% at 93.5% 59.5%, #0d0a08c9 22%, transparent 100%),
-    radial-gradient(ellipse 5% 6.8% at 97% 63.5%, #0d0a089e 16%, transparent 100%);
-  pointer-events: none;
-}
-
 .composition::before {
   position: absolute;
   inset: 0;
@@ -85,20 +85,6 @@ html, body {
     radial-gradient(ellipse 31% 16% at 100% 92%, #05161970, transparent 100%),
     linear-gradient(to bottom, transparent 68%, #2b1c1426 83%, #2b1c1433 94%, transparent 100%),
     linear-gradient(to bottom, transparent 30%, #06101430 67%, #032d3940 89%, #032d3980 96%, #032d39 100%);
-  pointer-events: none;
-  content: "";
-}
-
-/* Blend the open teal below the clouds into the soil above the left hand. */
-.composition::after {
-  position: absolute;
-  inset: calc(var(--earth-art-height) - 4cqw) 0 0;
-  z-index: -1;
-  background: linear-gradient(to bottom,
-    transparent 0%, #37798a70 3%, #2d687a52 calc(24% + 3.04cqw),
-    #17232678 calc(42% + 2.32cqw), #211a15bf calc(52% + 1.92cqw),
-    transparent calc(66% + 1.36cqw));
-  mask-image: linear-gradient(to right, black 10%, #000b 32%, transparent 58%);
   pointer-events: none;
   content: "";
 }
@@ -112,16 +98,22 @@ html, body {
   pointer-events: none;
 }
 
+.art-limb-shadow {
+  background:
+    radial-gradient(ellipse 5.5% 7% at 93.5% 59.5%, #0d0a08c9 22%, transparent 100%),
+    radial-gradient(ellipse 5% 6.8% at 97% 63.5%, #0d0a089e 16%, transparent 100%);
+  pointer-events: none;
+}
+
 .chapters {
-  --original-row-gap: clamp(.7rem, 3cqw, 1.15rem);
   --chapter-copy-size: calc(clamp(1rem, 3.45cqw, 1.26rem) - 2pt);
-  --chapter-copy-line: calc(1.2 * var(--chapter-copy-size) + 2pt);
+  --chapter-copy-line: calc(1.2 * var(--chapter-copy-size));
   --prelude-drop: 4cqw;
   display: grid;
-  gap: var(--original-row-gap);
+  gap: calc(var(--fitted-row-gap, var(--original-row-gap)) + var(--extra-row-gap) + var(--even-gap-adjustment, 0px));
   margin-inline: var(--chapter-inset);
   padding-block-start: calc(63cqw + var(--prelude-drop));
-  padding-block-end: clamp(1.25rem, 4cqw, 1.75rem);
+  padding-block-end: var(--chapter-tail-space);
 }
 
 .chapter {
@@ -129,7 +121,11 @@ html, body {
   grid-template-columns: 31cqw minmax(0, 1fr);
   column-gap: 3cqw;
   align-items: start;
-  min-height: 9.5cqw;
+}
+
+.chapter:not(:last-child) .hit {
+  grid-row: 1;
+  margin-block-end: -9.5cqw;
 }
 
 .chapter p, .game p {
@@ -140,6 +136,23 @@ html, body {
   font-size: var(--chapter-copy-size);
   line-height: var(--chapter-copy-line);
   text-shadow: 0 0 3px #050d12e0, 0 1px 5px #050d12cc, 0 0 9px #050d1270;
+}
+
+.chapter:last-child {
+  min-height: max(9.5cqw, var(--fissure-row-height, 0px));
+}
+
+.description-with-baseline {
+  position: relative;
+}
+
+.description-baseline {
+  line-height: calc(var(--chapter-copy-line) + 2pt);
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .hit {
@@ -161,6 +174,7 @@ html, body {
   place-items: center;
   box-sizing: border-box;
   justify-self: center;
+  translate: 0 var(--chapter-button-offset, 0px);
   transform: translateX(calc(-1 * var(--button-nudge))) scale(1.1);
   transform-origin: center top;
   width: max-content;
@@ -172,8 +186,8 @@ html, body {
 
 .game {
   position: relative;
-  top: calc(2.6 * var(--game-copy-size) - 18pt - 2 * var(--game-copy-line));
-  margin: calc((clamp(1.6rem, 9.5cqw, 3.5rem) + 6.5 * var(--game-copy-size)) / 2 - var(--lower-block-lift)) auto 0;
+  top: var(--game-top-offset);
+  margin: calc(var(--game-start-gap) - 5 * var(--extra-row-gap)) auto 0;
   padding-inline: 20%;
   text-align: center;
 }

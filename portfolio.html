@@ -9,14 +9,14 @@
   <link rel="stylesheet" href="static/site-wide-theme.css?v=teal-silver">
   <link rel="stylesheet" href="static/chapter-pill.css?v=1">
   <style>
-    html[data-book-layout="chapter"] .portfolio-header { justify-content: center; border: 0; }
+    html[data-book-layout="chapter"] .portfolio-header { max-width: none; padding: 12px 3vw; border: 0; }
     html[data-book-layout="chapter"] .portfolio-header::after { content: none; }
-    html[data-book-layout="chapter"] .portfolio-header .brand { display: flex; flex: 0 1 auto; justify-content: center; }
-    html[data-book-layout="chapter"] .portfolio-header .brand img { width: min(255px, 65vw); height: auto; }
-    .portfolio-section-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .65rem 1rem; margin-block: 0 1.2rem; }
-    .portfolio-section-heading h2, .portfolio-section-heading .page-back { margin: 0; }
-    .portfolio-section-heading .page-back { padding: .35rem .85rem; margin-inline-start: auto; }
+    html[data-book-layout="chapter"] .portfolio-header .brand { display: flex; }
+    .portfolio-return { text-align: center; margin-block: 0 1.2rem; }
+    .portfolio-return .page-back { margin: 0; padding: .35rem .85rem; }
+    .portfolio-page { padding-block-start: 0; }
     .portfolio-page .chapter-heading { text-align: center; }
+    html[data-book-layout="chapter"] .portfolio-page .chapter-heading h1 { margin-block-start: 0; }
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -25,6 +25,7 @@
     }
     .portfolio-grid figure { margin: 0; }
     .portfolio-landscape { grid-column: 1 / -1; }
+    .portfolio-portrait-single { grid-column: 1 / -1; width: min(100%, 420px); justify-self: center; }
     .portfolio-grid img {
       display: block;
       width: 100%;
@@ -44,20 +45,16 @@
   </header>
   <main class="portfolio-page">
     <div class="chapter-heading"><h1>Portfolio</h1></div>
-    <section aria-labelledby="story-art">
-      <div class="portfolio-section-heading">
-        <h2 id="story-art">Artwork from the Earth Wakens story</h2>
-        <a class="page-back" href="index.html">Back to Earth Wakens</a>
-      </div>
+    <div class="portfolio-return">
+      <a class="page-back" href="index.html">Back to Earth Wakens</a>
+    </div>
+    <section aria-label="Scenes from Earth Wakens">
       <div class="portfolio-grid">
         <figure class="portfolio-landscape">
           <a href="static/portfolio/door-study.webp"><img src="static/portfolio/door-study.webp" width="1450" height="814" loading="lazy" alt="An early doorway design for Earth Wakens"></a>
         </figure>
-        <figure class="portfolio-landscape">
-          <a href="static/portfolio/earth-spirit-horizontal.webp"><img src="static/portfolio/earth-spirit-horizontal.webp" width="1450" height="816" loading="lazy" alt="A horizontal artwork study for The Earth Spirit"></a>
-        </figure>
         <figure>
-          <a href="static/portfolio/warm-brown-roots.webp"><img src="static/portfolio/warm-brown-roots.webp" width="1254" height="1254" loading="lazy" alt="A tree trunk with rounded roots spreading over dark soil"></a>
+          <a href="static/portfolio/web-page-study.webp"><img src="static/portfolio/web-page-study.webp" width="1022" height="1450" loading="lazy" alt="An early Earth Wakens web page composition"></a>
         </figure>
         <figure>
           <a href="static/portfolio/golden-emergence.webp"><img src="static/portfolio/golden-emergence.webp" width="1024" height="1450" loading="lazy" alt="A figure dissolving into golden light among tree roots at a doorway"></a>
@@ -68,17 +65,10 @@
         <figure>
           <a href="static/portfolio/moon-shot.webp"><img src="static/portfolio/moon-shot.webp" width="1085" height="1450" loading="lazy" alt="Moonlit water and a starry sky beside a tree with reaching roots"></a>
         </figure>
-        <figure>
-          <a href="static/portfolio/web-page-study.webp"><img src="static/portfolio/web-page-study.webp" width="1022" height="1450" loading="lazy" alt="An early Earth Wakens web page composition"></a>
-        </figure>
-        <figure>
-          <a href="static/portfolio/dead-and-living.webp"><img src="static/portfolio/dead-and-living.webp" width="1268" height="1241" loading="lazy" alt="A moonlit wooden door surrounded by living leaves and exposed roots"></a>
+        <figure class="portfolio-portrait-single">
+          <a href="static/portfolio/roots-and-shutters.jpg"><img src="static/portfolio/roots-and-shutters.jpg" width="1206" height="2622" loading="lazy" alt="Tree roots forming skeletal hands beside weathered green shutters"></a>
         </figure>
       </div>
-    </section>
-    <section aria-labelledby="other-art">
-      <h2 id="other-art">Other artwork</h2>
-      <p>More artwork will be added here.</p>
     </section>
   </main>
 </body>
