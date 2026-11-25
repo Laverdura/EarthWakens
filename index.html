@@ -98,7 +98,7 @@
 @media (max-width: 480px) {
   .scene { background: #083540; }
   .composition { padding-block-end: 0; }
-  .footer { translate: none; margin-block-start: 0; padding-block: 4cqw; }
+  .footer { translate: none; margin-block-start: 0; padding-block: 1cqw 3cqw; }
 }
 </style>
 </head>
@@ -310,7 +310,7 @@
     const currentMargin = parseFloat(getComputedStyle(footer).marginTop) || 0;
     const naturalTop = footer.getBoundingClientRect().top - currentMargin;
     const artworkBottom = frame.top + frame.width * 3546 / 1206;
-    footer.style.marginTop = Math.max(0, artworkBottom + frame.width * .04 - naturalTop) + 'px';
+    footer.style.marginTop = Math.max(0, artworkBottom - frame.width * .045 - naturalTop) + 'px';
   }
   const footerObserver = new ResizeObserver(placeMobileFooter);
   footerObserver.observe(chapters);
