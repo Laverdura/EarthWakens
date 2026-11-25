@@ -54,6 +54,27 @@
 .chapters > .chapter:nth-child(-n+3) {
   translate: 0 calc(-.5 * var(--chapter-copy-line));
 }
+
+/* Mobile-only composition; keep the original full-width artwork undistorted. */
+@media (max-width: 480px) {
+  .scene { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  .chapters {
+    --chapter-copy-size: 3.05cqw;
+    --chapter-copy-line: calc(1.22 * var(--chapter-copy-size));
+    translate: none;
+    row-gap: 3cqw;
+    padding-block-end: 2cqw;
+  }
+  .chapters > .chapter:nth-child(-n+3) { translate: none; }
+  .chapter:not(:last-child) .hit { margin-block-end: 0; }
+  .chapter:nth-child(4) { min-height: 0; }
+  .chapter:last-child { min-height: 0; }
+  .game { --game-copy-size: 3.05cqw; top: 0; translate: none; margin-block-start: 3cqw; }
+  .game h1 { font-size: 4.8cqw; }
+  .footer { margin-block-start: 5cqw; }
+  .footer-copy a { font-size: 3.2cqw; overflow-wrap: anywhere; }
+  .footer-copy { font-size: 3cqw; }
+}
 </style>
 </head>
 <body>
@@ -164,6 +185,7 @@
       const baselineCopies = descriptions.map(copy => copy.querySelector('.description-baseline'));
 
       function fitChapterSpacing() {
+        if (matchMedia('(max-width: 480px)').matches) return;
         const leadingChange = 2 * 96 / 72;
         const sceneWidth = chapters.closest('.scene').clientWidth;
         const originalGap = Math.min(1.15 * parseFloat(getComputedStyle(document.documentElement).fontSize),
@@ -229,6 +251,7 @@
   let gameAdjustment = 0;
 
   function matchGameSpacing() {
+    if (matchMedia('(max-width: 480px)').matches) return;
     const line = parseFloat(getComputedStyle(descriptions[0]).lineHeight);
     landing.style.setProperty('--copy-block-drop', line + 'px');
     const chapterGap = descriptions[1].getBoundingClientRect().top
@@ -263,6 +286,13 @@
     const button = earthSpiritButton.getBoundingClientRect();
     // The opening between the thumb and finger in the 1206px-wide source image.
     const handCenter = frame.top + frame.width * 2004 / 1206;
+    if (matchMedia('(max-width: 480px)').matches) {
+      const living = chapterButtons[2];
+      const livingRect = living.getBoundingClientRect();
+      const overlap = livingRect.bottom + frame.width * .035 - (handCenter - button.height / 2);
+      living.style.translate = '0 ' + (Math.min(0, parseFloat(living.dataset.shift || '0') - overlap)) + 'px';
+      living.dataset.shift = String(Math.min(0, parseFloat(living.dataset.shift || '0') - overlap));
+    }
     const unadjustedCenter = button.top + button.height / 2 - handOffset;
     handOffset = handCenter - unadjustedCenter;
     earthSpiritButton.style.setProperty('--earth-spirit-hand-offset', handOffset + 'px');
