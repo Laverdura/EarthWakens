@@ -100,6 +100,14 @@
   .composition { padding-block-end: 0; }
   .footer { translate: none; margin-block-start: 0; padding-block: 1cqw 3cqw; }
 }
+/* Anchor mobile footer to the artwork, not to accumulated layout gaps. */
+@media (max-width: 480px) {
+  .scene { min-height: 0; padding-bottom: 2vw; }
+  .composition { position: static; flex: none; }
+  .scene { min-height: calc(100vw * 3546 / 1206); box-sizing: content-box; }
+  .footer { position: absolute; inset: auto 0 2cqw; margin: 0; padding-block: 0; z-index: 2; }
+  .portfolio-lock { transform: translateX(8px); }
+}
 </style>
 </head>
 <body>
@@ -303,21 +311,6 @@
   matchGameSpacing();
 </script>
 <script>
-  function placeMobileFooter() {
-    if (!matchMedia('(max-width: 480px)').matches) return;
-    const footer = landing.querySelector('.footer');
-    const frame = landing.getBoundingClientRect();
-    const currentMargin = parseFloat(getComputedStyle(footer).marginTop) || 0;
-    const naturalTop = footer.getBoundingClientRect().top - currentMargin;
-    const artworkBottom = frame.top + frame.width * 3546 / 1206;
-    footer.style.marginTop = Math.max(0, artworkBottom - frame.width * .045 - naturalTop) + 'px';
-  }
-  const footerObserver = new ResizeObserver(placeMobileFooter);
-  footerObserver.observe(chapters);
-  footerObserver.observe(game);
-  window.addEventListener('resize', placeMobileFooter);
-  document.fonts.ready.then(placeMobileFooter);
-  placeMobileFooter();
   const earthSpiritButton = landing.querySelector('.chapter .hit[href="story.html#earth-spirit"]');
   let handOffset = 0;
 
