@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" data-book-layout="chapter">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Playing Deck — Earth Wakens</title>
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="static/story-pages.css">
+  <link rel="stylesheet" href="static/site-wide-theme.css?v=teal-silver">
+  <link rel="stylesheet" href="static/chapter-pill.css?v=1">
+
+  <link rel="stylesheet" href="static/card-preview-gallery.css">
+  <style>
+    .playing-deck .chapter-heading, .deck-return { text-align: center; }
+    .deck-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(1rem, 4vw, 2rem);
+      max-width: 720px;
+      margin: 1.5rem auto;
+    }
+    .deck-grid figure { min-width: 0; margin: 0; }
+    .deck-grid .prelude-title-image {
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      overflow: hidden;
+    }
+    .deck-grid .prelude-title-image > img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      margin: 0;
+    }
+    .deck-grid .prelude-card-name { font-size: clamp(6px, 1.3vw, 11px); }
+    .deck-grid .waken-card .prelude-card-sigil::after {
+      clip-path: none;
+      border-radius: 50%;
+      background: radial-gradient(circle closest-side at 42% 39%, #d3d1b5 0 25%, transparent 29%),
+        radial-gradient(circle, transparent 44%, #d3d1b5 46% 53%, transparent 55%);
+    }
+    .deck-grid .conscious-earth-card .prelude-card-sigil::after { content: none; }
+    .deck-grid .conscious-earth-card .prelude-card-sigil svg {
+      display: block;
+      width: calc(100% - 6px);
+      margin: 3px;
+      transform: rotate(-45deg);
+    }
+    .deck-grid .ew-card-corner span { font-size: clamp(10px, 2.25vw, 23px); }
+    .deck-grid figcaption { margin-top: .6rem; text-align: center; }
+  </style>
+</head>
+<body class="ew-site-theme">
+  <main class="playing-deck">
+    <div class="chapter-heading"><h1>Playing Deck</h1></div>
+    <p class="deck-return"><a class="page-back" href="portfolio.html">Back to Portfolio</a></p>
+    <section class="deck-grid ew-prelude-page" aria-label="Earth Wakens cards">
+      <figure>
+        <span class="prelude-title-image prelude-root-card"><img src="static/prelude-root-card.png" width="1024" height="1536" alt="The Realm. Twisted roots curl into a ring, with fine branches reaching out around it"><span class="prelude-card-corner top-left" aria-hidden="true"></span><span class="prelude-card-corner top-right" aria-hidden="true"></span><span class="prelude-card-corner bottom-left" aria-hidden="true"></span><span class="prelude-card-corner bottom-right" aria-hidden="true"></span><span class="prelude-card-sigil upper" aria-hidden="true"></span><span class="prelude-card-sigil lower" aria-hidden="true"></span><span class="prelude-card-name upper" aria-hidden="true">The Realm</span><span class="prelude-card-name lower" aria-hidden="true">The Realm</span></span>
+        <figcaption>The Realm</figcaption>
+      </figure>
+      <figure>
+        <span class="prelude-title-image prelude-root-card waken-card">
+      <img src="static/cards/waken-ant-face.webp" width="750" height="1125" alt="Earth Wakens card. A face formed from ants.">
+      <span class="prelude-card-corner top-left" aria-hidden="true"></span>
+      <span class="prelude-card-corner top-right" aria-hidden="true"></span>
+      <span class="prelude-card-corner bottom-left" aria-hidden="true"></span>
+      <span class="prelude-card-corner bottom-right" aria-hidden="true"></span>
+      <span class="prelude-card-sigil upper" aria-hidden="true"></span>
+      <span class="prelude-card-sigil lower" aria-hidden="true"></span>
+      <span class="prelude-card-name upper" aria-hidden="true">Earth Wakens</span>
+      <span class="prelude-card-name lower" aria-hidden="true">Earth Wakens</span>
+    </span>
+        <figcaption>Earth Wakens</figcaption>
+      </figure>
+      <figure>
+        <span class="prelude-title-image prelude-root-card conscious-earth-card">
+      <img src="static/cards/conscious-earth-roots.webp" width="960" height="1334" alt="Conscious Earth card. A blue brain formed from branching roots.">
+      <span class="prelude-card-corner top-left" aria-hidden="true"></span>
+      <span class="prelude-card-corner top-right" aria-hidden="true"></span>
+      <span class="prelude-card-corner bottom-left" aria-hidden="true"></span>
+      <span class="prelude-card-corner bottom-right" aria-hidden="true"></span>
+      <span class="prelude-card-sigil upper" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><polygon points="21.5,8.5 21,20 3,16" fill="none" stroke="#d3d1b5" stroke-width="2" stroke-linejoin="round"/></svg></span>
+      <span class="prelude-card-sigil lower" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><polygon points="21.5,8.5 21,20 3,16" fill="none" stroke="#d3d1b5" stroke-width="2" stroke-linejoin="round"/></svg></span>
+      <span class="prelude-card-name upper" aria-hidden="true">Conscious Earth</span>
+      <span class="prelude-card-name lower" aria-hidden="true">Conscious Earth</span>
+    </span>
+        <figcaption>Conscious Earth</figcaption>
+      </figure>
+      <figure class="ew-poison-example"><div class="ew-poison-face"><div class="ew-card-corner ew-card-corner-top"><img src="static/earthwakens-logo-transparent.png" alt="Earth Wakens"><span aria-label="Poison">P<br>O<br>I<br>S<br>O<br>N</span></div><div class="ew-card-corner ew-card-corner-bottom" aria-hidden="true"><img src="static/earthwakens-logo-transparent.png" alt=""><span>P<br>O<br>I<br>S<br>O<br>N</span></div><img src="static/poison-card-snake-midway.png" alt="Poison card artwork: a skull intertwined with a snake and a syringe." width="3140" height="3371" loading="lazy"></div><figcaption>Poison</figcaption></figure>
+    </section>
+  </main>
+</body>
+</html>
