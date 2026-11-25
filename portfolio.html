@@ -35,6 +35,28 @@
     @media (max-width: 600px) {
       .portfolio-grid { grid-template-columns: 1fr; }
     }
+    .portfolio-deck {
+      display: grid;
+      justify-items: center;
+      gap: .65rem;
+      width: fit-content;
+      margin: 0 auto 1.5rem;
+      padding: .35rem .85rem;
+      font-weight: 700;
+    }
+    .portfolio-deck:focus-visible { outline: 2px solid #eed298; outline-offset: 4px; }
+    .portfolio-deck-icon {
+      display: grid;
+      place-items: center;
+      width: 2.55rem;
+      aspect-ratio: 5 / 7;
+      border: 1px solid #ddc897;
+      border-radius: .33rem;
+      background: #f0e8d5;
+      color: #183b45;
+      font: 1.65rem/1 Georgia, serif;
+      box-shadow: 3px 3px 0 #254a55, 4px 4px 0 #ddc897, 7px 7px 0 #193540, 8px 8px 0 #ddc897;
+    }
   </style>
 </head>
 <body class="ew-site-theme">
@@ -48,6 +70,10 @@
     <div class="portfolio-return">
       <a class="page-back" href="index.html">Back to Earth Wakens</a>
     </div>
+    <a class="portfolio-deck" href="playing-deck.html">
+      <span class="portfolio-deck-icon" aria-hidden="true">♠</span>
+      Playing Deck
+    </a>
     <section aria-label="Scenes from Earth Wakens">
       <div class="portfolio-grid">
         <figure>
