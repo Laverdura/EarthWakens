@@ -94,6 +94,12 @@
   .footer { translate: 0 calc(4 * 1.3 * 3.05cqw); }
   .composition { padding-block-end: calc(4 * 1.3 * 3.05cqw); }
 }
+/* Anchor footer beyond the actual artwork boundary, with teal clearance. */
+@media (max-width: 480px) {
+  .scene { background: #083540; }
+  .composition { padding-block-end: 0; }
+  .footer { translate: none; margin-block-start: 0; padding-block: 4cqw; }
+}
 </style>
 </head>
 <body>
@@ -297,6 +303,21 @@
   matchGameSpacing();
 </script>
 <script>
+  function placeMobileFooter() {
+    if (!matchMedia('(max-width: 480px)').matches) return;
+    const footer = landing.querySelector('.footer');
+    const frame = landing.getBoundingClientRect();
+    const currentMargin = parseFloat(getComputedStyle(footer).marginTop) || 0;
+    const naturalTop = footer.getBoundingClientRect().top - currentMargin;
+    const artworkBottom = frame.top + frame.width * 3546 / 1206;
+    footer.style.marginTop = Math.max(0, artworkBottom + frame.width * .04 - naturalTop) + 'px';
+  }
+  const footerObserver = new ResizeObserver(placeMobileFooter);
+  footerObserver.observe(chapters);
+  footerObserver.observe(game);
+  window.addEventListener('resize', placeMobileFooter);
+  document.fonts.ready.then(placeMobileFooter);
+  placeMobileFooter();
   const earthSpiritButton = landing.querySelector('.chapter .hit[href="story.html#earth-spirit"]');
   let handOffset = 0;
 
