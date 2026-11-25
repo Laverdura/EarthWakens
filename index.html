@@ -84,6 +84,11 @@
   .footer-copy { transform: none; }
   .portfolio-lock { transform: translateX(8px); }
 }
+/* Move the entire lower section by two game-copy lines, without reflowing chapters. */
+@media (max-width: 480px) {
+  .game, .footer { position: relative; translate: 0 calc(2 * 1.3 * 3.05cqw); }
+  .composition { padding-block-end: calc(2 * 1.3 * 3.05cqw); }
+}
 </style>
 </head>
 <body>
