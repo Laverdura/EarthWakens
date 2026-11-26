@@ -53,7 +53,6 @@ const files=[
   "static/portfolio/page-two.webp",
   "static/portfolio/golden-emergence.webp",
   "static/portfolio/roots-and-shutters.jpg",
-  "static/portfolio/moonlit-doorway.webp",
   "static/landing-refresh/landing.css",
   "static/landing-refresh/earth-wakens-background.jpg",
   "static/landing-refresh/masthead-blended.png",
