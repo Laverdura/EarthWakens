@@ -99,7 +99,7 @@ jobs:
           trap 'rm -f "$key_file" "$known_hosts"' EXIT
           chmod 600 "$key_file" "$known_hosts"
           printf '%s\n' "$IONOS_SSH_KEY" > "$key_file"
-          rsync -avc --inplace --delete-before \
+          rsync -avc --inplace --delete \
             --rsh="ssh -i $key_file -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=$known_hosts" \
             --exclude=logs --exclude=.deploy-now --exclude=.git --exclude=.github \
             deployment/ "$IONOS_SSH_USER@$deploy_host:"
