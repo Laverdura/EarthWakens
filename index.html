@@ -125,6 +125,28 @@
   .portfolio-lock { transform: translate(-4cqw, 2cqw); }
 }
 </style>
+<style>
+.game { padding: 2cqw 13% 0; }
+.game .game-link {
+  display: grid;
+  grid-template-columns: clamp(42px, 13cqw, 76px) minmax(0, 1fr);
+  align-items: center;
+  column-gap: 3cqw;
+  text-align: left;
+  transform: none;
+  translate: none;
+}
+.game-card-preview { width: 100%; height: auto; display: block; grid-row: span 2; }
+.game h1 { align-self: end; font-size: clamp(1.05rem, 3.8cqw, 1.52rem); transform: none; }
+.game p { align-self: start; width: auto; margin: 0; transform: none; }
+.footer-copy { transform: translateY(5cqw); }
+.portfolio-lock { transform: translate(-7cqw, 6cqw); }
+@media (max-width: 480px) {
+  .scene { padding-bottom: 9vw; }
+  .footer-copy { transform: translateY(1cqw); }
+  .portfolio-lock { transform: translate(-7cqw, 3cqw); }
+}
+</style>
 </head>
 <body>
 <main class="scene" aria-label="Earth Wakens">
@@ -278,6 +300,7 @@
 
     <section class="game" aria-labelledby="game-heading">
       <a class="game-link hit" href="game.html#playing-deck" aria-label="The Card Game">
+        <img class="game-card-preview" src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-8.webp" width="540" height="723" alt="Paranormal card" loading="lazy" decoding="async">
         <h1 id="game-heading">The Card Game</h1>
         <p>As you read the story imagine yourself being The Earth Spirit. Collect all the Cards to find the enlightenment The Earth Spirit shared with The Spiritual Realm.</p>
       </a>
