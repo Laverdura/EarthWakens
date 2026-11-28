@@ -52,7 +52,6 @@
   overflow: hidden;
   border-block: 1px solid #ad8a53;
 }
-.deck-template-future .deck-art { align-items: end; }
 .deck-crop { display: block; position: relative; width: 100%; aspect-ratio: var(--crop-ratio); overflow: hidden; }
 .deck-grid .deck-crop img {
   position: absolute;
@@ -65,10 +64,39 @@
   aspect-ratio: auto;
   object-fit: fill;
 }
-.deck-grid .deck-full-art { height: 100%; aspect-ratio: auto; object-fit: contain; }
 .deck-grid .deck-copy { font: clamp(.58rem, 7cqi, .8rem)/1.3 Georgia, serif; }
 .deck-copy-details { margin-top: .4rem; font-size: .8rem; }
 .deck-copy-details summary { cursor: pointer; }
+</style>
+<style>
+.deck-grid .realm-frame-slot { aspect-ratio: 2 / 3; display: grid; align-items: center; }
+.deck-grid .realm-frame {
+  position: relative;
+  aspect-ratio: 540 / 723;
+  container-type: inline-size;
+  background: url("https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-8.webp") center / 100% 100% no-repeat;
+}
+.realm-frame .realm-art { position: absolute; inset: 8% 12.5% 8% 12.5%; overflow: hidden; background: #000; }
+.deck-grid .realm-art img {
+  position: absolute;
+  top: 0;
+  left: -29%;
+  width: 158%;
+  height: auto;
+  max-width: none;
+  aspect-ratio: auto;
+}
+.realm-frame .realm-title {
+  position: absolute;
+  inset: 8% 22% auto;
+  padding: .18em 0;
+  border-radius: .2em;
+  background: #10250a;
+  color: #f3dca0;
+  font: bold italic 7.4cqi/1.15 Georgia, serif;
+  text-align: center;
+}
+.realm-frame .realm-title-reversed { inset: auto 22% 8%; transform: rotate(180deg); }
 </style>
 </head>
 <body class="ew-site-theme">
@@ -82,8 +110,8 @@
     <ul class="deck-grid">
       <li><figure><a href="static/cards/playing-deck/card-8.webp" aria-label="View Paranormal artwork"><img src="static/cards/playing-deck/card-8.webp" alt="Paranormal card artwork" loading="lazy" decoding="async"></a><figcaption>Paranormal</figcaption></figure></li>
       <li><figure><a href="static/cards/playing-deck/card-11.webp" aria-label="View Realm artwork"><img src="static/cards/playing-deck/card-11.webp" alt="Realm card artwork" loading="lazy" decoding="async"></a><figcaption>Realm</figcaption></figure></li>
-      <li><figure class="deck-template"><div class="deck-face"><div class="deck-title">Imagination</div><div class="deck-art"><img class="deck-full-art" src="https://raw.githubusercontent.com/Laverdura/EarthWakens/601949a499f73300e2e538615bc9053c31be19bb/static/portfolio/moonlit-doorway.jpg" alt="Root-framed doors standing open on a moonlit sea" loading="lazy" decoding="async"></div><p class="deck-copy">Moonlit doorway</p></div></figure></li>
-      <li><figure class="deck-template deck-template-future"><div class="deck-face"><div class="deck-title">Future</div><div class="deck-art"><span class="deck-crop" style="--crop-ratio:381/37;--image-width:141.73228346456693%;--image-height:1870.2702702702702%;--image-left:-20.209973753280842%;--image-top:-1478.3783783783783%"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-5.webp" alt="Earth’s blue horizon below a black sky" loading="lazy" decoding="async"></span></div><p class="deck-copy">Earth’s horizon</p></div></figure></li>
+      <li><figure class="realm-frame-slot"><div class="realm-frame" aria-label="Imagination card"><div class="realm-art"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/601949a499f73300e2e538615bc9053c31be19bb/static/portfolio/moonlit-doorway.jpg" alt="Root-framed doors standing open on a moonlit sea" loading="lazy" decoding="async"></div><div class="realm-title">Imagination</div><div class="realm-title realm-title-reversed" aria-hidden="true">Imagination</div></div></figure></li>
+      <li><figure class="realm-frame-slot"><div class="realm-frame" aria-label="Future card"><div class="realm-art"></div><div class="realm-title">Future</div><div class="realm-title realm-title-reversed" aria-hidden="true">Future</div></div></figure></li>
       <li><div class="deck-slot"><strong>Love</strong><span>Artwork pending</span></div></li>
       <li><div class="deck-slot"><strong>Existence</strong><span>Artwork pending</span></div></li>
       <li><div class="deck-slot"><strong>Beauty</strong><span>Artwork pending</span></div></li>
