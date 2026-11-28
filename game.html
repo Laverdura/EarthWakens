@@ -132,6 +132,56 @@
   font: 5.7cqi/1.22 Georgia, serif;
 }
 </style>
+<style>
+.deck-grid .realm-imagination .realm-art > img { left: -20%; width: 140%; }
+.realm-imagination .realm-art::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 19%;
+  background: linear-gradient(transparent, #080704 90%);
+  content: "";
+}
+.deck-grid .realm-conscious-earth .deck-crop img { transform: translateY(2%) scale(1.05); }
+.deck-grid .realm-frame-slot { position: relative; }
+.card-enlarge {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: .55rem;
+  background: transparent;
+  cursor: zoom-in;
+}
+.card-enlarge:focus-visible { outline: 2px solid #e0c58e; outline-offset: 3px; }
+.deck-grid a:has(img), .deck-back:has(img) { cursor: zoom-in; }
+.card-viewer {
+  max-width: calc(100vw - 1rem);
+  max-height: 95vh;
+  padding: .65rem;
+  border: 1px solid #719093;
+  border-radius: .7rem;
+  background: #0a2229;
+  color: #f4ebd6;
+}
+.card-viewer::backdrop { background: #000c; }
+.card-viewer-close {
+  display: block;
+  margin: 0 0 .4rem auto;
+  padding: .35rem .65rem;
+  border: 1px solid #719093;
+  border-radius: .35rem;
+  background: #123740;
+  color: inherit;
+  cursor: pointer;
+}
+.card-viewer-art.deck-grid {
+  display: block;
+  width: min(82vw, 28rem, 55svh);
+  margin: 0;
+}
+.card-viewer-art > img { width: 100%; }
+</style>
 </head><body class="ew-site-theme"><header><a href="index.html" aria-label="Earth Wakens home"><img src="static/earth-wakens-silver-wordmark.png" alt="Earth Wakens" width="2170" height="725"></a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="game.html">Game</a></nav></header><main id="collectible-cards">
 <section id="playing-deck" class="playing-deck" aria-labelledby="playing-deck-title">
 
@@ -144,7 +194,7 @@
     <ul class="deck-grid">
       <li><figure><a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-8.webp" aria-label="View Paranormal artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-8.webp" alt="Paranormal card artwork" loading="lazy" decoding="async"></a><figcaption>Paranormal</figcaption></figure></li>
       <li><figure><a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-11.webp" aria-label="View Realm artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-11.webp" alt="Realm card artwork" loading="lazy" decoding="async"></a><figcaption>Realm</figcaption></figure></li>
-      <li><figure class="realm-frame-slot"><div class="realm-frame" aria-label="Imagination card"><div class="realm-art"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/601949a499f73300e2e538615bc9053c31be19bb/static/portfolio/moonlit-doorway.jpg" alt="Root-framed doors standing open on a moonlit sea" loading="lazy" decoding="async"></div><div class="realm-title">Imagination</div><div class="realm-title realm-title-reversed" aria-hidden="true">Imagination</div></div></figure></li>
+      <li><figure class="realm-frame-slot"><div class="realm-frame realm-imagination" aria-label="Imagination card"><div class="realm-art"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/601949a499f73300e2e538615bc9053c31be19bb/static/portfolio/moonlit-doorway.jpg" alt="Root-framed doors standing open on a moonlit sea" loading="lazy" decoding="async"></div><div class="realm-title">Imagination</div><div class="realm-title realm-title-reversed" aria-hidden="true">Imagination</div></div></figure></li>
       <li><figure class="realm-frame-slot"><div class="realm-frame" aria-label="Future card"><div class="realm-art"></div><div class="realm-title">Future</div><div class="realm-title realm-title-reversed" aria-hidden="true">Future</div></div></figure></li>
       <li><div class="deck-slot"><strong>Love</strong><span>Artwork pending</span></div></li>
       <li><div class="deck-slot"><strong>Existence</strong><span>Artwork pending</span></div></li>
@@ -168,7 +218,7 @@
     <h2 id="earth-spirit-heading">Earth Spirit <small>(4 of 17 illustrated)</small></h2>
     <ul class="deck-grid">
       <li><figure class="realm-frame-slot"><div class="realm-frame" aria-label="Grasping card"><div class="realm-art realm-art-crop"><span class="deck-crop" style="--crop-ratio:440/482;--image-width:122.72727272727273%;--image-height:168.04979253112035%;--image-left:-11.363636363636363%;--image-top:-27.800829875518673%"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-1.webp" alt="A skeletal hand reaching through roots" loading="lazy" decoding="async"></span></div><div class="realm-title">Grasping</div><div class="realm-title realm-title-reversed" aria-hidden="true">Grasping</div></div></figure></li>
-      <li><figure class="realm-frame-slot"><div class="realm-frame realm-frame-long-title" aria-label="Conscious Earth card"><div class="realm-art realm-art-crop"><span class="deck-crop" style="--crop-ratio:368/477;--image-width:146.73913043478262%;--image-height:145.0733752620545%;--image-left:-23.369565217391305%;--image-top:-20.964360587002094%"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-2.webp" alt="An electric-blue brain with branching roots" loading="lazy" decoding="async"></span></div><div class="realm-title">Conscious Earth</div><div class="realm-title realm-title-reversed" aria-hidden="true">Conscious Earth</div></div></figure></li>
+      <li><figure class="realm-frame-slot"><div class="realm-frame realm-frame-long-title realm-conscious-earth" aria-label="Conscious Earth card"><div class="realm-art realm-art-crop"><span class="deck-crop" style="--crop-ratio:368/477;--image-width:146.73913043478262%;--image-height:145.0733752620545%;--image-left:-23.369565217391305%;--image-top:-20.964360587002094%"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-2.webp" alt="An electric-blue brain with branching roots" loading="lazy" decoding="async"></span></div><div class="realm-title">Conscious Earth</div><div class="realm-title realm-title-reversed" aria-hidden="true">Conscious Earth</div></div></figure></li>
       <li><figure class="realm-frame-slot"><div class="realm-frame" aria-label="Emergence card"><div class="realm-art realm-art-crop"><span class="deck-crop" style="--crop-ratio:394/486;--image-width:137.05583756345177%;--image-height:142.38683127572017%;--image-left:-19.543147208121827%;--image-top:-19.54732510288066%"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-3.webp" alt="Ants gathering into a living form" loading="lazy" decoding="async"></span></div><div class="realm-title">Emergence</div><div class="realm-title realm-title-reversed" aria-hidden="true">Emergence</div></div></figure></li>
       <li><figure class="realm-frame-slot"><div class="realm-frame" aria-label="Power card"><div class="realm-art realm-art-copy"><p>The power of the Earth moves mountains and shapes the world. Play this card to gain a powerful advantage, overcome an obstacle, or counter a Stop card. “From rock to wind, from soil to sky, the Earth has the power to transform.”</p></div><div class="realm-title">Power</div><div class="realm-title realm-title-reversed" aria-hidden="true">Power</div></div></figure></li>
       <li><div class="deck-slot"><strong>Art</strong><span>Artwork pending</span></div></li>
@@ -228,4 +278,43 @@
   <div class="game-information">
 <p class="eyebrow">Earth Wakens · The card game</p><h2>Earth Wakens — The Card Game</h2><section aria-labelledby="ew-game-journey"><h2 id="ew-game-journey">A Journey of Self-Awareness</h2><p>Earth Wakens invites you to follow The Earth Spirit from its first exploratory reaches toward its experience of The Spiritual Realm. Bring your imagination, your questions, and your own understanding of existence.</p><p>What might The Living World discover through becoming aware of itself? The story and the game offer room to explore that question and find a personal connection to what you discover.</p></section><ul class="ew-info-links"><li><a href="game-spirit.html">Spiritual Realm cards</a></li><li><a href="game-earth-spirit.html">Earth Spirit cards</a></li><li><a href="game-stop.html">Stop cards</a></li></ul><h2>Confirmed opposing pairs</h2><table><thead><tr><th scope="col">Spiritual Realm</th><th scope="col">Stop</th></tr></thead><tbody><tr><td>Love</td><td>Hate</td></tr><tr><td>Existence</td><td>Death</td></tr></tbody></table><p>The cards have working names. These placeholders may change as the deck develops.</p><p>The game is in development.</p><a class="page-back" href="story.html#earth">Begin the story →</a>
   </div>
-</main><footer>© 2026 Larry Holtzman · Earth Wakens</footer></body></html>
+</main><footer>© 2026 Larry Holtzman · Earth Wakens</footer><dialog class="card-viewer" aria-label="Enlarged playing card">
+  <form method="dialog"><button class="card-viewer-close" autofocus>Close</button></form>
+  <div class="card-viewer-art deck-grid"></div>
+</dialog>
+<script>
+  const cardViewer = document.querySelector('.card-viewer');
+  const cardViewerArt = cardViewer.querySelector('.card-viewer-art');
+  if (typeof cardViewer.showModal === 'function') {
+    function showPlayingCard(art) {
+      const copy = art.cloneNode(true);
+      copy.querySelector('.card-enlarge')?.remove();
+      for (const image of copy.matches('img') ? [copy] : copy.querySelectorAll('img')) {
+        image.loading = 'eager';
+      }
+      cardViewerArt.replaceChildren(copy);
+      cardViewer.showModal();
+    }
+    document.querySelectorAll('.playing-deck .realm-frame-slot').forEach(card => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'card-enlarge';
+      button.setAttribute('aria-label', 'Enlarge ' + card.querySelector('.realm-title').textContent);
+      button.addEventListener('click', () => showPlayingCard(card));
+      card.append(button);
+    });
+    document.querySelectorAll('.playing-deck .deck-grid a, .playing-deck .deck-back').forEach(link => {
+      const art = link.querySelector('img');
+      if (!art) return;
+      link.addEventListener('click', event => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        showPlayingCard(art);
+      });
+    });
+    cardViewer.addEventListener('click', event => {
+      if (event.target === cardViewer) cardViewer.close();
+    });
+  }
+</script>
+</body></html>
