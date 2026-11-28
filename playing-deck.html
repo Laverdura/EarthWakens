@@ -123,7 +123,20 @@
   inset: auto 15% 10% auto;
   transform: rotate(180deg);
 }
-.deck-grid .dread-rule { font: .78rem/1.35 Georgia, serif; }
+.realm-dread .deck-crop { width: 175%; justify-self: end; }
+.deck-grid .realm-dread .dread-rule {
+  position: absolute;
+  inset: 13% auto 13% 0;
+  box-sizing: border-box;
+  width: 36%;
+  display: grid;
+  align-content: center;
+  margin: 0;
+  padding: 0 5% 0 4%;
+  background: linear-gradient(90deg, #040608ea 65%, #04060800);
+  color: #f3dca0;
+  font: 5.7cqi/1.22 Georgia, serif;
+}
 </style>
 </head>
 <body class="ew-site-theme">
@@ -182,7 +195,7 @@
   <section id="stop-cards" aria-labelledby="stop-cards-heading">
     <h2 id="stop-cards-heading">Stop Cards <small>(3 of 18 illustrated)</small></h2>
     <ul class="deck-grid">
-      <li><figure class="realm-frame-slot"><div class="realm-frame" aria-label="Dread card"><div class="realm-art realm-art-crop"><span class="deck-crop" style="--crop-ratio:490/428;--image-width:110.20408163265304%;--image-height:189.25233644859813%;--image-left:-5.1020408163265305%;--image-top:-28.738317757009348%"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-7.webp" alt="Roots descending into a dark canyon" loading="lazy" decoding="async"></span></div><div class="realm-title">Dread</div><div class="realm-title realm-title-reversed" aria-hidden="true">Dread</div><span class="dread-symbol" aria-hidden="true"></span><span class="dread-symbol dread-symbol-reversed" aria-hidden="true"></span></div></figure><p class="dread-rule">Dread stalls progress toward the Spiritual Realm.</p></li>
+      <li><figure class="realm-frame-slot"><div class="realm-frame realm-dread" aria-label="Dread card"><div class="realm-art realm-art-crop"><span class="deck-crop" style="--crop-ratio:490/428;--image-width:110.20408163265304%;--image-height:189.25233644859813%;--image-left:-5.1020408163265305%;--image-top:-28.738317757009348%"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-7.webp" alt="Roots descending into a dark canyon" loading="lazy" decoding="async"></span><p class="dread-rule">Stalls progress toward the Spiritual Realm.</p></div><div class="realm-title">Dread</div><div class="realm-title realm-title-reversed" aria-hidden="true">Dread</div><span class="dread-symbol" aria-hidden="true"></span><span class="dread-symbol dread-symbol-reversed" aria-hidden="true"></span></div></figure></li>
       <li><figure><a href="static/cards/playing-deck/card-9.webp" aria-label="View Gambling artwork"><img src="static/cards/playing-deck/card-9.webp" alt="Gambling card artwork" loading="lazy" decoding="async"></a><figcaption>Gambling</figcaption></figure></li>
       <li><figure><a href="static/cards/playing-deck/card-10.webp" aria-label="View Addiction artwork"><img src="static/cards/playing-deck/card-10.webp" alt="Addiction card artwork" loading="lazy" decoding="async"></a><figcaption>Addiction <small>(formerly Poison)</small></figcaption></figure></li>
       <li><div class="deck-slot"><strong>Pollution</strong><span>Artwork pending</span></div></li>
