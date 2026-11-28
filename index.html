@@ -147,6 +147,10 @@
   .portfolio-lock { transform: translate(-7cqw, 3cqw); }
 }
 </style>
+<style>
+.scene { min-height: calc(min(100vw, 603px) * 2048 / 696); }
+.footer .footer-copy { transform: none; translate: 0 var(--footer-copy-y, 0px); }
+</style>
 </head>
 <body>
 <main class="scene" aria-label="Earth Wakens">
@@ -360,6 +364,8 @@
   const earthWakensButton = landing.querySelector('.chapter .hit[href="story.html#earth-wakens"]');
   let handX = 0;
   let handY = 0;
+  const footerCopy = landing.querySelector('.footer-copy');
+  let footerCopyY = 0;
 
   function alignEarthWakensButton() {
     const scene = landing.getBoundingClientRect();
@@ -369,10 +375,14 @@
     handY += scene.top + scene.width * 1261 / 696 - (button.top + button.height / 2);
     earthWakensButton.style.setProperty('--hand-x', handX + 'px');
     earthWakensButton.style.setProperty('--hand-y', handY + 'px');
+    const copyTop = footerCopy.getBoundingClientRect().top - footerCopyY;
+    // Match the start of the teal fade in the 696px-wide artwork.
+    footerCopyY = scene.top + scene.width * 1982 / 696 - copyTop;
+    footerCopy.style.setProperty('--footer-copy-y', footerCopyY + 'px');
   }
 
   const handObserver = new ResizeObserver(() => requestAnimationFrame(alignEarthWakensButton));
-  [chapters, landing, earthWakensButton].forEach(element => handObserver.observe(element));
+  [chapters, landing, earthWakensButton, footerCopy].forEach(element => handObserver.observe(element));
   document.fonts.ready.then(alignEarthWakensButton);
 </script>
 </body>
