@@ -48,9 +48,6 @@
   transform: translateX(calc(-1 * var(--button-nudge)));
   padding-inline: max(0px, calc(3.5cqw - 1ch));
 }
-.chapter .hit[href="story.html#earth-wakens"] {
-  translate: var(--hand-x, 0px) var(--hand-y, 0px);
-}
 .chapters > .chapter:nth-child(-n+3) {
   translate: 0 calc(-.5 * var(--chapter-copy-line));
 }
@@ -151,21 +148,21 @@
 .scene { min-height: calc(min(100vw, 603px) * 2048 / 696); }
 .footer .footer-copy {
   display: flex;
-  align-items: flex-end;
-  gap: .55em;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .25em;
   min-width: 0;
   transform: none;
   translate: var(--footer-copy-x, -2.7em) 0;
 }
 .footer .footer-copy a { flex: none; }
-.footer .footer-copy span { max-width: 30cqw; }
 @media (max-width: 480px) {
   .footer .footer-copy span { font-size: .85em; }
 }
 </style>
 <style>
 .game .game-link {
-  grid-template-columns: clamp(78px, 24cqw, 140px) minmax(0, 1fr);
+  grid-template-columns: clamp(19.5px, 6cqw, 35px) minmax(0, 1fr);
   row-gap: 1.5cqw;
 }
 .game-card-edge {
@@ -182,8 +179,9 @@
   top: -6.4%;
   clip-path: inset(5.67% 10.18% 5.81% 10.37% round 3%);
 }
-.game .game-link h1 { align-self: center; margin: 0; }
-.game .game-link p { grid-column: 1 / -1; }
+.game .game-link h1 { grid-column: 2; grid-row: 1; align-self: end; margin: 0; }
+.game .game-link p { grid-column: 2; grid-row: 2; }
+.game .game-card-edge { grid-column: 1; grid-row: 1 / span 2; }
 </style>
 <style>
 .composition { position: static; }
@@ -413,30 +411,18 @@
   matchGameSpacing();
 </script>
 <script>
-  const earthWakensButton = landing.querySelector('.chapter .hit[href="story.html#earth-wakens"]');
-  let handX = 0;
-  let handY = 0;
   const footerCopy = landing.querySelector('.footer-copy');
   const footerTextMeasure = document.createElement('canvas').getContext('2d');
 
-  function alignEarthWakensButton() {
-    const scene = landing.getBoundingClientRect();
-    const button = earthWakensButton.getBoundingClientRect();
-    // Offset the button about five letter widths left of the hand opening.
-    handX += scene.left + scene.width * 229 / 696 - 5 * parseFloat(getComputedStyle(earthWakensButton).fontSize) * 0.56 - button.right;
-    handY += scene.top + scene.width * 1261 / 696 - (button.top + button.height / 2);
-    earthWakensButton.style.setProperty('--hand-x', handX + 'px');
-    earthWakensButton.style.setProperty('--hand-y', handY + 'px');
-    if (footerTextMeasure) {
-      const emailType = getComputedStyle(footerCopy.querySelector('a'));
+  if (footerTextMeasure) {
+    function alignFooterCopy() {
+      const emailType = getComputedStyle(email);
       footerTextMeasure.font = emailType.fontWeight + ' ' + emailType.fontSize + ' ' + emailType.fontFamily;
       footerCopy.style.setProperty('--footer-copy-x', -footerTextMeasure.measureText('Earth').width + 'px');
     }
+    new ResizeObserver(alignFooterCopy).observe(email);
+    document.fonts.ready.then(alignFooterCopy);
   }
-
-  const handObserver = new ResizeObserver(() => requestAnimationFrame(alignEarthWakensButton));
-  [chapters, landing, earthWakensButton, footerCopy].forEach(element => handObserver.observe(element));
-  document.fonts.ready.then(alignEarthWakensButton);
 </script>
 </body>
 </html>
