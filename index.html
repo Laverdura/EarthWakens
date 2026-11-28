@@ -477,7 +477,7 @@
     // Offset only the button from the hand alignment.
     const letterWidth = parseFloat(getComputedStyle(earthWakensButton).fontSize) * 0.56;
     handX += scene.left + scene.width * 229 / 696 - 3 * letterWidth - button.right;
-    handY += targetCenter + 4 / 3 - (button.top + button.height / 2);
+    handY += targetCenter + 8 / 3 - (button.top + button.height / 2);
     earthWakensButton.style.setProperty('--hand-x', handX + 'px');
     earthWakensButton.style.setProperty('--hand-y', handY + 'px');
   }
