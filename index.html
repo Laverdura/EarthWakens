@@ -30,7 +30,7 @@
   row-gap: calc(var(--fitted-row-gap, var(--original-row-gap)) + var(--extra-row-gap) + var(--even-gap-adjustment, 0px) + .25 * var(--chapter-copy-line) + var(--chapter-gap-increase, 0px) - var(--chapter-gap-cut, 0px));
 }
 .game {
-  margin-block-start: calc(var(--game-start-gap) - 5 * var(--extra-row-gap) + var(--game-gap-adjustment, 0px));
+  margin-block-start: max(calc(var(--game-start-gap) - 5 * var(--extra-row-gap) + var(--game-gap-adjustment, 0px)), calc(1rem - var(--game-top-offset)));
 }
 .game-link {
   font-size: var(--game-copy-size);
@@ -66,7 +66,7 @@
   .chapter:not(:last-child) .hit { margin-block-end: 0; }
   .chapter:nth-child(4) { min-height: 0; }
   .chapter:last-child { min-height: 0; }
-  .game { --game-copy-size: 3.05cqw; top: 0; translate: none; margin-block-start: 3cqw; }
+  .game { --game-copy-size: 3.05cqw; top: 0; translate: none; margin-block-start: max(.6rem, 3cqw); }
   .game h1 { font-size: 4.8cqw; }
   .footer { margin-block-start: 5cqw; }
   .footer-copy a { font-size: 3.2cqw; overflow-wrap: anywhere; }
