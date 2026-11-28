@@ -204,6 +204,12 @@
         <p>Cognizant and aware of the Spiritual Realm and infinity.</p>
       </div>
       <div class="chapter">
+        <a class="hit" href="angels.html">
+          Angels of the Spiritual Realm
+        </a>
+        <p>Angels belong to the Spiritual Realm, yet their influence can reach into the physical world.</p>
+      </div>
+      <div class="chapter">
         <a class="hit" aria-label="The Fissure" href="story.html#fissure">
           The Fissure
         </a>
@@ -235,14 +241,15 @@
             original: Math.max(minimum, baseline ?? previous) };
         });
 
+        const gapCount = heights.length - 1;
         const earthGrowth = heights[1].previous - heights[1].original;
         const previousGap = Math.max(0, originalGap - earthGrowth / 5);
         const changeBeforeFissure = heights.slice(0, -1).reduce((total, row, index) =>
           total + (index === 2 ? row.original : row.previous) - row.current, 0);
-        chapters.closest('.scene').style.setProperty('--fitted-row-gap', Math.max(0, previousGap + changeBeforeFissure / 5) + 'px');
+        chapters.closest('.scene').style.setProperty('--fitted-row-gap', Math.max(0, previousGap + changeBeforeFissure / gapCount) + 'px');
         const rowSlack = heights.slice(0, -1).reduce((total, row) =>
           total + row.current - row.copyHeight, 0);
-        chapters.style.setProperty('--even-gap-adjustment', rowSlack / 5 + 'px');
+        chapters.style.setProperty('--even-gap-adjustment', rowSlack / gapCount + 'px');
         chapters.style.setProperty('--fissure-row-height', heights.at(-1).previous + 'px');
       }
 
