@@ -1,14 +1,69 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-book-layout="chapter">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Angels — Earth Wakens</title>
 <link rel="icon" href="favicon.svg">
 <link rel="stylesheet" href="static/story-pages.css">
-<link rel="stylesheet" href="static/redesign-theme.css"><link rel="stylesheet" href="static/earth-wakens-chapter-theme.css"><link rel="stylesheet" href="static/site-wide-theme.css?v=teal-silver"></head>
-<body class="ew-site-theme ew-earth-chapters">
-<header><a href="index.html" aria-label="Earth Wakens home"><img src="static/earth-wakens-silver-wordmark.png" alt="Earth Wakens" width="2170" height="725"></a><nav aria-label="Story navigation"><a href="index.html">Home</a><a href="story-introduction.html">Prelude</a><a href="story.html#earth-wakens">Earth Wakens</a></nav></header>
+<link rel="stylesheet" href="static/redesign-theme.css"><link rel="stylesheet" href="static/earth-wakens-chapter-theme.css"><link rel="stylesheet" href="static/site-wide-theme.css?v=teal-silver"><style>
+#angels-chapters { flex-direction: column; gap: .2rem; }
+#angels-chapters .prelude-nav-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 clamp(.65rem, 2.5vw, 1.5rem);
+  width: 100%;
+}
+#angels-chapters .prelude-nav-final-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  margin-top: .25rem;
+  border-top: 1px solid #83a9af40;
+}
+#angels-chapters .prelude-nav-final-row a {
+  padding: .65rem .2rem;
+  text-align: center;
+  white-space: normal;
+}
+
+.ew-angels-page .site-header .brand { display: flex; }
+.ew-angels-page .site-header .menu-toggle { display: none; }
+.ew-angels-page .ew-local-top-nav { max-width: 991px; margin-inline: auto; padding: 14px 20px; }
+@media (max-width: 650px) {
+  .ew-angels-page .site-header .menu-toggle { display: block; padding: 8px 12px; }
+  #angels-chapters { display: none; }
+  #angels-chapters.open { display: flex; }
+}
+</style>
+</head>
+<body class="ew-site-theme ew-earth-chapters ew-angels-page">
+<nav class="ew-local-top-nav" aria-label="Home"><a href="index.html">Home</a></nav>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Earth Wakens home"><img src="static/earth-wakens-silver-wordmark.png" alt="Earth Wakens" width="505" height="168"></a>
+  <button class="menu-toggle" type="button" aria-controls="angels-chapters" aria-expanded="false">Chapters <span aria-hidden="true">☰</span></button>
+  <nav id="angels-chapters" aria-label="Chapter navigation">
+    <div class="prelude-nav-row">
+      <a href="story-introduction.html">Prelude</a>
+      <a href="story.html#earth">Earth</a>
+      <a href="story.html#living-world">The Living World</a>
+      <a href="story.html#earth-spirit">The Earth Spirit</a>
+      <a href="story.html#earth-wakens">Earth Wakens</a>
+    </div>
+    <div class="prelude-nav-row prelude-nav-final-row">
+      <a href="angels.html" aria-current="page">Angels of the Spiritual Realm</a>
+      <a href="story.html#fissure">The Fissure</a>
+    </div>
+  </nav>
+</header>
+<script>
+  const angelsMenuButton = document.querySelector('[aria-controls="angels-chapters"]');
+  angelsMenuButton.addEventListener('click', () => {
+    const isOpen = document.getElementById('angels-chapters').classList.toggle('open');
+    angelsMenuButton.setAttribute('aria-expanded', String(isOpen));
+  });
+</script>
 <main>
 <p class="eyebrow">Earth Wakens · Angels</p>
 <h1>Angels of The Spiritual Realm</h1>
@@ -27,7 +82,7 @@
 <p>The Earth Spirit and The Spiritual Realm are the two counterparts in this story. Neither has a gender. Their union is an encounter with Existence itself.</p>
 <p>Yet The Earth Spirit remained alive. Its physical living form still belonged to The Living World, where birth, death, and renewal continued. It had come to know timeless Existence while remaining bound to a form that could not live forever.</p>
 <p>That is the conflict The Earth Spirit carries forward.</p>
-<nav class="chapters" aria-label="Continue the story"><a class="page-back" href="story.html#earth-spirit">← The Earth Spirit</a><br><a class="page-back" href="story.html#earth-wakens">Earth Wakens →</a></nav>
+<nav class="chapters" aria-label="Continue the story"><a class="page-back" href="story.html#earth-wakens">← Earth Wakens</a><br><a class="page-back" href="story.html#fissure">The Fissure →</a></nav>
 </main>
 <footer>© 2026 Larry Holtzman · Earth Wakens</footer>
 </body>
