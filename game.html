@@ -118,6 +118,11 @@
   transform: rotate(180deg);
 }
 .realm-dread .deck-crop { width: 175%; justify-self: end; }
+.realm-dread .realm-title {
+  background: transparent;
+  color: #f3dca0;
+  text-shadow: 0 1px 2px #000, 0 0 5px #000;
+}
 .deck-grid .realm-dread .dread-rule {
   position: absolute;
   inset: 13% auto 13% 0;
@@ -128,6 +133,8 @@
   margin: 0;
   padding: 0 5% 0 4%;
   background: linear-gradient(90deg, #040608ea 65%, #04060800);
+  -webkit-mask-image: linear-gradient(transparent, #000 19%, #000 87%, transparent);
+  mask-image: linear-gradient(transparent, #000 19%, #000 87%, transparent);
   color: #f3dca0;
   font: 5.7cqi/1.22 Georgia, serif;
 }
