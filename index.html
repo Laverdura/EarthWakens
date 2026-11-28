@@ -370,8 +370,8 @@
   function alignEarthWakensButton() {
     const scene = landing.getBoundingClientRect();
     const button = earthWakensButton.getBoundingClientRect();
-    // Align the button's right edge with the opening between the fingers.
-    handX += scene.left + scene.width * 229 / 696 - button.right;
+    // Offset the button about three letter widths left of the hand opening.
+    handX += scene.left + scene.width * 229 / 696 - 3 * parseFloat(getComputedStyle(earthWakensButton).fontSize) * 0.56 - button.right;
     handY += scene.top + scene.width * 1261 / 696 - (button.top + button.height / 2);
     earthWakensButton.style.setProperty('--hand-x', handX + 'px');
     earthWakensButton.style.setProperty('--hand-y', handY + 'px');
