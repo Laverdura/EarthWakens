@@ -17,8 +17,8 @@
   position: absolute;
   inset: 0 0 auto;
   z-index: -1;
-  aspect-ratio: 1206 / 3546;
-  background: url("static/landing-refresh/earth-wakens-background.jpg") center top / 100% auto no-repeat;
+  aspect-ratio: 696 / 2048;
+  background: url("https://raw.githubusercontent.com/Laverdura/EarthWakens/03a33d49d6ddb504e4dafa7388e05a8328430c69/static/landing-refresh/earth-wakens-new-landing.webp") center top / 100% auto no-repeat;
   pointer-events: none;
 }
 .composition::before, .composition::after { content: none; }
@@ -53,8 +53,8 @@
   padding-block: .12cqw;
   padding-inline: clamp(.3rem, 1cqw, .65rem);
 }
-.chapter .hit[href="story.html#earth-spirit"] {
-  translate: 0 calc(var(--chapter-copy-line) + 7pt + var(--earth-spirit-hand-offset, 0px));
+.chapter .hit[href="story.html#earth-wakens"] {
+  translate: var(--hand-x, 0px) var(--hand-y, 0px);
 }
 .chapters > .chapter:nth-child(-n+3) {
   translate: 0 calc(-.5 * var(--chapter-copy-line));
@@ -83,7 +83,7 @@
 
 /* Keep original artwork proportions and anchor the footer near its bottom. */
 @media (max-width: 480px) {
-  .scene { min-height: calc(100cqw * 3546 / 1206); display: flex; flex-direction: column; }
+  .scene { min-height: calc(100cqw * 2048 / 696); display: flex; flex-direction: column; }
   .composition { flex: 1; display: flex; flex-direction: column; }
   .footer { margin-block-start: auto; padding-block: 3cqw 3cqw; align-items: end; }
   .footer-copy { transform: none; }
@@ -109,7 +109,7 @@
 @media (max-width: 480px) {
   .scene { min-height: 0; padding-bottom: 2vw; }
   .composition { position: static; flex: none; }
-  .scene { min-height: calc(100vw * 3546 / 1206); box-sizing: content-box; }
+  .scene { min-height: calc(100vw * 2048 / 696); box-sizing: content-box; }
   .footer { position: absolute; inset: auto 0 2cqw; margin: 0; padding-block: 0; z-index: 2; }
   .portfolio-lock { transform: translateX(8px); }
 }
@@ -339,30 +339,23 @@
   matchGameSpacing();
 </script>
 <script>
-  const earthSpiritButton = landing.querySelector('.chapter .hit[href="story.html#earth-spirit"]');
-  let handOffset = 0;
+  const earthWakensButton = landing.querySelector('.chapter .hit[href="story.html#earth-wakens"]');
+  let handX = 0;
+  let handY = 0;
 
-  function centerButtonInHand() {
-    const frame = landing.getBoundingClientRect();
-    const button = earthSpiritButton.getBoundingClientRect();
-    // Align the lowered button with the lower edge of the hand opening.
-    const handCenter = frame.top + frame.width * 2046 / 1206;
-    if (matchMedia('(max-width: 480px)').matches) {
-      const living = chapterButtons[2];
-      const livingRect = living.getBoundingClientRect();
-      const overlap = livingRect.bottom + frame.width * .035 - (handCenter - button.height / 2);
-      living.style.translate = '0 ' + (Math.min(0, parseFloat(living.dataset.shift || '0') - overlap)) + 'px';
-      living.dataset.shift = String(Math.min(0, parseFloat(living.dataset.shift || '0') - overlap));
-    }
-    const unadjustedCenter = button.top + button.height / 2 - handOffset;
-    handOffset = handCenter - unadjustedCenter;
-    earthSpiritButton.style.setProperty('--earth-spirit-hand-offset', handOffset + 'px');
+  function alignEarthWakensButton() {
+    const scene = landing.getBoundingClientRect();
+    const button = earthWakensButton.getBoundingClientRect();
+    // Align the button's right edge with the opening between the fingers.
+    handX += scene.left + scene.width * 229 / 696 - button.right;
+    handY += scene.top + scene.width * 1261 / 696 - (button.top + button.height / 2);
+    earthWakensButton.style.setProperty('--hand-x', handX + 'px');
+    earthWakensButton.style.setProperty('--hand-y', handY + 'px');
   }
 
-  const handObserver = new ResizeObserver(() => requestAnimationFrame(centerButtonInHand));
-  handObserver.observe(chapters);
-  handObserver.observe(landing);
-  document.fonts.ready.then(centerButtonInHand);
+  const handObserver = new ResizeObserver(() => requestAnimationFrame(alignEarthWakensButton));
+  [chapters, landing, earthWakensButton].forEach(element => handObserver.observe(element));
+  document.fonts.ready.then(alignEarthWakensButton);
 </script>
 </body>
 </html>
