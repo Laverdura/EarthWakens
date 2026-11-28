@@ -58,6 +58,23 @@
       box-shadow: 3px 3px 0 #254a55, 4px 4px 0 #ddc897, 7px 7px 0 #193540, 8px 8px 0 #ddc897;
     }
   </style>
+<style>
+    .playing-deck { max-width: 1100px; margin-inline: auto; padding: 1rem clamp(.75rem, 4vw, 2rem) 3rem; }
+    .deck-nav { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .deck-nav a { display: inline-block; padding: .45rem .85rem; border-radius: 999px; background: #164851; color: #f2e8cc; }
+    .playing-deck small { font: normal .8rem/1.4 Arial, sans-serif; }
+    .playing-deck section { margin-block: 2rem; }
+    .deck-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(135px, 43%), 1fr)); gap: clamp(.55rem, 2vw, 1.25rem); padding: 0; list-style: none; }
+    .deck-grid figure { margin: 0; }
+    .deck-grid img, .deck-back img { width: 100%; aspect-ratio: 2 / 3; object-fit: contain; display: block; margin: 0; }
+    .deck-grid figcaption { margin-top: .35rem; text-align: center; }
+    .deck-slot { box-sizing: border-box; aspect-ratio: 2 / 3; display: grid; align-content: center; gap: .4rem; padding: .5rem; text-align: center; border: 1px dashed #86abaf; border-radius: .55rem; overflow-wrap: anywhere; }
+    .deck-slot span { font: .8rem/1.35 Arial, sans-serif; }
+    .deck-back { max-width: 10rem; }
+  
+.playing-deck { padding-inline: 0; }
+#playing-deck { scroll-margin-top: 1rem; }
+</style>
 </head>
 <body class="ew-site-theme">
   <header class="site-header portfolio-header">
@@ -70,7 +87,7 @@
     <div class="portfolio-return">
       <a class="page-back" href="index.html">Back to Earth Wakens</a>
     </div>
-    <a class="portfolio-deck" href="playing-deck.html">
+    <a class="portfolio-deck" href="#playing-deck">
       <span class="portfolio-deck-icon" aria-hidden="true">♠</span>
       Gallery
     </a>
@@ -86,13 +103,109 @@
           <a href="static/portfolio/page-two.webp"><img src="static/portfolio/page-two.webp" width="1074" height="1450" loading="lazy" alt="Bright foliage above a chained doorway framed by skeletal root hands"></a>
         </figure>
         <figure>
-          <a href="static/portfolio/roots-shutters.webp"><img src="static/portfolio/roots-shutters.webp" width="913" height="1600" loading="lazy" alt="Skeletal root hands beneath a tree beside dark green shutters"></a>
+          <a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/2851ec3d1a4518abcd5b7e58c25934dcf47f843d/static/portfolio/roots-shutters.webp"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/2851ec3d1a4518abcd5b7e58c25934dcf47f843d/static/portfolio/roots-shutters.webp" width="913" height="1600" loading="lazy" alt="Skeletal root hands beneath a tree beside dark green shutters"></a>
         </figure>
         <figure class="portfolio-portrait-single">
           <a href="static/portfolio/roots-and-shutters.jpg"><img src="static/portfolio/roots-and-shutters.jpg" width="1206" height="2622" loading="lazy" alt="Tree roots forming skeletal hands beside weathered green shutters"></a>
         </figure>
       </div>
     </section>
-  </main>
+    <section id="playing-deck" class="playing-deck" aria-labelledby="playing-deck-title">
+
+  
+  <h2 id="playing-deck-title">Playing Deck</h2>
+  <p>15 illustrated cards · 50 ideas awaiting artwork</p>
+  <nav class="deck-nav" aria-label="Deck sections"><a href="#spiritual-realm">Spiritual Realm</a><a href="#earth-spirit">Earth Spirit</a><a href="#stop-cards">Stop Cards</a><a href="#unassigned-ideas">Unassigned ideas</a><a href="#card-back">Card Back</a></nav>
+  <section id="spiritual-realm" aria-labelledby="spiritual-realm-heading">
+    <h2 id="spiritual-realm-heading">Spiritual Realm <small>(5 of 21 illustrated)</small></h2>
+    <ul class="deck-grid">
+      <li><figure><a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-8.webp" aria-label="View Paranormal artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-8.webp" alt="Paranormal card artwork" loading="lazy" decoding="async"></a><figcaption>Paranormal</figcaption></figure></li>
+      <li><figure><a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-11.webp" aria-label="View Realm artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-11.webp" alt="Realm card artwork" loading="lazy" decoding="async"></a><figcaption>Realm</figcaption></figure></li>
+      <li><figure><a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-12.webp" aria-label="View The Twins artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-12.webp" alt="The Twins card artwork" loading="lazy" decoding="async"></a><figcaption>The Twins</figcaption></figure></li>
+      <li><figure><a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-4.webp" aria-label="View Imagination artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-4.webp" alt="Imagination card artwork" loading="lazy" decoding="async"></a><figcaption>Imagination</figcaption></figure></li>
+      <li><figure><a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-5.webp" aria-label="View Future artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-5.webp" alt="Future card artwork" loading="lazy" decoding="async"></a><figcaption>Future</figcaption></figure></li>
+      <li><div class="deck-slot"><strong>Love</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Existence</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Beauty</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Passion</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Laughter</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Hope</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Compassion</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Wonder</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Harmony</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Baby</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Rebirth</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Kindness</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Meditation</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Self-awareness</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Family</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Ancestry</strong><span>Artwork pending</span></div></li>
+    </ul>
+  </section>
+  <section id="earth-spirit" aria-labelledby="earth-spirit-heading">
+    <h2 id="earth-spirit-heading">Earth Spirit <small>(7 of 20 illustrated)</small></h2>
+    <ul class="deck-grid">
+      <li><figure><a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-0.webp" aria-label="View Wakened artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-0.webp" alt="Wakened card artwork" loading="lazy" decoding="async"></a><figcaption>Wakened</figcaption></figure></li>
+      <li><figure><a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-1.webp" aria-label="View Grasping artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-1.webp" alt="Grasping card artwork" loading="lazy" decoding="async"></a><figcaption>Grasping</figcaption></figure></li>
+      <li><figure><a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-2.webp" aria-label="View Earth Brains artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-2.webp" alt="Earth Brains card artwork" loading="lazy" decoding="async"></a><figcaption>Earth Brains</figcaption></figure></li>
+      <li><figure><a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-3.webp" aria-label="View Metamorphosis artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-3.webp" alt="Metamorphosis card artwork" loading="lazy" decoding="async"></a><figcaption>Metamorphosis</figcaption></figure></li>
+      <li><figure><a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-14.webp" aria-label="View Emergence artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-14.webp" alt="Emergence card artwork" loading="lazy" decoding="async"></a><figcaption>Emergence</figcaption></figure></li>
+      <li><figure><a href="static/cards/conscious-earth-roots.webp" aria-label="View Conscious Earth artwork"><img src="static/cards/conscious-earth-roots.webp" alt="Conscious Earth card artwork" loading="lazy" decoding="async"></a><figcaption>Conscious Earth</figcaption></figure></li>
+      <li><figure><a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-6.webp" aria-label="View Power artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-6.webp" alt="Power card artwork" loading="lazy" decoding="async"></a><figcaption>Power</figcaption></figure></li>
+      <li><div class="deck-slot"><strong>Art</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Music</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Chemistry</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Sports</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Comedy</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Dance</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Storytelling</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Invention</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Exploration</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Craftsmanship</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Poetry</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Science and Astronomy</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Nature</strong><span>Artwork pending</span></div></li>
+    </ul>
+  </section>
+  <section id="stop-cards" aria-labelledby="stop-cards-heading">
+    <h2 id="stop-cards-heading">Stop Cards <small>(3 of 18 illustrated)</small></h2>
+    <ul class="deck-grid">
+      <li><figure><a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-7.webp" aria-label="View Dread artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-7.webp" alt="Dread card artwork" loading="lazy" decoding="async"></a><figcaption>Dread</figcaption></figure></li>
+      <li><figure><a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-9.webp" aria-label="View Gambling artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-9.webp" alt="Gambling card artwork" loading="lazy" decoding="async"></a><figcaption>Gambling</figcaption></figure></li>
+      <li><figure><a href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-10.webp" aria-label="View Addiction artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-10.webp" alt="Addiction card artwork" loading="lazy" decoding="async"></a><figcaption>Addiction <small>(formerly Poison)</small></figcaption></figure></li>
+      <li><div class="deck-slot"><strong>Pollution</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Littering</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Greed</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Lust</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Perversion</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Hate</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Disease</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Fear</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Ignorance</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Isolation</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Despair</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Cruelty</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Destruction</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Jealousy</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Decay</strong><span>Artwork pending</span></div></li>
+    </ul>
+  </section>
+  <section id="unassigned-ideas" aria-labelledby="unassigned-ideas-heading">
+    <h2 id="unassigned-ideas-heading">Unassigned ideas <small>(0 of 6 illustrated)</small></h2>
+    <ul class="deck-grid">
+      <li><div class="deck-slot"><strong>Rage</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Vengeance</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Revenge</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Emotions</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Wealth</strong><span>Artwork pending</span></div></li>
+      <li><div class="deck-slot"><strong>Messiah</strong><span>Artwork pending</span></div></li>
+    </ul>
+  </section>
+  <section id="card-back">
+    <h2>Card Back</h2>
+    <a class="deck-back" style="display:block" href="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-13.webp" aria-label="View card back artwork"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-13.webp" alt="Earth Wakens card back" loading="lazy" decoding="async"></a>
+  </section>
+  </section>
+</main>
 </body>
 </html>
