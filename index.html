@@ -181,20 +181,21 @@
 }
 .game .game-link h1 {
   grid-column: 2;
-  grid-row: 2;
+  grid-row: 1;
   align-self: start;
   margin: 0;
 }
 .game .game-link p { grid-column: 2; grid-row: 3; }
 .game .game-card-edge {
   grid-column: 2;
-  grid-row: 1;
+  grid-row: 2;
   width: clamp(58.5px, 18cqw, 105px);
   margin-block: .75cqw;
 }
-.game .game-link h1, .game .game-card-edge {
-  margin-inline-start: calc(24.5cqw - clamp(58.5px, 18cqw, 105px));
+.game .game-link :is(h1, .game-card-edge, p) {
+  margin-inline-start: calc(24.5cqw - 2 * clamp(58.5px, 18cqw, 105px));
 }
+.game .game-link p span { display: block; }
 </style>
 <style>
 .composition { position: static; }
@@ -381,7 +382,7 @@
       <a class="game-link hit" href="game.html#playing-deck" aria-label="The Card Game">
         <span class="game-card-edge"><img class="game-card-preview" src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-8.webp" width="540" height="723" alt="Paranormal card" loading="lazy" decoding="async"></span>
         <h1 id="game-heading">The Card Game</h1>
-        <p>As you read the story imagine yourself being The Earth Spirit. Collect all the Cards to find the enlightenment The Earth Spirit shared with The Spiritual Realm.</p>
+        <p><span>As you read the story imagine</span> <span>yourself being The Earth Spirit.</span> <span>Collect all the Cards to find</span> <span>the enlightenment The Earth</span> <span>Spirit shared with The</span> <span>Spiritual Realm.</span></p>
       </a>
     </section>
 
