@@ -113,6 +113,22 @@
   .footer { position: absolute; inset: auto 0 2cqw; margin: 0; padding-block: 0; z-index: 2; }
   .portfolio-lock { transform: translateX(8px); }
 }
+
+/* Lower the reading area while leaving the masthead and artwork in place. */
+.chapters { padding-block-start: calc(63cqw + var(--prelude-drop) + 4cqw); }
+.footer { padding-inline-start: 18cqw; }
+.footer-copy { transform: translateY(1.5cqw); }
+.portfolio-lock { transform: translate(8px, 2cqw); }
+.portfolio-lock > svg {
+  transform: none;
+  filter: grayscale(1) brightness(1.25) contrast(1.12) drop-shadow(0 2px 3px #071013);
+}
+@media (max-width: 480px) {
+  .scene { padding-bottom: 5vw; }
+  .footer { inset-block-end: 0; padding-block-end: 2cqw; }
+  .footer-copy { transform: none; }
+  .portfolio-lock { transform: translate(8px, 1cqw); }
+}
 </style>
 </head>
 <body>
@@ -329,8 +345,8 @@
   function centerButtonInHand() {
     const frame = landing.getBoundingClientRect();
     const button = earthSpiritButton.getBoundingClientRect();
-    // The opening between the thumb and finger in the 1206px-wide source image.
-    const handCenter = frame.top + frame.width * 2004 / 1206;
+    // Align the lowered button with the lower edge of the hand opening.
+    const handCenter = frame.top + frame.width * 2046 / 1206;
     if (matchMedia('(max-width: 480px)').matches) {
       const living = chapterButtons[2];
       const livingRect = living.getBoundingClientRect();
