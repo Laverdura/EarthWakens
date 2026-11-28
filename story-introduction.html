@@ -167,18 +167,44 @@ html body.ew-site-theme.ew-prelude-page .prelude-artwork-callout .fissure-artwor
   text-wrap: balance;
 }
 </style>
+<style>
+#prelude-chapters { flex-direction: column; gap: .2rem; }
+#prelude-chapters .prelude-nav-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 clamp(.65rem, 2.5vw, 1.5rem);
+  width: 100%;
+}
+#prelude-chapters .prelude-nav-final-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  margin-top: .25rem;
+  border-top: 1px solid #83a9af40;
+}
+#prelude-chapters .prelude-nav-final-row a {
+  padding: .65rem .2rem;
+  text-align: center;
+  white-space: normal;
+}
+</style>
 </head><body class="ew-site-theme ew-prelude-page"><nav class="ew-local-top-nav" aria-label="Home"><a href="index.html">Home</a></nav>
 <header class="site-header">
   <a class="brand" href="index.html" aria-label="Earth Wakens home"><img src="static/earth-wakens-silver-wordmark.png" alt="Earth Wakens" width="505" height="168"></a>
   <button class="menu-toggle" type="button" aria-controls="prelude-chapters" aria-expanded="false">Chapters <span aria-hidden="true">☰</span></button>
   <nav id="prelude-chapters" aria-label="Chapter navigation">
-    <span aria-current="page">Prelude</span>
-    <a href="story.html#earth">Earth</a>
-    <a href="story.html#living-world">The Living World</a>
-    <a href="story.html#earth-spirit">The Earth Spirit</a>
-    <a href="story.html#earth-wakens">Earth Wakens</a>
-    <a href="angels.html">Angels of the Spiritual Realm</a>
-    <a href="story.html#fissure">The Fissure</a>
+    <div class="prelude-nav-row">
+      <span aria-current="page">Prelude</span>
+      <a href="story.html#earth">Earth</a>
+      <a href="story.html#living-world">The Living World</a>
+      <a href="story.html#earth-spirit">The Earth Spirit</a>
+      <a href="story.html#earth-wakens">Earth Wakens</a>
+    </div>
+    <div class="prelude-nav-row prelude-nav-final-row">
+      <a href="angels.html">Angels of the Spiritual Realm</a>
+      <a href="story.html#fissure">The Fissure</a>
+    </div>
   </nav>
 </header>
 <script>
