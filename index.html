@@ -188,7 +188,8 @@
 .game .game-link p {
   grid-column: 2;
   grid-row: 2;
-  align-self: center;
+  align-self: start;
+  margin-block-start: .75cqw;
   margin-inline-start: calc(27.5cqw - clamp(58.5px, 18cqw, 105px));
 }
 .game .game-card-edge {
@@ -223,7 +224,10 @@
 <style>
 .scene { --foreground-rise: calc(-2 * var(--game-copy-line)); }
 .scene .masthead { translate: 0 max(var(--foreground-rise), -3.8cqw); }
-.scene :is(.chapters, .game, .footer .portfolio-lock) {
+.scene .chapters {
+  transform: translateY(calc(var(--foreground-rise) + var(--chapter-alignment-y, 0px)));
+}
+.scene :is(.game, .footer .portfolio-lock) {
   transform: translateY(var(--foreground-rise));
 }
 </style>
@@ -421,7 +425,8 @@
     const chapterGap = descriptions[1].getBoundingClientRect().top
       - descriptions[0].getBoundingClientRect().bottom - addedGap + gapCut;
     const gameGap = game.getBoundingClientRect().top
-      - descriptions.at(-1).getBoundingClientRect().bottom - gameAdjustment - line / 2;
+      - descriptions.at(-1).getBoundingClientRect().bottom - gameAdjustment - line / 2
+      + (parseFloat(chapters.style.getPropertyValue('--chapter-alignment-y')) || 0);
     const available = email.getBoundingClientRect().top - gameCopy.getBoundingClientRect().bottom
       + 5 * (addedGap - gapCut) + gameAdjustment + line;
     const gapDifference = chapterGap - gameGap;
@@ -457,15 +462,21 @@
 </script>
 <script>
   const earthWakensButton = landing.querySelector('.chapter .hit[href="story.html#earth-wakens"]');
+  const earthWakensCopy = earthWakensButton.closest('.chapter').querySelector('p');
   let handX = 0;
   let handY = 0;
+  let chapterAlignmentY = 0;
 
   function alignEarthWakensButton() {
     const scene = landing.getBoundingClientRect();
+    const targetCenter = scene.top + scene.width * 1261 / 696;
+    const buttonHeight = earthWakensButton.getBoundingClientRect().height;
+    chapterAlignmentY += targetCenter - buttonHeight / 2 - earthWakensCopy.getBoundingClientRect().top;
+    chapters.style.setProperty('--chapter-alignment-y', chapterAlignmentY + 'px');
     const button = earthWakensButton.getBoundingClientRect();
     // Align the button's right edge with the opening between the fingers.
     handX += scene.left + scene.width * 229 / 696 - button.right;
-    handY += scene.top + scene.width * 1261 / 696 - (button.top + button.height / 2);
+    handY += targetCenter - (button.top + button.height / 2);
     earthWakensButton.style.setProperty('--hand-x', handX + 'px');
     earthWakensButton.style.setProperty('--hand-y', handY + 'px');
   }
