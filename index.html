@@ -115,19 +115,19 @@
 }
 
 /* Lower the reading area while leaving the masthead and artwork in place. */
-.chapters { padding-block-start: calc(63cqw + var(--prelude-drop) + 4cqw); }
+.chapters { padding-block-start: calc(63cqw + var(--prelude-drop) + 6cqw); }
 .footer { padding-inline-start: 18cqw; }
-.footer-copy { transform: translateY(1.5cqw); }
-.portfolio-lock { transform: translate(8px, 2cqw); }
+.footer-copy { transform: translateY(3.5cqw); }
+.portfolio-lock { transform: translate(-4cqw, 4cqw); }
 .portfolio-lock > svg {
   transform: none;
-  filter: grayscale(1) brightness(1.25) contrast(1.12) drop-shadow(0 2px 3px #071013);
+  filter: grayscale(1) brightness(1.25) contrast(1.12) drop-shadow(0 2px 3px #071013) drop-shadow(0 0 4px #ffffff85);
 }
 @media (max-width: 480px) {
-  .scene { padding-bottom: 5vw; }
+  .scene { padding-bottom: 7vw; }
   .footer { inset-block-end: 0; padding-block-end: 2cqw; }
   .footer-copy { transform: none; }
-  .portfolio-lock { transform: translate(8px, 1cqw); }
+  .portfolio-lock { transform: translate(-4cqw, 2cqw); }
 }
 </style>
 </head>
