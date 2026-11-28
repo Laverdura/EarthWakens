@@ -185,6 +185,16 @@
 .game .game-link h1 { align-self: center; margin: 0; }
 .game .game-link p { grid-column: 1 / -1; }
 </style>
+<style>
+.footer { padding-inline-end: 2cqw; }
+.footer .portfolio-lock {
+  display: block;
+  justify-self: end;
+  transform: none;
+  translate: 0 var(--gallery-lock-y, 0px);
+}
+.footer .portfolio-lock span { display: block; }
+</style>
 </head>
 <body>
 <main class="scene" aria-label="Earth Wakens">
@@ -400,6 +410,10 @@
   let handY = 0;
   const footerCopy = landing.querySelector('.footer-copy');
   let footerCopyY = 0;
+  const galleryLock = landing.querySelector('.portfolio-lock');
+  const galleryLabel = galleryLock.querySelector('span');
+  const copyrightLine = footerCopy.querySelector('span');
+  let galleryLockY = 0;
   const footerTextMeasure = document.createElement('canvas').getContext('2d');
 
   function alignEarthWakensButton() {
@@ -419,10 +433,12 @@
     // Match the start of the teal fade in the 696px-wide artwork.
     footerCopyY = scene.top + scene.width * 1982 / 696 - copyTop;
     footerCopy.style.setProperty('--footer-copy-y', footerCopyY + 'px');
+    galleryLockY += copyrightLine.getBoundingClientRect().bottom - galleryLabel.getBoundingClientRect().bottom;
+    galleryLock.style.setProperty('--gallery-lock-y', galleryLockY + 'px');
   }
 
   const handObserver = new ResizeObserver(() => requestAnimationFrame(alignEarthWakensButton));
-  [chapters, landing, earthWakensButton, footerCopy].forEach(element => handObserver.observe(element));
+  [chapters, landing, earthWakensButton, footerCopy, galleryLock].forEach(element => handObserver.observe(element));
   document.fonts.ready.then(alignEarthWakensButton);
 </script>
 </body>
