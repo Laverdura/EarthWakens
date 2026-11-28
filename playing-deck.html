@@ -109,6 +109,22 @@
 }
 .realm-art-copy p { margin: 0; font: 6.1cqi/1.23 Georgia, serif; }
 </style>
+<style>
+.realm-frame .dread-symbol {
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  width: 6%;
+  aspect-ratio: 1;
+  background: #dab579;
+  clip-path: polygon(50% 0, 67% 17%, 52% 39%, 71% 47%, 40% 82%, 49% 53%, 29% 44%, 43% 20%, 15% 50%, 50% 94%, 87% 50%, 67% 17%);
+}
+.realm-frame .dread-symbol-reversed {
+  inset: auto 15% 10% auto;
+  transform: rotate(180deg);
+}
+.deck-grid .dread-rule { font: .78rem/1.35 Georgia, serif; }
+</style>
 </head>
 <body class="ew-site-theme">
 <main class="playing-deck">
@@ -166,7 +182,7 @@
   <section id="stop-cards" aria-labelledby="stop-cards-heading">
     <h2 id="stop-cards-heading">Stop Cards <small>(3 of 18 illustrated)</small></h2>
     <ul class="deck-grid">
-      <li><figure class="deck-template"><div class="deck-face"><div class="deck-title">Dread</div><div class="deck-art"><span class="deck-crop" style="--crop-ratio:490/428;--image-width:110.20408163265304%;--image-height:189.25233644859813%;--image-left:-5.1020408163265305%;--image-top:-28.738317757009348%"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-7.webp" alt="Roots descending into a dark canyon" loading="lazy" decoding="async"></span></div><p class="deck-copy">Dread temporarily prevents you from advancing toward the Spiritual Realm. To overcome Dread, you must play a Self-Awareness, Courage, or Understanding card. “Dread became the shadow of its awakening.”</p></div><details class="deck-copy-details"><summary>Read card copy</summary><p>Dread temporarily prevents you from advancing toward the Spiritual Realm. To overcome Dread, you must play a Self-Awareness, Courage, or Understanding card. “Dread became the shadow of its awakening.”</p></details></figure></li>
+      <li><figure class="realm-frame-slot"><div class="realm-frame" aria-label="Dread card"><div class="realm-art realm-art-crop"><span class="deck-crop" style="--crop-ratio:490/428;--image-width:110.20408163265304%;--image-height:189.25233644859813%;--image-left:-5.1020408163265305%;--image-top:-28.738317757009348%"><img src="https://raw.githubusercontent.com/Laverdura/EarthWakens/e4620d111c0b72f3a7ef58d79fee4b66a0a33132/static/cards/playing-deck/card-7.webp" alt="Roots descending into a dark canyon" loading="lazy" decoding="async"></span></div><div class="realm-title">Dread</div><div class="realm-title realm-title-reversed" aria-hidden="true">Dread</div><span class="dread-symbol" aria-hidden="true"></span><span class="dread-symbol dread-symbol-reversed" aria-hidden="true"></span></div></figure><p class="dread-rule">Dread stalls progress toward the Spiritual Realm.</p></li>
       <li><figure><a href="static/cards/playing-deck/card-9.webp" aria-label="View Gambling artwork"><img src="static/cards/playing-deck/card-9.webp" alt="Gambling card artwork" loading="lazy" decoding="async"></a><figcaption>Gambling</figcaption></figure></li>
       <li><figure><a href="static/cards/playing-deck/card-10.webp" aria-label="View Addiction artwork"><img src="static/cards/playing-deck/card-10.webp" alt="Addiction card artwork" loading="lazy" decoding="async"></a><figcaption>Addiction <small>(formerly Poison)</small></figcaption></figure></li>
       <li><div class="deck-slot"><strong>Pollution</strong><span>Artwork pending</span></div></li>
